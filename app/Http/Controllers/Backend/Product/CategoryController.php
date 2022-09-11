@@ -9,19 +9,9 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 class CategoryController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+  
     public function index(){  
-      $search = request()->query('search');
-      if($search){
-          $category = Category::where('name','LIKE', "%{$search}%")->paginate(5);
-      }else{
-         $category = Category::orderBy('name')->paginate(5 );
-      }
-        return view('admin.page.Product.category',[
-          'category' => $category
-        ]); 
+        return view('admin.page.Product.category'); 
     }
 
     public function store(StoreCategoryRequest $request){

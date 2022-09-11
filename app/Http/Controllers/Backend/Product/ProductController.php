@@ -14,18 +14,15 @@ use App\Http\Requests\UpdateProductRequest
 class ProductController extends Controller
 {
       public function index(){  
-        $products = Product::orderBy('name')->paginate(25);
-        return view('admin.page.Product.product',[
-          'products' => $products
-        ]);
+        return view('admin.page.Product.product');
       }
 
       public function create(){
-        $category = Category::orderBy('name')->get();
-        $brand = Brand::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
         return view('admin.page.Product.productadd',[
-            'categories' => $category,
-            'brand' => $brand
+          'categories' => $categories,
+          'brands' => $brands
         ]);
       }
 
@@ -74,12 +71,15 @@ class ProductController extends Controller
       public function update(UpdateProductRequest $request,$id ){
         $request->validated();
         $product = Product::findorFail($id);
+        $status = $request->boolean('status');
+
         $product->name = $request->input('name');
         $product->category_id = $request->input('category');
         $product->brand_id = $request->input('brand');
         $product->stock = $request->input('stock');
         $product->price = $request->input('price');
         $product->weight = $request->input('weight');
+        $product->status = $status;
         $product->description = $request->input('description');
         $product->update();
         return redirect('/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
@@ -87,11 +87,35 @@ class ProductController extends Controller
       
       public function destroy($id){ 
         $product = Product::findorFail($id);
-        $name = $product->name;
         $product->delete();
-        return back()->with('ProductArchiveSuccess',$name ." Deleted Successfully");
+        return back()->with('ProductArchiveSuccess',$product->name ." Deleted Successfully");
       }
 
+       public function ProductArchiveIndex(){  
+        $products = Product::onlyTrashed()->orderBy('name')->paginate(20);
+        return view('admin.page.Product.productarchive',[
+            'products' => $products
+        ]);
+      }
+
+      public function ProductArchiveDestroy(Product $product,$id){
+        $product = Product::onlyTrashed()->findorFail($id);
+        $image = ProductImage::where('product_id','LIKE', "%{$product->id}%")->get();
+        foreach ($image as $item) {
+             unlink(public_path('product_images/'.$item->images));
+        }
+        $name = $product->name;
+        Product::where('id',$id)->forceDelete();
+        return back()->with('DeleteSuccess',$name  ." was Permanently Deleted");
+    }
+    
+    public function ProductArchiveRestore(Product $product,$id){
+        $product = Product::onlyTrashed()->findOrFail($id);
+        $name = $product->name;
+        $product->restore();
+        
+        return back()->with('RestoreSuccess',$name ." was Successfully Restored");
+    }
      
       
 }

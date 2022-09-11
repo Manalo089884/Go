@@ -1,5 +1,5 @@
  <div id="invalid-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
-    <i class="w-10 h-10 text-danger mx-auto " data-lucide="alert-circle"></i> 
+    <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i> 
     <div class="ml-4 mr-4"> 
         <div class="font-medium">{{$title}}</div> 
         <div class="text-slate-500 mt-1">{{$message}}</div> 

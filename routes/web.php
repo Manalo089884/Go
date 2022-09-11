@@ -48,11 +48,7 @@ Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::group(['middleware' => 'auth'],function(){
 
     Route::resource('dashboard', DashboardController::class)->only(['index']);
-
-    Route::get('/brand/archive', [BrandController::class,'BrandArchiveIndex'])->name('BrandArchiveIndex');
-    Route::put('/brand/archive/{id}', [BrandController::class, 'BrandArchiveRestore'])->name('BrandArchiveRestore');
-    Route::delete('/brand/archive/{id}', [BrandController::class, 'BrandArchiveDestroy'])->name('BrandArchiveDestroy');
-    Route::resource('brand',  BrandController::class)->except(['edit','show','create']);
+    Route::resource('brand',  BrandController::class)->only(['index']);
 
     Route::get('/category/archive', [CategoryController::class,'CategoryArchiveIndex'])->name('CategoryArchiveIndex');
     Route::put('/category/archive/{id}', [CategoryController::class, 'CategoryArchiveRestore'])->name('CategoryArchiveRestore');
@@ -62,8 +58,12 @@ Route::group(['middleware' => 'auth'],function(){
 
     Route::post('/addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
     Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
+
+    Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
+    Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
+    Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
     Route::resource('product',  ProductController::class)->except(['show']);
-    Route::resource('product/archives',  ProductArchiveController::class)->except(['show']);
+ 
 
     Route::resource('orders', OrderController::class)->only('index');
     Route::resource('chat', ChatController::class)->only('index');

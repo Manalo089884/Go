@@ -140,6 +140,13 @@
         </form>  
     </x-Modal.RestoreModal>
 
+@if(session('DeleteSuccess'))
+    <x-Notification.SuccessNotification title="Product Delete Success" message="{{session('DeleteSuccess')}}"/>
+@endif
+@if(session('RestoreSuccess'))
+    <x-Notification.SuccessNotification title="Product Restore Success" message="{{session('RestoreSuccess')}}"/>
+@endif
+
 
     
 <script>
@@ -147,7 +154,7 @@
     $("#datatable").on("click", "#deleteProduct", function () {
         var id = $(this).data("id");
         var name = $(this).data("name");
-        $("#deleteProductForm").attr("action", "archives/" + id);
+        $("#deleteProductForm").attr("action", "/product/archive/" + id);
         $("#delete_product").text(name);
         const myModal = tailwind.Modal.getInstance(
             document.querySelector("#delete-confirmation-modal")
@@ -159,17 +166,12 @@
         var name = $(this).data("name");
         console.log(name);
         $("#restore_data").text(name);
-        $("#restoreProductForm").attr("action", "archives/" + id);
+        $("#restoreProductForm").attr("action", "/product/archive/" + id);
         const myModal = tailwind.Modal.getInstance(
             document.querySelector("#restore-modal")
         );
         myModal.show();
     });
 });
-
-   
-
-
-
 </script>
 @endsection

@@ -1,23 +1,3 @@
-@extends('admin.layout.admin')
-@section('content')  
-@section('title', 'Add Product')
-<h2 class="intro-y text-lg font-medium mt-10">Add Product</h2>
-
-@if($errors->any())
- <div class="alert alert-danger-soft show mb-2 mt-5 intro-y" role="alert">
-     <div class="flex items-center">
-         <div class="font-medium text-lg">Opps Something went wrong</div>
-     </div>
-        <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-        </ul>
- </div>
-@endif
-@if($errors->any())
-    <x-Notification.InvalidNotification title="Product Insert Failed" message="Something is wrong with your input"/>
-@endif
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 lg:col-span-12">
         <div class="intro-y box p-5">
@@ -37,17 +17,18 @@
                     Category <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
                 </label> 
                 <select data-placeholder="Select Category" class="tom-select w-full" name="category">
-                @if($categories->count())
-                    @foreach($categories as $category)
+                
+
+                    @forelse($categories as $category)
                         @if(old('category') == $category->id )
                             <option value="{{$category->id}}" selected>{{$category->name}}</option>
                         @else
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endif
-                    @endforeach
-                @else
-                <option disabled>No Results Found Add a Category first</option>
-                @endif
+                    @empty
+                        <option disabled>No Results Found Add a Category first</option>
+                    @endforelse
+              
                 </select> 
                 <div class="text-danger mt-2">@error('category'){{$message}}@enderror</div>
             </div>
@@ -56,19 +37,21 @@
                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                     Brand <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
                 </label>
-                <select data-placeholder="Select Brand" class="tom-select w-full" name="brand" >
-                @if($brand->count())
-                    @foreach($brand as $brand)
-                        @if(old('brand') == $brand->id )
-                            <option value="{{$brand->id}}" selected>{{$brand->name}}</option>
-                        @else
-                            <option value="{{$brand->id}}"">{{$brand->name}}</option>
-                        @endif
-                    @endforeach
-                @else
-                    <option disabled>No Results Found Add a Brand first</option>
-                @endif
-                </select>      
+                <div style="@error('brand')border: 1px solid red @enderror" class="form-control ">
+                    <select data-placeholder="Select Brand"  class="tom-select w-full" name="brand" >
+                        @forelse($brand as $brand)
+                            @if(old('brand') == $brand->id )
+                                <option value="{{$brand->id}}" selected>{{$brand->name}}</option>
+                            @else
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                            @endif
+                        @empty
+                            <option disabled>No Results Found Add a Brand first</option>
+                        @endforelse
+                        </select> 
+                </div>
+                     
+                <div class="text-danger mt-2">@error('brand'){{$message}}@enderror</div>
             </div>
         
             <div class="mt-3">
@@ -123,6 +106,7 @@
                 </div>
                 <div class="text-danger mt-2">@error('description'){{$message}}@enderror</div>
             </div>
+
             <div class="mt-3">
                 <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
                 <input type="file" name="images[]" placeholder="Choose files" multiple accept="image/*" >
@@ -137,10 +121,3 @@
         </div>
     </div>
 </div>
-
-
-@endsection
-
-@section('scripts')
-<script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
-@endsection
