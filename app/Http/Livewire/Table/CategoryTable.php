@@ -17,11 +17,20 @@ class CategoryTable extends Component
     public $action;
     public $selectedItem;
 
+    public function render()
+    {
+        return view('livewire.table.category-table',[
+            'category' => Category::search($this->search)
+            ->orderBy('name')
+            ->paginate($this->perPage)
+        ]);
+    }
+
     protected $listeners = [
         'refreshParent' => '$refresh'
     ];
 
-    public function updatedSearch(){
+    public function updatingSearch(){
         $this->resetPage();
     }
 
@@ -38,12 +47,5 @@ class CategoryTable extends Component
         $this->action = $action;
     }
 
-    public function render()
-    {
-        return view('livewire.table.category-table',[
-            'category' => Category::search($this->search)
-            ->orderBy('name')
-            ->paginate($this->perPage)
-        ]);
-    }
+    
 }

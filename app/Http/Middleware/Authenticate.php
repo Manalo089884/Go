@@ -17,7 +17,7 @@ class Authenticate
         if (!is_null(request()->user())) {
             return $next($request);
         } else {
-            return redirect('login');
+            return redirect('admin/login');
         }
     }
 }

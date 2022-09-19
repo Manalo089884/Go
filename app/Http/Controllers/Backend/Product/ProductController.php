@@ -34,7 +34,8 @@ class ProductController extends Controller
             'category_id' => $request->category,
             'brand_id' => $request->brand,
             'stock' => $request->stock,
-            'price' => $request->price,
+            'cprice' => $request->cprice,
+            'sprice' => $request->sprice,
             'weight' => $request->weight,
             'status' => $archived,
             'description' => $request->description,
@@ -50,19 +51,20 @@ class ProductController extends Controller
             ]);
           }
       }
-       return redirect('/product')->with('success', $request->name .' was successfully inserted');
+      return redirect()->route('product.index')->with('success', $request->name .' was successfully inserted');
+       
       }
 
       public function edit($id){
         $product = Product::findorFail($id);
-        $category = Category::orderBy('name')->get();
-        $brand = Brand::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
         
         $images = $product->images;
 
         return view('admin.page.Product.productedit', compact('product'),[
-          'categories' => $category,
-          'brand' => $brand,
+          'categories' => $categories,
+          'brands' => $brands,
           'images' => $images,
         ]);
       
@@ -77,12 +79,14 @@ class ProductController extends Controller
         $product->category_id = $request->input('category');
         $product->brand_id = $request->input('brand');
         $product->stock = $request->input('stock');
-        $product->price = $request->input('price');
+        $product->cprice = $request->input('cprice');
+        $product->sprice = $request->input('sprice');
         $product->weight = $request->input('weight');
         $product->status = $status;
         $product->description = $request->input('description');
         $product->update();
-        return redirect('/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
+        return redirect()->route('product.index')->with('ProductEditSuccess', $request->name .' was successfully Edit');
+        //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
       }
       
       public function destroy($id){ 

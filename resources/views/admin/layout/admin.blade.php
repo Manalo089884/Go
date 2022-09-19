@@ -3,7 +3,7 @@
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
-        <link href="{{asset('dist/images/logo.png')}}" rel="shortcut icon">
+        <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
     
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,8 +23,6 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] ">
-        
-
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -45,9 +43,6 @@
         @livewireScripts 
  
         <script src="{{ asset('dist/js/app.js') }}"></script>
-
-     
-
         @stack('scripts')
         <!-- END: JS Assets-->
 

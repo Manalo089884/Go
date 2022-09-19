@@ -8,14 +8,16 @@ class DeleteBrand extends Component
 {
     public $modelId;
 
-    public function render()
-    {
-        return view('livewire.modal.delete-brand');
-    }
-
+ 
     protected $listeners = [
-        'getModelDeleteModalId'
+        'getModelDeleteModalId',
+        'refreshChild' => '$refresh',
+        'forceCloseModal',
     ];
+    public function forceCloseModal(){
+        $this->cleanVars();
+        $this->resetErrorBag();
+    }
 
     private function cleanVars(){
         $this->modelId = null;
@@ -48,4 +50,9 @@ class DeleteBrand extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');  
     }
+    public function render()
+    {
+        return view('livewire.modal.delete-brand');
+    }
+
 }

@@ -90,7 +90,8 @@
     //Hide Modal and Refresh its value
     const DeleteModal = document.getElementById('delete-confirmation-modal')
     DeleteModal.addEventListener('hidden.tw.modal', function(event) { 
-        livewire.emit('closeModal');
+        console.log('Working');
+        livewire.emit('forceCloseModal');
     }) 
 </script>
 @endpush

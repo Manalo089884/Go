@@ -28,11 +28,19 @@ class StoreProductRequest extends FormRequest
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required',
-            'price' => 'required',
+            'cprice' => 'required',
+            'sprice' => 'required',
             'weight' => 'required',
             'description' => 'required',
-            'images' => 'required',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ];
+    }
+    public function messages(){
+        return [
+            'name.required' => 'The product name field is required.',
+            'cprice.required' => 'The cost price field is required.',
+            'sprice.required' => 'The selling price field is required.',
         ];
     }
 }

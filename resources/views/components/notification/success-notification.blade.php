@@ -6,5 +6,12 @@
      </div> 
 </div> 
 <script>
-
+Toastify({ 
+    node: $("#success-notification-content") .clone() .removeClass("hidden")[0], 
+    duration: 7000, 
+    newWindow: true, 
+    close: true, 
+    gravity: "top", 
+    position: "right", 
+    stopOnFocus: true, }).showToast();
 </script>

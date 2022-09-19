@@ -5,12 +5,12 @@
 <div class="container sm:px-10">
     <div class="block xl:grid grid-cols-2 gap-4">
         <div class="hidden xl:flex flex-col min-h-screen">
-            <a href="" class="-intro-x flex items-center pt-5">
-                <img alt="Go Dental Logo" class="w-6" src="{{asset('dist/images/logo.png')}}">
+            <p class="-intro-x flex items-center pt-5">
+                <img alt="Go Dental Logo" class="w-6" src="{{asset('icons/log.png')}}">
                 <span class="text-white text-lg ml-3">
                     Go Dental
                 </span>
-            </a>
+            </p>
             <div class="my-auto">
                 <img alt="Icewall Tailwind HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/login_shop.svg') }}">
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
@@ -23,7 +23,7 @@
         </div>
         <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
             <div class="my-auto mx-auto xl:ml-20 bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
-                <form action="{{Route('login')}}" method="POST">
+                <form action="{{Route('login.store')}}" method="POST">
                     @csrf
                     <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sign In</h2>
                     <div class="intro-x mt-2 text-slate-400 xl:hidden text-center">

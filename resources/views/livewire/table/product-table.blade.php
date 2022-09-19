@@ -3,7 +3,7 @@
         <a href="{{Route('product.create')}}" class="btn btn-primary shadow-md mr-2">Add New Product</a>
         <div class="dropdown">
             <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
-                <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-lucide="plus"></i> </span>
+                <span class="w-5 h-5 flex items-center justify-center"> <i class="fa fa-plus" aria-hidden="true"></i></span>
             </button>
             <div class="dropdown-menu w-40">
                 <ul class="dropdown-content">
@@ -19,7 +19,7 @@
                 </ul>
             </div>
         </div>
-        <div class="hidden md:block mx-auto text-slate-500">Showing 1 to 10 of 150 entries</div>
+        <div class="hidden md:block mx-auto text-slate-500"> Showing {{$products->firstItem()}} to {{$products->lastItem()}} of {{$products->total()}} entries</div>
         <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
             <div class="w-56 relative text-slate-500">
                 <input type="text" class="form-control w-56 box pr-10" placeholder="Search...">
@@ -45,7 +45,7 @@
                 <tr class="intro-x">
                     <td class="w-40">
                         <div class="flex">
-                            @foreach($product->images->take(2) as $model)
+                            @foreach($product->images->take(1) as $model)
                             <div class="w-10 h-10 image-fit zoom-in mr-1 ">    
                                 <img alt="Product Image" src="/product_images/{{$model->images}}" data-action="zoom"  title="Uploaded {{$model->created_at->diffForHumans()}}">
                             </div>
@@ -66,8 +66,10 @@
                     </td>
                     <td class="table-report__action w-56">
                         <div class="flex justify-center items-center">
-                            <a class="flex items-center mr-3" href="javascript:;"> <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                            <a class="flex items-center text-danger" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal"> <i data-lucide="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                            <a class="flex items-center mr-3" href="{{Route('product.edit',$product->id)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
+                            <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center text-danger"> 
+                                <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -91,5 +93,4 @@
             <option>50</option>
         </select>
     </div>
-    <!-- END: Pagination -->
 </div>

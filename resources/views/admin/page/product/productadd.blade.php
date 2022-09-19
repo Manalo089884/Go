@@ -8,7 +8,6 @@
         <div class="intro-y box p-5">
             <form action="{{Route('product.store')}}" method="POST" enctype="multipart/form-data" >
                 @csrf
-                <!-- Product Name -->
                 <div>
                     <div class="input-form"> 
                         <label  class="form-label w-full flex flex-col sm:flex-row">
@@ -20,7 +19,6 @@
                 </div>
              
                 <div class="flex flex-col sm:flex-row items-center">
-                    <!-- Category --> 
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
                             Category 
@@ -40,7 +38,6 @@
                         </div>
                         <div class="text-danger mt-2">@error('category'){{$message}}@enderror</div>
                     </div>
-                    <!-- Brand -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-1 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                             Brand 
@@ -68,24 +65,25 @@
                             Cost Price 
                         </label>
                         <div class="input-group">
-                            <input id="cprice" type="number" class="form-control @error('price') border-danger @enderror" placeholder="Purchase Price" aria-describedby="input-group-2" name="price" value="{{old('price')}}">
+                            <input id="cprice" type="number" class="form-control @error('cprice') border-danger @enderror" placeholder="Purchase Price"  name="cprice" value="{{old('cprice')}}">
                             <div id="input-group-2" class="input-group-text">
                                 Unit
                             </div>
                         </div>
-                         <div class="text-danger mt-2">@error('price'){{$message}}@enderror</div>
+                         <div class="text-danger mt-2">@error('cprice'){{$message}}@enderror</div>
                     </div>
-                    <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
+
+                <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                             Selling Price 
                         </label>
                         <div class="input-group">
-                            <input id="sprice" type="number" class="form-control @error('price') border-danger @enderror" placeholder="Selling Price" aria-describedby="input-group-2" name="price" value="{{old('price')}}">
+                            <input id="sprice" type="number" class="form-control @error('sprice') border-danger @enderror" placeholder="Selling Price"  name="sprice" value="{{old('sprice')}}">
                             <div id="input-group-2" class="input-group-text">
                                 Unit
                             </div>
                         </div>
-                         <div class="text-danger mt-2">@error('price'){{$message}}@enderror</div>
+                         <div class="text-danger mt-2">@error('sprice'){{$message}}@enderror</div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center">
@@ -97,10 +95,6 @@
                         <span id="profit">0 </span><span> PHP</span></div>
                     </div>
                 </div>
-              
-
-
-
             <script>
                     $('#cprice,#sprice').keyup(function(){
                         var x = $('#sprice').val();
@@ -156,7 +150,7 @@
 
             <div class="mt-3">
                 <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
-                <input type="file" name="images[]" placeholder="Choose files" multiple accept="image/*" >
+                <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
                 <div class="text-danger mt-2">@error('images'){{$message}}@enderror</div>
             </div>
                    

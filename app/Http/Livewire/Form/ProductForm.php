@@ -8,8 +8,12 @@ use App\Models\Category;
 use App\Models\Product;
 class ProductForm extends Component
 {
-    public $name,$category,$brand,$stock,$purchaseprice,$costprice,$weight,$status,$description;
-    
+    public $brand;
+    public $category;
+    public $name,$stock,$cprice,$sprice,$weight,$status,$description;
+
+    public $listofcategory;
+    public $listofbrand;
    
     public function render()
     {
@@ -17,8 +21,8 @@ class ProductForm extends Component
         $brands = Brand::orderBy('name')->get();
         return view('livewire.form.product-form',[
          
-            'category' => $categories
-            ,'brand' => $brands
+            'categories' => $categories
+            ,'brands' => $brands
         ]);
     }
     public function updated($fields){
@@ -27,10 +31,9 @@ class ProductForm extends Component
             'brand' => 'required',
             'category' => 'required',
             'stock' => 'required',
-            'purchaseprice' => 'required',
-            'costprice' => 'required',
+            'cprice' => 'required',
+            'sprice' => 'required',
             'weight' => 'required',
-            'status' => 'required',
             'description' => 'required'
         ]);
     }
@@ -40,10 +43,9 @@ class ProductForm extends Component
             'brand' => 'required',
             'category' => 'required',
             'stock' => 'required',
-            'purchaseprice' => 'required',
-            'costprice' => 'required',
+            'cprice' => 'required',
+            'sprice' => 'required',
             'weight' => 'required',
-          
             'description' => 'required'
         ];
     }

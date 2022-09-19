@@ -22,7 +22,16 @@ class BrandTable extends Component
         'refreshParent' => '$refresh'
     ];
 
-    public function updatedSearch(){
+    public function render()
+    {
+        return view('livewire.table.brand-table',[
+            'brands' => Brand::search($this->search)
+            ->orderBy('name')
+            ->paginate($this->perPage)
+        ]);
+    }
+ 
+    public function updatingSearch(){
         $this->resetPage();
     }
     
@@ -36,16 +45,8 @@ class BrandTable extends Component
             $this->emit('getModelId',$this->selectedItem);
             $this->dispatchBrowserEvent('OpenModal');
         }
-        
         $this->action = $action;
     }
     
-    public function render()
-    {
-        return view('livewire.table.brand-table',[
-            'brands' => Brand::search($this->search)
-            ->orderBy('name')
-            ->paginate($this->perPage)
-        ]);
-    }
+   
 }

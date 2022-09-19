@@ -29,7 +29,8 @@ class UpdateProductRequest extends FormRequest
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required',
-            'price' => 'required',
+            'cprice' => 'required',
+            'sprice' => 'required',
             'weight' => 'required',
             'description' => 'required',
         ];

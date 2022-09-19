@@ -13,7 +13,7 @@ class ProductImageController extends Controller
         $image = ProductImage::findorfail($id);
         unlink(public_path('product_images/'.$image->images));
         $image->delete();
-        return back()->with('DeleteSuccess','Image Deleted Successfully!');
+        return back()->with('DeleteSuccess','Image Deleted Successfully!')->withFragment('ImageList');
       }
 
       public function addImages(UpdateProductImageRequest $request, $id){
@@ -29,7 +29,8 @@ class ProductImageController extends Controller
             ]);
           } 
         }
-         return back()->with('SuccessImage',"Image Save Successfully");
+        //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
+         return back()->with('SuccessImage',"Image Save Successfully")->withFragment('ImageList');
       }
 
 }
