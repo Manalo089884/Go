@@ -9,6 +9,28 @@
 
 <livewire:modal.delete-product/>
 
+
+@if(session('ProductEditSuccess'))
+    <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
+        <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
+        <div class="ml-4 mr-4"> 
+            <div class="font-medium">Edit Success</div> 
+            <div class="text-slate-500 mt-1">{{session('ProductEditSuccess')}}</div> 
+        </div> 
+    </div> 
+    <script>
+    Toastify({ 
+        node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0], 
+        duration: 7000, 
+        newWindow: true, 
+        close: true, 
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, }).showToast();
+    </script>
+@endif
+
+
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4"> 
@@ -25,15 +47,6 @@
      </div> 
 </div> 
 
-@if(session('success'))
-    <x-Notification.SuccessNotification title="Product Saved" message="{{session('success')}}"/>
-@endif
-@if(session('ProductEditSuccess'))
-    <x-Notification.SuccessNotification title="Edit Success" message="{{session('ProductEditSuccess')}}"/>
-@endif
-@if(session('ProductArchiveSuccess'))
-    <x-Notification.SuccessNotification title="Product Delete Success" message="{{session('ProductArchiveSuccess')}}"/>
-@endif
 
 @endsection
 

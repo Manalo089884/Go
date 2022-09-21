@@ -6,9 +6,15 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
 use App\Models\Images;
-class ProductTable extends Component
+
+class ProductInventoryTable extends Component
 {
     use WithPagination;
+
+    
+    protected $listeners = [
+        'refreshParent' => '$refresh'
+    ];
 
     public $perPage = 10;
     public $search = null;
@@ -18,19 +24,12 @@ class ProductTable extends Component
     public $action;
     public $selectedItem;
 
-    
-    protected $listeners = [
-        'refreshParent' => '$refresh'
-    ];
-
-    
     public function render()
     {
         $products = Product::search($this->search)->with('category','brand','images')
         ->orderBy('name')
         ->paginate($this->perPage);
-
-        return view('livewire.table.product-table',[
+        return view('livewire.table.product-inventory-table',[
             'products' => $products,
         ]);
     }
@@ -43,5 +42,4 @@ class ProductTable extends Component
         }
         $this->action = $action;
     }
-    
 }

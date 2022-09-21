@@ -25,6 +25,8 @@ class StoreBrandRequest extends FormRequest
     {
         return [
             'name'=> ['required', Rule::unique('brand')->ignore($this->brand)],
+
+
         ];
     }
 }
