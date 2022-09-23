@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('category');
             $table->foreignId('brand_id')->constrained('brand');
             $table->integer('stock');
+            $table->string('SKU')->unique();
             $table->decimal('cprice',8,2);
             $table->decimal('sprice',8,2);
             $table->decimal('weight',8,2);

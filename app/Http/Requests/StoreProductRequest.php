@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required|numeric',
+            'SKU' => 'required',
             'cprice' => 'required|numeric',
             'sprice' => 'required|numeric',
             'weight' => 'required|numeric',

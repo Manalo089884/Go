@@ -9,10 +9,15 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest
-;
+use App\Http\Requests\UpdateProductRequest;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductExport;
+
 class ProductController extends Controller
 {
+    
+
+
       public function index(){  
         return view('admin.page.Product.product');
       }
@@ -34,6 +39,7 @@ class ProductController extends Controller
             'category_id' => $request->category,
             'brand_id' => $request->brand,
             'stock' => $request->stock,
+            'SKU' => $request->SKU,
             'cprice' => $request->cprice,
             'sprice' => $request->sprice,
             'weight' => $request->weight,
@@ -70,8 +76,20 @@ class ProductController extends Controller
       
       }
 
-      public function update(UpdateProductRequest $request,$id ){
-        $request->validated();
+      public function update(Request $request,$id ){
+        $this->validate($request, array(
+            'name'=> "required|unique:product,name,$id",
+            'category' => 'required',
+            'brand' => 'required',
+            'stock' => 'required|numeric',
+            'SKU' => 'required',
+            'cprice' => 'required|numeric',
+            'sprice' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'description' => 'required',
+        
+        ));
+        //$request->validated();
         $product = Product::findorFail($id);
         $status = $request->boolean('status');
 
@@ -79,12 +97,14 @@ class ProductController extends Controller
         $product->category_id = $request->input('category');
         $product->brand_id = $request->input('brand');
         $product->stock = $request->input('stock');
+        $product->SKU = $request->input('SKU');
         $product->cprice = $request->input('cprice');
         $product->sprice = $request->input('sprice');
         $product->weight = $request->input('weight');
         $product->status = $status;
         $product->description = $request->input('description');
         $product->update();
+
         return redirect()->route('product.index')->with('ProductEditSuccess', $request->name .' was successfully Edit');
         //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
       }
@@ -120,6 +140,17 @@ class ProductController extends Controller
         
         return back()->with('RestoreSuccess',$name ." was Successfully Restored");
     }
-     
+    public function exportproductexcel(){
+      return Excel::download(new ProductExport,'products.xlsx');
+    }
+    public function exportproductcsv(){
+      return Excel::download(new ProductExport,'products.csv');
+    }
+    public function exportproducthtml(){
+      return Excel::download(new ProductExport,'products.html');
+    }
+    public function exportproductpdf(){
+      return Excel::download(new ProductExport,'products.pdf');
+    }
       
 }

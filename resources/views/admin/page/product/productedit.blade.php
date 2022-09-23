@@ -22,7 +22,7 @@
         </div>  
         <!-- Category Input -->
 
-        <div class="flex flex-col sm:flex-row items-center">
+        <div class="flex flex-col sm:flex-row items-center gap-2">
         <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
             <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                 Category 
@@ -65,7 +65,7 @@
             <div class="text-danger mt-2">@error('brand'){{$message}}@enderror</div>
         </div>
     </div>
-        <div class="flex flex-col sm:flex-row items-center">
+        <div class="flex flex-col sm:flex-row items-center gap-2">
             <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                     Cost Price 
@@ -79,7 +79,7 @@
                 <div class="text-danger mt-2">@error('cprice'){{$message}}@enderror</div>
             </div>
 
-        <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
+        <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form gap-2">
                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                     Selling Price 
                 </label>
@@ -92,17 +92,32 @@
                 <div class="text-danger mt-2">@error('sprice'){{$message}}@enderror</div>
             </div>
         </div>
-        <!--Stock Input -->
-        <div class="mt-3">
-            <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                Stock 
-            </label>
-            <div class="input-group ">
-                <input type="number" class="form-control @error('stock') border-danger @enderror" placeholder="Quantity" aria-describedby="input-group-1" name="stock" value="{{old('stock') ?? $product->stock}}">
-                <div id="input-group-1" class="input-group-text ">pcs</div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-2">
+            <!-- Inventory -->
+            <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
+                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+                    Inventory Stocks 
+                </label>
+                <div class="input-group ">
+                    <input id="crud-form-3" type="number" class="form-control @error('stock') border-danger @enderror" placeholder="Quantity" name="stock" value="{{old('stock') ?? $product->stock}}">
+                    <div id="input-group-1" class="input-group-text ">pcs</div>  
+                </div>
+                <div class="text-danger mt-2">@error('stock'){{$message}}@enderror</div>
             </div>
-            <div class="text-danger mt-2">@error('stock'){{$message}}@enderror</div>
+            <!-- SKU -->
+            <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
+                <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+                    SKU
+                </label>
+                <div class="input-group ">
+                    <input type="text" class="form-control @error('SKU') border-danger @enderror" placeholder="SKU" name="SKU" value="{{old('SKU') ?? $product->SKU}}">
+                    <div id="input-group-1" class="input-group-text ">pcs</div>
+                </div>
+                <div class="text-danger mt-2">@error('SKU'){{$message}}@enderror</div>
+            </div>
         </div>
+       
         <!-- Weight Input-->
         <div class="mt-3">
             <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
@@ -154,8 +169,8 @@
             @foreach ($images as $image)
                 <div class="intro-y col-span-12 md:col-span-6 xl:col-span-4 box">
                     <div class="p-5">
-                        <div>
-                            <img class="object-contain h-48 w-full" src="/product_images/{{$image->images}}"  data-action="zoom" alt="">
+                        <div class="flex items-center justify-center ">
+                            <img class="object-contain h-48 " src="/product_images/{{$image->images}}"  data-action="zoom" alt="">
                         </div>
                         <a href="javascript:;"  class="block font-medium text-center mt-2" id="deleteImage" data-id="{{$image->id}}" data-name="{{$image->images}}">Delete</a> 
                     </div>

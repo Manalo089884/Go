@@ -10,7 +10,7 @@ class ProductTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
+    public $perPage = 5;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
     protected $paginationTheme = 'bootstrap';

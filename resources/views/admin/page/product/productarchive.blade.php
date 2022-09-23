@@ -2,7 +2,7 @@
 @section('content')  
 @section('title', 'Product')
 
-<h2 class="text-lg font-medium mr-auto intro-y mt-2">Archive Products</h2>
+<h2 class="text-lg font-medium mr-auto intro-y mt-2">List of Archive Products</h2>
 
 <livewire:table.product-archive-table/>
 <livewire:modal.force-delete-product/>
