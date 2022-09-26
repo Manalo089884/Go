@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Customer;
 class CustomerLoginController extends Controller
 {
     public function __construct(){
@@ -21,6 +21,6 @@ class CustomerLoginController extends Controller
          if(!auth()->attempt($request->only('email','password'),$request->remember)){
             return back()->with('status','Invalid username or password');
         }
-        return redirect()->route('dashboard.index');
+        return redirect()->route('CRegister.index');
     }
 }

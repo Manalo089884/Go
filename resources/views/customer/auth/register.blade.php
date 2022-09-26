@@ -14,41 +14,67 @@
         <div class="text-slate-500 text-center mt-2">To start off, please enter your username, email address and password.</div>
     </div>
     <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
-        <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-1" class="form-label">From</label>
-                <input id="input-wizard-1" type="text" class="form-control" placeholder="example@gmail.com">
+        <form action="{{Route('CRegister.store')}}" method="POST">
+            @csrf
+            @if ($errors->any())
+            <div class="alert alert-danger show mb-2" role="alert">
+                <div class="flex items-center">
+                    <div class="font-medium text-lg">Whoops Something Went Wrong</div>
+                    <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
+                </div>
+                <div class="mt-3">
+                    @foreach ($errors->all() as $error)
+                     <div>{{$error}}</div>
+                    @endforeach
+               </div>
             </div>
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-2" class="form-label">To</label>
-                <input id="input-wizard-2" type="text" class="form-control" placeholder="example@gmail.com">
+            @endif
+            @if(session('success'))
+                <div class="alert alert-primary show mb-2" role="alert">{{session('success')}}</div>
+            @endif
+
+            <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="fname" class="form-control" placeholder="First Name">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="lname" class="form-control" placeholder="Last Name">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="number" name="phone" class="form-control" placeholder="Phone Number">
+                </div>
+                
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Age</label>
+                    <input type="number" name="age" class="form-control" placeholder="Age">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Gender</label>
+                    <select name="gender" class="form-select">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Password Confirmation</label>
+                    <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation">
+                </div>
+                <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+                    <button class="btn btn-primary w-24 ml-2">Register</button>
+                </div>
             </div>
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-3" class="form-label">Subject</label>
-                <input id="input-wizard-3" type="text" class="form-control" placeholder="Important Meeting">
-            </div>
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-4" class="form-label">Has the Words</label>
-                <input id="input-wizard-4" type="text" class="form-control" placeholder="Job, Work, Documentation">
-            </div>
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-5" class="form-label">Doesn't Have</label>
-                <input id="input-wizard-5" type="text" class="form-control" placeholder="Job, Work, Documentation">
-            </div>
-            <div class="intro-y col-span-12 sm:col-span-6">
-                <label for="input-wizard-6" class="form-label">Size</label>
-                <select id="input-wizard-6" class="form-select">
-                    <option>10</option>
-                    <option>25</option>
-                    <option>35</option>
-                    <option>50</option>
-                </select>
-            </div>
-            <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-                <button class="btn btn-secondary w-24">Previous</button>
-                <button class="btn btn-primary w-24 ml-2">Next</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 

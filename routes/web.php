@@ -28,6 +28,8 @@ use App\Http\Controllers\Backend\Users\UsersController;
 use App\Http\Controllers\Backend\Users\PermissionController;
 
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\Transaction\ContactController;
+
 use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
 use App\Http\Controllers\Frontend\Auth\CustomerRegisterController;
 use App\Http\Controllers\Frontend\Cart\CartController;
@@ -37,14 +39,19 @@ Route::get('/',function(){
 });
 
 Route::get('/about', [PageController::class,'about'])->name('about');
-Route::get('/contact', [PageController::class,'contact'])->name('contact');
+
+Route::get('/contact', [ContactController::class,'index'])->name('contact');
+Route::post('/contact', [ContactController::class,'store'])->name('sendemailcontact');
+
 Route::get('/terms', [PageController::class,'terms'])->name('terms');
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
 Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
 Route::get('/product', [PageController::class,'product'])->name('product');
 Route::resource('cart', CartController::class)->only(['index','store']);
 Route::resource('wishlist', WishlistController::class)->only(['index','store']);
+
 Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
+
 Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
 
 
@@ -56,9 +63,12 @@ Route::group(['prefix' => 'admin'],function(){
 
     
     Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+
+    Route::group(['middleware' => 'guest'],function(){
+    
     Route::resource('login', LoginController::class)->only(['index','store']);
     Route::resource('register', RegisterController::class)->only(['index','store']);
-
+    });
     Route::get('reset/password/{token}', [ResetController::class, 'ShowResetForm'])->name('reset.password.form');
     Route::post('reset/password',[ResetController::class,'ResetPassword'])->name('reset.password');
     Route::resource('reset', ResetController::class)->only(['index','store']);
