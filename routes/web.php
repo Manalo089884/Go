@@ -5,8 +5,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\Backend\Page\DashboardController;
+use App\Http\Controllers\Backend\Page\ProfileController;
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Auth\ResetController;
 use App\Http\Controllers\Backend\Auth\RegisterController;
+use App\Http\Controllers\Backend\Auth\ChangePasswordController;
 use App\Http\Controllers\Backend\Auth\LogoutController;
 use App\Http\Controllers\Backend\Product\BrandController;
 use App\Http\Controllers\Backend\Product\CategoryController;
@@ -27,7 +30,8 @@ use App\Http\Controllers\Backend\Users\PermissionController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
 use App\Http\Controllers\Frontend\Auth\CustomerRegisterController;
-
+use App\Http\Controllers\Frontend\Cart\CartController;
+use App\Http\Controllers\Frontend\Cart\WishlistController;
 Route::get('/',function(){
     return view('customer.page.main.home');
 });
@@ -35,16 +39,32 @@ Route::get('/',function(){
 Route::get('/about', [PageController::class,'about'])->name('about');
 Route::get('/contact', [PageController::class,'contact'])->name('contact');
 Route::get('/terms', [PageController::class,'terms'])->name('terms');
+Route::get('/faq', [PageController::class,'faq'])->name('faq');
+Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
+Route::get('/product', [PageController::class,'product'])->name('product');
+Route::resource('cart', CartController::class)->only(['index','store']);
+Route::resource('wishlist', WishlistController::class)->only(['index','store']);
 Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
 Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
+
+
+
 
 Route::group(['prefix' => 'admin'],function(){
     Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
     Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
+
+    
     Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
     Route::resource('login', LoginController::class)->only(['index','store']);
-
     Route::resource('register', RegisterController::class)->only(['index','store']);
+
+    Route::get('reset/password/{token}', [ResetController::class, 'ShowResetForm'])->name('reset.password.form');
+    Route::post('reset/password',[ResetController::class,'ResetPassword'])->name('reset.password');
+    Route::resource('reset', ResetController::class)->only(['index','store']);
+
+
+
     Route::group(['middleware' => 'auth'],function(){
 
     Route::resource('dashboard', DashboardController::class)->only(['index']);
@@ -83,7 +103,8 @@ Route::group(['prefix' => 'admin'],function(){
     Route::resource('orders', OrderController::class)->only('index');
     Route::resource('chat', ChatController::class)->only('index');
     Route::resource('post', PostController::class)->only('index');
-
+    Route::resource('profile', ProfileController::class)->only('index');
+    Route::resource('changepassword', ChangePasswordController::class)->only('index');
     Route::resource('analytics', AnalyticsController::class)->only('index');
     Route::resource('report', ReportController::class)->only('index');
 

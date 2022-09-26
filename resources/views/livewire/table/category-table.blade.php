@@ -1,6 +1,28 @@
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-        <a class="btn btn-primary shadow-md mr-2" href="javascript:;" data-tw-toggle="modal" data-tw-target="#add-item-modal">Add New Category </a>
+        <button class="btn btn-primary shadow-md mr-2"  data-tw-toggle="modal" data-tw-target="#add-item-modal">Add New Category </button>
+        
+        <div class="dropdown">
+            <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
+                <span class="w-5 h-5 flex items-center justify-center"><i class="fa-regular fa-plus w-4 h-4"></i></span>
+            </button>
+            <div class="dropdown-menu w-40">
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="{{Route('exportcategoriesexcel')}}" class="dropdown-item"> <i data-lucide="printer" class="w-4 h-4 mr-2"></i> Export to Excel  </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategoriescsv')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to CSV </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategoriespdf')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to PDF </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategorieshtml')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to HTML </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="hidden md:block mx-auto text-slate-500">
             Showing {{$category->firstItem()}} to {{$category->lastItem()}} of {{$category->total()}} entries
         </div>

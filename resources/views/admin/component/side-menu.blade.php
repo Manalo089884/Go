@@ -7,14 +7,14 @@
     <ul>
         <!--Dashboard-->
         <li>
-            <a href="{{ route('dashboard.index') }}" class="side-menu {{ (request()->is('dashboard')) ? 'side-menu--active' : '' }}">
+            <a href="{{ route('dashboard.index') }}" class="side-menu {{ (request()->is('admin/dashboard')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i  data-lucide="home"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
         <!--Product Attribute-->
         <li>
-            <a href="javascript:;" class="side-menu {{ (request()->is('brand')) || (request()->is('category'))  ? 'side-menu--active' : '' }}">
+            <a href="javascript:;" class="side-menu {{ (request()->is('admin/brand')) || (request()->is('admin/category'))  ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="box"></i> </div>
                     <div class="side-menu__title">
                         Product Attribute
@@ -38,7 +38,7 @@
         </li>
         <!--Product-->
         <li>
-            <a href="javascript:;" class="side-menu {{ (request()->is('product')) || (request()->is('inventory')) || (request()->is('addproduct')) ? 'side-menu--active' : '' }}">
+            <a href="javascript:;" class="side-menu {{ (request()->is('admin/product')) || (request()->is('admin/inventory')) || (request()->is('admin/addproduct')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="box"></i> </div>
                     <div class="side-menu__title">
                         Product
@@ -68,21 +68,21 @@
         </li>
         <!--Orders-->
         <li>
-            <a href="{{Route('orders.index')}}" class="side-menu {{ (request()->is('orders')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('orders.index')}}" class="side-menu {{ (request()->is('admin/orders')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="inbox"></i> </div>
                 <div class="side-menu__title"> Orders </div>
             </a>
         </li>
         <!--Chat-->
         <li>
-            <a href="{{Route('chat.index')}}" class="side-menu {{ (request()->is('chat')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('chat.index')}}" class="side-menu {{ (request()->is('admin/chat')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="message-square"></i> </div>
                 <div class="side-menu__title"> Chat </div>
             </a>
         </li>
         <!--Post-->
         <li>
-            <a href="{{Route('post.index')}}" class="side-menu {{ (request()->is('post')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('post.index')}}" class="side-menu {{ (request()->is('admin/post')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="file-text"></i> </div>
                 <div class="side-menu__title"> Post </div>
             </a>
@@ -91,21 +91,21 @@
         <li class="side-nav__devider my-6"></li>
         <!--Customers-->
         <li>
-            <a href="{{Route('customer.index')}}" class="side-menu {{ (request()->is('customer')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('customer.index')}}" class="side-menu {{ (request()->is('admin/customer')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="user"></i> </div>
                 <div class="side-menu__title"> Customers </div>
             </a>
         </li>
         <!--Users-->
         <li>
-            <a href="{{Route('user.index')}}" class="side-menu {{ (request()->is('user')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('user.index')}}" class="side-menu {{ (request()->is('admin/user')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="contact"></i> </div>
                 <div class="side-menu__title"> Users </div>
             </a>    
         </li>
         <!--Roles-->
         <li>
-            <a href="javascript:;" class="side-menu {{ (request()->is('role')) || (request()->is('permission')) ?  'side-menu--active ' : '' }}">
+            <a href="javascript:;" class="side-menu {{ (request()->is('admin/role')) || (request()->is('admin/permission')) ?  'side-menu--active ' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                 <div class="side-menu__title">
                     Roles 
@@ -131,14 +131,14 @@
         <li class="side-nav__devider my-6"></li>
         <!--Reports-->
         <li>
-            <a href="{{Route('report.index')}}" class="side-menu {{ (request()->is('report')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('report.index')}}" class="side-menu {{ (request()->is('admin/report')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="file-text"></i> </div>
                 <div class="side-menu__title"> Reports </div>
             </a>
         </li> 
         <!--Analytics-->
         <li>
-            <a href="{{Route('analytics.index')}}" class="side-menu {{ (request()->is('analytics')) ? 'side-menu--active' : '' }}">
+            <a href="{{Route('analytics.index')}}" class="side-menu {{ (request()->is('admin/analytics')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="file-text"></i> </div>
                 <div class="side-menu__title"> Analytics </div>
             </a>

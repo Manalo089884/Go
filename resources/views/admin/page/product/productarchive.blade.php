@@ -2,11 +2,12 @@
 @section('content')  
 @section('title', 'Product')
 
-<h2 class="text-lg font-medium mr-auto intro-y mt-2">List of Archive Products</h2>
+<h2 class="text-lg font-medium mr-auto intro-y mt-10">List of Archive Products</h2>
 
 <livewire:table.product-archive-table/>
 <livewire:modal.force-delete-product/>
 <livewire:modal.restore-product/>
+
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
     <div class="ml-4 mr-4"> 

@@ -16,4 +16,13 @@ class PageController extends Controller
     public function contact(){
         return view('customer.page.regular.contact', ['metaTitle' => 'Contact']);
     }
+    public function faq(){
+        return view('customer.page.regular.faq', ['metaTitle' => 'FAQ']);
+    }
+    public function privacy(){
+        return view('customer.page.regular.privacy', ['metaTitle' => 'Privacy']);
+    }
+    public function product(){
+        return view('customer.page.cart.product', ['metaTitle' => 'Product']);
+    }
 }

@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use App\Models\Category;
 use Maatwebsite\Excel\Concerns\FromCollection;
-
-class CategoryExport implements FromCollection
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+class CategoryExport implements FromCollection,WithHeadings,ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -13,5 +14,14 @@ class CategoryExport implements FromCollection
     public function collection()
     {
         return Category::all();
+    }
+    public function headings(): array
+    {
+        return [
+            '#',
+            'Category Name',
+            'Created_at',
+            'Updated_at',
+        ];
     }
 }

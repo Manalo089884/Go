@@ -3,30 +3,33 @@
         <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
             <div class="xl:flex sm:mr-auto" >
                 <div class="sm:flex items-center sm:mr-4">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Field</label>
-                    <select  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
-                        <option value="name">Product Title A-Z</option>
-                        <option value="category">Product Title Z-A</option>
-                        <option value="">Created (oldest first)</option>
-                        <option value="">Created (newest first)</option>
-                        <option value="">Updated (oldest first)</option>
-                        <option value="">Updated (newest first)</option>
-                        <option value="">Low inventory</option>
-                        <option value="">High inventory</option>
-                        <option value="">Category A-Z</option>
-                        <option value="">Category Z-A</option>
+                    <label class="flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
+                    <select wire:model="sorting"  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
+                        <option value="nameaz" >Product Title A-Z</option>
+                        <option value="nameza">Product Title Z-A</option>
+                        <option value="createdold">Created (oldest first)</option>
+                        <option value="creatednew">Created (newest first)</option>
+                        <option value="updatedatold">Updated (oldest first)</option>
+                        <option value="updatedat">Updated (newest first)</option>
+                        <option value="lowinventory">Low inventory</option>
+                        <option value="highinventory">High inventory</option>
+                        <option value="cataz">Category A-Z</option>
+                        <option value="catza">Category Z-A</option>
                     </select>
                 </div>
+                <!-- To be Implemented Soon -->
+                <!--
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
-                    <select  class="form-select w-full mt-2 sm:mt-0 sm:w-auto" >
-                        <option value="name">Active</option>
-                        <option value="category">Draft</option>
+                    <select class="form-select w-full mt-2 sm:mt-0 sm:w-auto" >
+                        <option value="active" selected>Active</option>
+                        <option value="draft">Draft</option>
                     </select>
                 </div>
+            -->
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-                    <input  type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
+                    <input wire:model="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
                 <div class="mt-2 xl:mt-0">
                     <a href="{{Route('product.create')}}">
@@ -76,9 +79,10 @@
                    <tbody> 
                    @foreach($products as $product)
                        <tr> 
-                           <td class="whitespace-nowrap ">{{$product->name}} </td> 
+                           <td class="whitespace-nowrap font-medium">{{$product->name}}
+                            <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
+                            </td> 
                            <td class="whitespace-nowrap text-center">{{$product->category->name}}</td> 
-
                            <td class="whitespace-nowrap text-center">
                             @if($product->stock <= 10)
                             <div class="text-danger">{{$product->stock}} in stock</div> 
@@ -110,7 +114,7 @@
            </div>
            @else
            <h2 class="intro-y text-lg font-medium mt-10"> 
-               No Results found <strong>{{{request()->query('search')}}}</strong>
+               No Results found <strong>{{$search}}</strong>
            </h2>
            @endif
        </div>
@@ -120,7 +124,13 @@
                {!! $products->onEachSide(1)->links() !!}  
            </nav>
            <div class="mx-auto text-slate-500">
-            Showing {{$products->firstItem()}} to {{$products->lastItem()}} of {{$products->total()}} entries
+            Showing 
+            @if($products->count() == 0)
+                0
+            @else
+                {{$products->firstItem()}} 
+            @endif 
+                to {{$products->lastItem()}} of {{$products->total()}} entries
         </div>
            <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
                <option>10</option>

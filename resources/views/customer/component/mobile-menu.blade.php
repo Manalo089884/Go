@@ -49,8 +49,29 @@
                 <div class="menu__title"> Login  </div>
             </a>
         </li>
-       
-            </ul>
+        <li>
+            <a href="{{Route('faq')}}" class="menu">
+                <div class="menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="menu__title"> FAQ  </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('privacy')}}" class="menu">
+                <div class="menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="menu__title"> Privacy  </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('cart.index')}}" class="menu">
+                <div class="menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="menu__title"> Cart  </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('wishlist.index')}}" class="menu">
+                <div class="menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="menu__title"> Wishlist  </div>
+            </a>
         </li>
     </ul>
 </div>

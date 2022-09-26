@@ -3,7 +3,7 @@
         <li>
             <a href="/" class="top-menu">
                 <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
-                <div class="top-menu__title"> Dashboard</div>
+                <div class="top-menu__title"> Home</div>
             </a>
         </li>
         <li>
@@ -40,6 +40,30 @@
             <a href="{{Route('CLogin.index')}}" class="top-menu">
                 <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
                 <div class="top-menu__title"> Login</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('faq')}}" class="top-menu">
+                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="top-menu__title"> FAQ</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('privacy')}}" class="top-menu">
+                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="top-menu__title"> Privacy</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('cart.index')}}" class="top-menu">
+                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="top-menu__title"> Cart</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('wishlist.index')}}" class="top-menu">
+                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="top-menu__title"> Wishlist</div>
             </a>
         </li>
        
