@@ -23,11 +23,11 @@ class ProductImageController extends Controller
           foreach($request->file('images') as $image){
             $imageName = time().$image->getClientOriginalName();
             $image->move(public_path('product_images'),$imageName);
-            ProductImage::create([  
+            ProductImage::create([
               'product_id' => $product->id,
               'images' =>  $imageName,
             ]);
-          } 
+          }
         }
         //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
          return back()->with('SuccessImage',"Image Save Successfully")->withFragment('ImageList');

@@ -1,11 +1,10 @@
 @extends('customer.layout.base')
-@section('content')  
+@section('content')
 @section('title', 'Login')
-
 <div class="intro-y box mt-10">
     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
         <h2 class="font-medium text-base mr-auto">
-            Go Dental Login 
+            Go Dental Login
         </h2>
     </div>
     <div id="vertical-form" class="p-5">
@@ -45,7 +44,8 @@
         </form>
     </div>
 </div>
-@endsection 
+
+@endsection
 @push('scripts')
 <script>
 </script>

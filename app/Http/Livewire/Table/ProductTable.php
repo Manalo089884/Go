@@ -28,8 +28,7 @@ class ProductTable extends Component
         $this->perPage = 5;
     }
    
-    public function render()
-    {   
+    public function render(){   
         if($this->sorting == 'nameaz'){
             $products = Product::search($this->search)->with('category','brand','images')
             ->orderBy('name','asc')
@@ -82,12 +81,16 @@ class ProductTable extends Component
             'products' => $products,
         ]);
     }
+
     public function selectItem($itemId,$action){
         $this->selectedItem = $itemId;
 
-        if($action == 'delete'){
-            $this->emit('getModelDeleteModalId',$this->selectedItem);
-            $this->dispatchBrowserEvent('openDeleteModal');
+        if($action == 'edit'){
+            $this->emit('getEditModalID',$this->selectedItem);
+            $this->dispatchBrowserEvent('openEditModal');
+        }else{
+            $this->emit('getAdjustModalID',$this->selectedItem);
+            $this->dispatchBrowserEvent('openAdjustModal');
         }
         $this->action = $action;
     }

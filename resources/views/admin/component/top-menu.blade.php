@@ -11,7 +11,7 @@
     <div class="intro-x relative mr-3 sm:mr-6">
         <div class="search hidden sm:block">
             <input type="text" class="search__input form-control border-transparent" placeholder="Search...">
-            <i data-lucide="search" class="search__icon dark:text-slate-500"></i> 
+            <i data-lucide="search" class="search__icon dark:text-slate-500"></i>
         </div>
         <a class="notification sm:hidden" href=""> <i data-lucide="search" class="notification__icon dark:text-slate-500"></i> </a>
         <div class="search-result">
@@ -108,7 +108,7 @@
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">John Travolta</a> 
+                            <a href="javascript:;" class="font-medium truncate mr-5">John Travolta</a>
                             <div class="text-xs text-slate-400 ml-auto whitespace-nowrap">01:10 PM</div>
                         </div>
                         <div class="w-full truncate text-slate-500 mt-0.5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem </div>
@@ -121,7 +121,7 @@
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Kevin Spacey</a> 
+                            <a href="javascript:;" class="font-medium truncate mr-5">Kevin Spacey</a>
                             <div class="text-xs text-slate-400 ml-auto whitespace-nowrap">01:10 PM</div>
                         </div>
                         <div class="w-full truncate text-slate-500 mt-0.5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500</div>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Kevin Spacey</a> 
+                            <a href="javascript:;" class="font-medium truncate mr-5">Kevin Spacey</a>
                             <div class="text-xs text-slate-400 ml-auto whitespace-nowrap">01:10 PM</div>
                         </div>
                         <div class="w-full truncate text-slate-500 mt-0.5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 20</div>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Al Pacino</a> 
+                            <a href="javascript:;" class="font-medium truncate mr-5">Al Pacino</a>
                             <div class="text-xs text-slate-400 ml-auto whitespace-nowrap">06:05 AM</div>
                         </div>
                         <div class="w-full truncate text-slate-500 mt-0.5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem </div>
@@ -160,7 +160,7 @@
                     </div>
                     <div class="ml-2 overflow-hidden">
                         <div class="flex items-center">
-                            <a href="javascript:;" class="font-medium truncate mr-5">Brad Pitt</a> 
+                            <a href="javascript:;" class="font-medium truncate mr-5">Brad Pitt</a>
                             <div class="text-xs text-slate-400 ml-auto whitespace-nowrap">01:10 PM</div>
                         </div>
                         <div class="w-full truncate text-slate-500 mt-0.5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 20</div>
@@ -178,7 +178,7 @@
         <div class="dropdown-menu w-56">
             <ul class="dropdown-content bg-primary text-white">
                 <li class="p-2">
-                    <div class="font-medium">{{auth()->user()->name}}</div>
+                    <div class="font-medium">{{Auth::guard('web')->user()->name}}</div>
                     <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Full Stack Developer</div>
                 </li>
                 <li>

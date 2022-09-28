@@ -4,7 +4,8 @@ namespace App\Http\Controllers\FrontEnd\Transaction;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Mail\ContactMail;
+use Mail;
 class ContactController extends Controller
 {
     public function index(){
@@ -12,13 +13,23 @@ class ContactController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'fname'=>'required',
-            'lname'=>'required',
-            'phone' => 'required',
-            'email'=>'required|email',
+            'name'=>'required',
+            'phone'=>'required',
+            'email' => 'required|email',
+            'subject'=>'required',
             'message'=>'required',
         ]);
-        return redirect()->route('contact')->with('status')->withFragment('#contactpage');
-    
+
+        $contact = [
+            'name' => $request['name'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+            'subject' => $request['subject'],
+            'message' => $request['message'],
+        ];
+
+        Mail::to('godental@gmail.com')->send(new ContactMail($contact));
+        return redirect()->route('contact')->with('success',"Message Successfully Sent")->withFragment('#contactpage');
+
     }
 }

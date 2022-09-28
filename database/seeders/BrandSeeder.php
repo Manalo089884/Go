@@ -33,6 +33,6 @@ class BrandSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]
         ]);*/
-      Brand::factory()->times(100)->create();
+      Brand::factory(100)->create();
     }
 }

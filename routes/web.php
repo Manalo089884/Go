@@ -32,95 +32,108 @@ use App\Http\Controllers\Frontend\Transaction\ContactController;
 
 use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
 use App\Http\Controllers\Frontend\Auth\CustomerRegisterController;
+use App\Http\Controllers\Frontend\Auth\CustomerLogoutController;
 use App\Http\Controllers\Frontend\Cart\CartController;
 use App\Http\Controllers\Frontend\Cart\WishlistController;
+use App\Http\Controllers\Frontend\Cart\ProductCatalogController;
+
+
 Route::get('/',function(){
     return view('customer.page.main.home');
 });
 
-Route::get('/about', [PageController::class,'about'])->name('about');
 
+Route::get('/about', [PageController::class,'about'])->name('about');
 Route::get('/contact', [ContactController::class,'index'])->name('contact');
 Route::post('/contact', [ContactController::class,'store'])->name('sendemailcontact');
-
 Route::get('/terms', [PageController::class,'terms'])->name('terms');
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
 Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
 Route::get('/product', [PageController::class,'product'])->name('product');
-Route::resource('cart', CartController::class)->only(['index','store']);
-Route::resource('wishlist', WishlistController::class)->only(['index','store']);
+Route::resource('productcatalog', ProductCatalogController::class)->only(['index','show']);
 
-Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
 
-Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
+
+    Route::middleware(['guest:customer','PreventBackHistory'])->group(function () {
+        Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
+        Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
+
+
+    });
+    Route::middleware(['auth:customer','PreventBackHistory'])->group(function () {
+        Route::resource('cart', CartController::class)->only(['index','store']);
+        Route::resource('wishlist', WishlistController::class)->only(['index','store']);
+        Route::get('/CLogout', [CustomerLogoutController::class, 'store'])->name('CLogout');
+        /*
+        Route::get('/about', [PageController::class,'about'])->name('about');
+        Route::get('/contact', [ContactController::class,'index'])->name('contact');
+        Route::post('/contact', [ContactController::class,'store'])->name('sendemailcontact');
+        Route::get('/terms', [PageController::class,'terms'])->name('terms');
+        Route::get('/faq', [PageController::class,'faq'])->name('faq');
+        Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
+
+        Route::get('/product', [PageController::class,'product'])->name('product');
+        */
+    });
+
+
+
+
 
 
 
 
 Route::group(['prefix' => 'admin'],function(){
-    Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
-    Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
-
-    
-    Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
-
-    Route::group(['middleware' => 'guest'],function(){
-    
-    Route::resource('login', LoginController::class)->only(['index','store']);
-    Route::resource('register', RegisterController::class)->only(['index','store']);
+    Route::middleware(['guest:web','PreventBackHistory'])->group(function () {
+        Route::resource('login', LoginController::class)->only(['index','store']);
+        Route::resource('register', RegisterController::class)->only(['index','store']);
+        Route::get('reset/password/{token}', [ResetController::class, 'ShowResetForm'])->name('reset.password.form');
+        Route::post('reset/password',[ResetController::class,'ResetPassword'])->name('reset.password');
+        Route::resource('reset', ResetController::class)->only(['index','store']);
+        Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
+        Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
     });
-    Route::get('reset/password/{token}', [ResetController::class, 'ShowResetForm'])->name('reset.password.form');
-    Route::post('reset/password',[ResetController::class,'ResetPassword'])->name('reset.password');
-    Route::resource('reset', ResetController::class)->only(['index','store']);
 
+    Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
+        Route::resource('dashboard', DashboardController::class)->only(['index']);
+        Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+        Route::get('/brand/excel',[BrandController::class,'exportbrandexcel'])->name('exportbrandexcel');
+        Route::get('/brand/csv',[BrandController::class,'exportbrandcsv'])->name('exportbrandcsv');
+        Route::get('/brand/html',[BrandController::class,'exportbrandhtml'])->name('exportbrandhtml');
+        Route::get('/brand/pdf',[BrandController::class,'exportbrandpdf'])->name('exportbrandpdf');
+        Route::resource('brand',  BrandController::class)->only(['index']);
 
+        Route::get('/category/excel',[CategoryController::class,'exportcategoriesexcel'])->name('exportcategoriesexcel');
+        Route::get('/category/csv',[CategoryController::class,'exportcategoriescsv'])->name('exportcategoriescsv');
+        Route::get('/category/html',[CategoryController::class,'exportcategorieshtml'])->name('exportcategorieshtml');
+        Route::get('/category/pdf',[CategoryController::class,'exportcategoriespdf'])->name('exportcategoriespdf');
+        Route::resource('category',  CategoryController::class)->only('index');
+        Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
 
-    Route::group(['middleware' => 'auth'],function(){
+        Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
+        Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
 
-    Route::resource('dashboard', DashboardController::class)->only(['index']);
+        Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
+        Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
+        Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
 
-    Route::get('/brand/excel',[BrandController::class,'exportbrandexcel'])->name('exportbrandexcel');
-    Route::get('/brand/csv',[BrandController::class,'exportbrandcsv'])->name('exportbrandcsv');
-    Route::get('/brand/html',[BrandController::class,'exportbrandhtml'])->name('exportbrandhtml');
-    Route::get('/brand/pdf',[BrandController::class,'exportbrandpdf'])->name('exportbrandpdf');
-    Route::resource('brand',  BrandController::class)->only(['index']);
+        Route::get('/product/excel',[ProductController::class,'exportproductexcel'])->name('exportproductexcel');
+        Route::get('/product/csv',[ProductController::class,'exportproductcsv'])->name('exportproductcsv');
+        Route::get('/product/html',[ProductController::class,'exportproducthtml'])->name('exportproducthtml');
+        Route::get('/product/pdf',[ProductController::class,'exportproductpdf'])->name('exportproductpdf');
+        Route::resource('product',  ProductController::class);
 
-    Route::get('/category/excel',[CategoryController::class,'exportcategoriesexcel'])->name('exportcategoriesexcel');
-    Route::get('/category/csv',[CategoryController::class,'exportcategoriescsv'])->name('exportcategoriescsv');
-    Route::get('/category/html',[CategoryController::class,'exportcategorieshtml'])->name('exportcategorieshtml');
-    Route::get('/category/pdf',[CategoryController::class,'exportcategoriespdf'])->name('exportcategoriespdf');
-    Route::resource('category',  CategoryController::class)->only('index');
+        Route::resource('orders', OrderController::class)->only('index');
+        Route::resource('chat', ChatController::class)->only('index');
+        Route::resource('post', PostController::class)->only('index');
+        Route::resource('profile', ProfileController::class)->only('index');
+        Route::resource('changepassword', ChangePasswordController::class)->only('index');
+        Route::resource('analytics', AnalyticsController::class)->only('index');
+        Route::resource('report', ReportController::class)->only('index');
 
-
-
-    Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
-
-    Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
-    Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
-
-    Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
-    Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
-    Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
-
-    Route::get('/product/excel',[ProductController::class,'exportproductexcel'])->name('exportproductexcel');
-    Route::get('/product/csv',[ProductController::class,'exportproductcsv'])->name('exportproductcsv');
-    Route::get('/product/html',[ProductController::class,'exportproducthtml'])->name('exportproducthtml');
-    Route::get('/product/pdf',[ProductController::class,'exportproductpdf'])->name('exportproductpdf');
-    Route::resource('product',  ProductController::class)->parameters([
-        'product' => 'name',
-    ]);
-
-    Route::resource('orders', OrderController::class)->only('index');
-    Route::resource('chat', ChatController::class)->only('index');
-    Route::resource('post', PostController::class)->only('index');
-    Route::resource('profile', ProfileController::class)->only('index');
-    Route::resource('changepassword', ChangePasswordController::class)->only('index');
-    Route::resource('analytics', AnalyticsController::class)->only('index');
-    Route::resource('report', ReportController::class)->only('index');
-
-    Route::resource('customer', CustomerController::class)->only('index');
-    Route::resource('user', UsersController::class)->only('index');
-    Route::resource('role', RoleController::class)->only('index');
-    Route::resource('permission', PermissionController::class)->only('index');
+        Route::resource('customer', CustomerController::class)->only('index');
+        Route::resource('user', UsersController::class)->only('index');
+        Route::resource('role', RoleController::class)->only('index');
+        Route::resource('permission', PermissionController::class)->only('index');
     });
 });

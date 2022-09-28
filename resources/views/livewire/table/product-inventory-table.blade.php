@@ -39,7 +39,6 @@
                        <tr> 
                            <th class="whitespace-nowrap ">Product Name</th> 
                            <th class="whitespace-nowrap text-center">Inventory</th> 
-                           <th class="whitespace-nowrap text-center">Status</th> 
                            <th class="whitespace-nowrap text-center">Actions</th>     
                        </tr> 
                    </thead> 
@@ -47,24 +46,22 @@
                    @foreach($products as $product)
                        <tr> 
                            <td class="whitespace-nowrap ">
-                               <a href="" class="font-medium whitespace-nowrap">{{$product->name}}</a> 
-                               <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->category->name}}</div>
+                               <a href="{{Route('product.show',$product->id)}}" class="font-medium whitespace-nowrap">{{$product->name}}
+                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->category->name}}</div>
+                                </a> 
                            </td> 
                            <td class="whitespace-nowrap text-center">{{$product->stock}} in stock</td> 
-                           <td class="whitespace-nowrap">
-                               @if($product->status == 1)
-                                   <div class="flex items-center justify-center text-success"> <i class="fa-regular fa-square-check w-4 h-4 mr-1"></i> Active </div>
-                               @elseif ($product->status == 0)
-                                   <div class="flex items-center justify-center text-danger"> <i class="fa-regular fa-circle-xmark w-4 h-4 mr-1"></i> Inactive </div>
-                               @endif
-                           </td> 
                            <td class="table-report__action w-56">
                                <div class="flex justify-center items-center">
                                    <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href="{{Route('product.edit',$product->id)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
-                                        <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center text-danger"> 
-                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
+                                        <button  wire:click="selectItem({{$product->id}},'edit')" class="flex items-center mr-3" > 
+                                            <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit
                                         </button>
+                                    
+                                        <button wire:click="selectItem({{$product->id}},'adjust')" class="flex items-center text-danger"> 
+                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Adjust
+                                        </button>
+                                      
                                    </div>
                                </div>
                            </td>

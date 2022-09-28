@@ -108,6 +108,20 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('ProductEditSuccess', $request->name .' was successfully Edit');
         //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
       }
+
+      public function show($id){
+        $product = Product::findorFail($id);
+        $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
+        
+        $images = $product->images;
+
+        return view('admin.page.Product.productshow', compact('product'),[
+          'categories' => $categories,
+          'brands' => $brands,
+          'images' => $images,
+        ]);
+      }
       
       public function destroy($id){ 
         $product = Product::findorFail($id);

@@ -1,5 +1,5 @@
 @extends('customer.layout.base')
-@section('content')  
+@section('content')
 @section('title', 'Contact')
 
 
@@ -10,10 +10,13 @@
         <div class="font-medium text-center text-5xl">Contact</div>
         <div class="text-slate-500 text-center mt-2">To start off, please enter your username, email address and password.</div>
     </div>
-    
+
     <form action="{{Route('sendemailcontact')}}" method="POST">
         @csrf
         <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
+            @if(session('success'))
+            <div class="alert alert-dark show mb-2" role="alert">{{ session('success') }}</div>
+            @endif
             @if ($errors->any())
             <div class="alert alert-danger show mb-2" role="alert">
                 <div class="flex items-center">
@@ -30,19 +33,19 @@
             <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">First Name</label>
-                    <input type="text" class="form-control" placeholder="First Name" name="fname" value="{{old('fname')}}">
-                </div>
-                <div class="intro-y col-span-12 sm:col-span-6">
-                    <label  class="form-label">Last Name</label>
-                    <input  type="text" class="form-control" placeholder="Last Name" name="lname" value="{{old('lname')}}">
+                    <input type="text" class="form-control" placeholder="Full Name" name="name" value="{{old('name')}}">
                 </div>
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label  class="form-label">Email</label>
-                    <input  type="text" class="form-control" placeholder="example@email.com" name="email" value="{{old('email')}}">
+                    <input  type="email" class="form-control" placeholder="Email" name="email" value="{{old('email')}}">
                 </div>
                 <div class="intro-y col-span-12 sm:col-span-6">
-                    <label class="form-label">Phone number</label>
-                    <input type="text" class="form-control" name="phone" placeholder="Phone number" value="{{old('phone')}}">
+                    <label  class="form-label">Phone Number</label>
+                    <input  type="text" class="form-control" placeholder="Phone Number" name="phone" value="{{old('phone')}}">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" value="{{old('subject')}}">
                 </div>
             </div>
             <div class="mt-5">
@@ -59,7 +62,7 @@
 </div>
 <script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
 
-@endsection 
+@endsection
 @push('scripts')
 <script>
 </script>

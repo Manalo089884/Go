@@ -34,6 +34,6 @@ class CategorySeeder extends Seeder
             ]
         ]);
         */
-        Category::factory()->times(100)->create();
+        Category::factory(100)->create();
     }
 }

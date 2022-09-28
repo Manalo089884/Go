@@ -2,7 +2,19 @@
 @section('content')  
 @section('title', 'Add Product')
 <h2 class="intro-y text-lg font-medium mt-10">Add Product</h2>
-
+    @if ($errors->any())
+    <div class="intro-y alert alert-danger show mb-2" role="alert">
+        <div class="flex items-center">
+            <div class="font-medium text-lg">Whoops Something Went Wrong</div>
+            <div class="text-xs bg-white px-1 rounded-md text-slate-700 ml-auto">Error</div>
+        </div>
+        <div class="mt-3">
+            @foreach ($errors->all() as $error)
+             <div>{{$error}}</div>
+            @endforeach
+       </div>
+    </div>
+    @endif
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 lg:col-span-12">
         <div class="intro-y box p-5">
@@ -14,12 +26,11 @@
                         <label  class="form-label w-full flex flex-col sm:flex-row">
                             Product Name 
                         </label> 
-                        <input id="validation-form-1" type="text" name="name" class="form-control @error('name') border-danger @enderror" placeholder="Product Name" value="{{old('name')}}" > 
-                        <div class="text-danger mt-2">@error('name'){{$message}}@enderror</div>
+                        <input id="validation-form-1" type="text" name="name" class="form-control" placeholder="Product Name" value="{{old('name')}}" > 
                     </div>
                 </div>
              
-                <div class="flex flex-col sm:flex-row items-center gap-2	">
+                <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
                     <!-- Category -->
                     <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
@@ -38,7 +49,6 @@
                                 @endforelse
                             </select> 
                         </div>
-                        <div class="text-danger mt-2">@error('category'){{$message}}@enderror</div>
                     </div>
                     <!-- Brand -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-1 w-full form">
@@ -58,23 +68,22 @@
                                 @endforelse
                             </select> 
                         </div>
-                        <div class="text-danger mt-2">@error('brand'){{$message}}@enderror</div>
                     </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-center gap-2">
+                <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
                     <!-- Cost Price -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                             Cost Price 
                         </label>
                         <div class="input-group">
-                            <input id="cprice" type="number" class="form-control @error('cprice') border-danger @enderror" placeholder="Purchase Price"  name="cprice" value="{{old('cprice')}}">
+                            <input id="cprice" type="number" class="form-control " placeholder="Purchase Price"  name="cprice" value="{{old('cprice')}}">
                             <div id="input-group-2" class="input-group-text">
                                 Unit
                             </div>
                         </div>
-                         <div class="text-danger mt-2">@error('cprice'){{$message}}@enderror</div>
+                     
                     </div>
                     <!-- Selling Price -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
@@ -82,35 +91,33 @@
                             Selling Price 
                         </label>
                         <div class="input-group">
-                            <input id="sprice" type="number" class="form-control @error('sprice') border-danger @enderror" placeholder="Selling Price"  name="sprice" value="{{old('sprice')}}">
+                            <input id="sprice" type="number" class="form-control" placeholder="Selling Price"  name="sprice" value="{{old('sprice')}}">
                             <div id="input-group-2" class="input-group-text">
                                 Unit
                             </div>
                         </div>
-                         <div class="text-danger mt-2">@error('sprice'){{$message}}@enderror</div>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center">
-                    <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
+                    <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form mt-1">
                         <div>Margin: <span id="margin"> </span>%</div>
                     </div>
-                    <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
+                    <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form mt-1">
                         <div>Mark-up:
                         <span id="profit">0 </span><span> PHP</span></div>
                     </div>
                 </div>
         
-                <div class="flex flex-col sm:flex-row items-center gap-2">
+                <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
                     <!-- Inventory -->
                     <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                             Inventory Stocks 
                         </label>
                         <div class="input-group ">
-                            <input id="crud-form-3" type="number" class="form-control @error('stock') border-danger @enderror" placeholder="Quantity" name="stock" value="{{old('stock')}}">
+                            <input id="crud-form-3" type="number" class="form-control" placeholder="Quantity" name="stock" value="{{old('stock')}}">
                             <div id="input-group-1" class="input-group-text ">pcs</div>  
                         </div>
-                        <div class="text-danger mt-2">@error('stock'){{$message}}@enderror</div>
                     </div>
                     <!-- SKU -->
                     <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
@@ -118,10 +125,9 @@
                             SKU
                         </label>
                         <div class="input-group ">
-                            <input type="text" class="form-control @error('SKU') border-danger @enderror" placeholder="SKU" name="SKU" value="{{old('SKU')}}">
+                            <input type="text" class="form-control" placeholder="SKU" name="SKU" value="{{old('SKU')}}">
                             <div id="input-group-1" class="input-group-text ">pcs</div>
                         </div>
-                        <div class="text-danger mt-2">@error('SKU'){{$message}}@enderror</div>
                     </div>
                 </div>
                 <div class="mt-3">
@@ -129,12 +135,11 @@
                         Weight 
                     </label>
                     <div class="input-group">
-                        <input id="crud-form-4" type="number" class="form-control @error('weight') border-danger @enderror" placeholder="Weight" aria-describedby="input-group-2" name="weight" value="{{old('weight')}}">
+                        <input id="crud-form-4" type="number" class="form-control" placeholder="Weight" aria-describedby="input-group-2" name="weight" value="{{old('weight')}}">
                         <div id="input-group-2" class="input-group-text">
                             grams
                         </div>
                     </div>
-                    <div class="text-danger mt-2">@error('weight'){{$message}}@enderror</div>
                 </div>
 
                 <div class="mt-3">
@@ -142,7 +147,6 @@
                     <div class="form-switch mt-2">
                         <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
                     </div>
-                    <div class="text-danger mt-2">@error('status'){{$message}}@enderror</div>
                 </div>
             
                 <div class="mt-3">
@@ -150,13 +154,11 @@
                     <div class="mt-2">
                         <textarea id="editor" class="editor" name="description" >{{old('description')}}</textarea>
                     </div>
-                    <div class="text-danger mt-2">@error('description'){{$message}}@enderror</div>
                 </div>
 
                 <div class="mt-3">
                     <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
                     <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
-                    <div class="text-danger mt-2">@error('images'){{$message}}@enderror</div>
                 </div>
                    
                 <div class="text-right mt-5">

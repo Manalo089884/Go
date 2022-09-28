@@ -16,7 +16,7 @@
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                     A few more clicks to <br> sign in to your account.
                 </div>
-                <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
+                <div class="intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
                     Manage all your e-commerce accounts in one place
                 </div>
             </div>
@@ -30,17 +30,19 @@
                         A few more clicks to sign in to your account. Manage all your e-commerce accounts in one place
                     </div>
                     @if(session('info'))
-                        <div class="alert alert-dark show mb-2 mt-2" role="alert">{{session('info')}}</div>
+                        <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('info')}}</div>
                     @endif
                     @if (session('status'))
                         <div class="alert alert-danger show flex items-center mb-2 mt-2" role="alert"> 
                             <i data-lucide="alert-octagon" class="w-6 h-6 mr-2"></i> {{session('status')}} 
                         </div>
                     @endif
-
+                    @if(session('fail'))
+                        <div class="intro-x alert alert-danger show mb-2 mt-2" role="alert">{{session('fail')}}</div>
+                    @endif
 
                     <div class="intro-x mt-8">
-                        <input name="email" type="text" class="intro-x login__input form-control py-3 px-4 block" placeholder="Email" >
+                        <input name="email" type="text" class="intro-x login__input form-control py-3 px-4 block" value="{{ old('email')}}" placeholder="Email" >
                         @error('email')
                             <div id="error-email" class="login__input-error text-danger mt-2">{{$message}}</div>
                         @enderror

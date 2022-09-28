@@ -1,5 +1,5 @@
 @extends('customer.layout.base')
-@section('content')  
+@section('content')
 @section('title', 'Register')
 
 <div class="flex items-center mt-8">
@@ -50,7 +50,7 @@
                     <label class="form-label">Phone Number</label>
                     <input type="number" name="phone" class="form-control" placeholder="Phone Number">
                 </div>
-                
+
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">Age</label>
                     <input type="number" name="age" class="form-control" placeholder="Age">
@@ -78,7 +78,7 @@
     </div>
 </div>
 
-@endsection 
+@endsection
 @push('scripts')
 <script>
 </script>

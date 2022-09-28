@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:;" class="top-menu ">
+            <a href="{{Route('productcatalog.index')}}" class="top-menu {{ (request()->is('product')) ? 'top-menu--active' : '' }}">
                 <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
                 <div class="top-menu__title"> Product</div>
             </a>
@@ -30,6 +30,7 @@
                 <div class="top-menu__title"> Terms</div>
             </a>
         </li>
+        @guest
         <li>
             <a href="{{Route('CRegister.index')}}" class="top-menu {{ (request()->is('CRegister')) ? 'top-menu--active' : '' }}">
                 <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
@@ -42,6 +43,8 @@
                 <div class="top-menu__title"> Login</div>
             </a>
         </li>
+        @endguest
+
         <li>
             <a href="{{Route('faq')}}" class="top-menu {{ (request()->is('faq')) ? 'top-menu--active' : '' }}">
                 <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
@@ -66,6 +69,15 @@
                 <div class="top-menu__title"> Wishlist</div>
             </a>
         </li>
-       
+        @auth('')
+        <li>
+            <a href="{{Route('CLogout')}} " class="top-menu {{ (request()->is('wishlist')) ? 'top-menu--active' : '' }}">
+                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="top-menu__title"> Logout</div>
+            </a>
+        </li>
+        @endauth
+
+
     </ul>
 </nav>

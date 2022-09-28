@@ -8,7 +8,7 @@ use App\Models\Customer;
 use Illuminate\Support\Facades\Hash;
 class CustomerRegisterController extends Controller
 {
-    public function index(){  
+    public function index(){
         return view('customer.auth.register');
     }
     public function store(Request $request){
@@ -32,9 +32,9 @@ class CustomerRegisterController extends Controller
           'password' => Hash::make($request->password)
       ]);
       auth()->attempt($request->only('email','password'));
-      
+
         return back()->with('success',"Account Created Successfully");
         //redirect
-        
+
     }
 }
