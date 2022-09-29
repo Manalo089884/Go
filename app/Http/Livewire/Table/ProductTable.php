@@ -18,7 +18,7 @@ class ProductTable extends Component
     public $action;
     public $selectedItem;
 
-    
+
     protected $listeners = [
         'refreshParent' => '$refresh'
     ];
@@ -27,8 +27,8 @@ class ProductTable extends Component
         $this->sorting = "nameaz";
         $this->perPage = 5;
     }
-   
-    public function render(){   
+
+    public function render(){
         if($this->sorting == 'nameaz'){
             $products = Product::search($this->search)->with('category','brand','images')
             ->orderBy('name','asc')
@@ -84,7 +84,7 @@ class ProductTable extends Component
 
     public function selectItem($itemId,$action){
         $this->selectedItem = $itemId;
-
+        /*
         if($action == 'edit'){
             $this->emit('getEditModalID',$this->selectedItem);
             $this->dispatchBrowserEvent('openEditModal');
@@ -92,7 +92,12 @@ class ProductTable extends Component
             $this->emit('getAdjustModalID',$this->selectedItem);
             $this->dispatchBrowserEvent('openAdjustModal');
         }
-        $this->action = $action;
+        */
+        if($action == 'delete'){
+            $this->emit('getModelDeleteModalId',$this->selectedItem);
+            $this->dispatchBrowserEvent('openDeleteModal');
+        }
+            $this->action = $action;
     }
-    
+
 }
