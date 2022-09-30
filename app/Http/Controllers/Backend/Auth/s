@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Mail\ResetPassword;
-
-use Illuminate\Support\Facades\Mail;
-use App\Jobs\AdminResetPasswordJob;
+use Mail;
 class ResetController extends Controller
 {
     public function index(){
@@ -35,12 +33,13 @@ class ResetController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        $details = [
-            'email' => $request['email'],
-            'action_link' => route('reset.password.form',['token'=>$token,'email'=>$request->email])
-        ];
-
-        dispatch(new AdminResetPasswordJob($details));
+        $action_link = route('reset.password.form',['token'=>$token,'email'=>$request->email]);
+        $body = "We have received a request to reset password for <b> Go Dental </b> account associated with ".$request->email.". You can reset your password by clicking the link below";
+        \Mail::send('admin.mail.email-forgot',['action_link'=>$action_link,'body'=>$body], function($message) use ($request){
+            $message->from('noreply@example.com','Your App Name');
+            $message->to($request->email,'Your name')
+                    ->subject('Reset Password');
+      });
         return back()->with('success', 'We have emailed your password reset link!');
 
     }

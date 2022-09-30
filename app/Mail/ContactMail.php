@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $details;
     /**
      * Create a new message instance.
      *
@@ -28,8 +28,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact Message')
-        ->from('noreply@domain.com')
+        return $this->subject($this->details['subject'])
+        ->from($this->details['email'])
         ->markdown('template.ContactForm')
         ->with([
                 'name' => $this->details['name'],

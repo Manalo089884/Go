@@ -5,7 +5,8 @@ namespace App\Http\Controllers\FrontEnd\Transaction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Mail\ContactMail;
-use Mail;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\ContactJob;
 class ContactController extends Controller
 {
     public function index(){
@@ -28,7 +29,8 @@ class ContactController extends Controller
             'message' => $request['message'],
         ];
 
-        Mail::to('godental@gmail.com')->send(new ContactMail($contact));
+
+        dispatch(new ContactJob($contact));
         return redirect()->route('contact')->with('success',"Message Successfully Sent")->withFragment('#contactpage');
 
     }
