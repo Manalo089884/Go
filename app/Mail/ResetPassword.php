@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class ResetPassword extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
-    protected $details;
+    public $details;
     /**
      * Create a new message instance.
      *
@@ -28,12 +28,14 @@ class ResetPassword extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->view('admin.mail.email-forgot')
-        ->from($this->details['email'])
-        ->subject('Reset Go Dental Password')
+        return $this->subject("Go Dental Reset Password")
+        ->markdown('admin.mail.email-forgot')
+        ->from('godentalnoreply@gmail.com', "Go Dental")
         ->with([
             'email' => $this->details['email'],
             'action_link' => $this->details['action_link']
         ]);
+
+
     }
 }

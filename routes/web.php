@@ -30,6 +30,9 @@ use App\Http\Controllers\Backend\Users\PermissionController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\Transaction\ContactController;
 
+
+use App\Http\Controllers\Frontend\Auth\CustomerProfileController;
+use App\Http\Controllers\Frontend\Auth\CustomerDataController;
 use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
 use App\Http\Controllers\Frontend\Auth\CustomerRegisterController;
 use App\Http\Controllers\Frontend\Auth\CustomerLogoutController;
@@ -50,20 +53,32 @@ Route::get('/terms', [PageController::class,'terms'])->name('terms');
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
 Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
 Route::get('/product', [PageController::class,'product'])->name('product');
+
+
+
 Route::resource('productcatalog', ProductCatalogController::class)->only(['index','show']);
-
-
 
     Route::middleware(['guest:customer','PreventBackHistory'])->group(function () {
         Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
         Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
-
-
     });
     Route::middleware(['auth:customer','PreventBackHistory'])->group(function () {
         Route::resource('cart', CartController::class)->only(['index','store']);
         Route::resource('wishlist', WishlistController::class)->only(['index','store']);
         Route::get('/CLogout', [CustomerLogoutController::class, 'store'])->name('CLogout');
+        Route::group(['prefix' => 'user'],function(){
+            Route::get('/profile', [CustomerProfileController::class,'index'])->name('customer.profile');
+            Route::get('/address', [CustomerProfileController::class,'address'])->name('customer.address');
+            Route::get('/changepassword',[CustomerProfileController::class,'changepassword'])->name('customer.change.pass');
+        });
+
+        Route::group(['prefix' => 'customer'],function(){
+            Route::get('/orders', [CustomerDataController::class,'index'])->name('customer.orders');
+            Route::get('/returns', [CustomerDataController::class,'returns'])->name('customer.returns');
+            Route::get('/reviews',[CustomerDataController::class,'reviews'])->name('customer.reviews');
+            Route::get('/cancellations',[CustomerDataController::class,'cancellations'])->name('customer.cancellations');
+        });
+
         /*
         Route::get('/about', [PageController::class,'about'])->name('about');
         Route::get('/contact', [ContactController::class,'index'])->name('contact');
@@ -78,11 +93,6 @@ Route::resource('productcatalog', ProductCatalogController::class)->only(['index
 
 
 
-
-
-
-
-
 Route::group(['prefix' => 'admin'],function(){
     Route::middleware(['guest:web','PreventBackHistory'])->group(function () {
         Route::resource('login', LoginController::class)->only(['index','store']);
@@ -93,7 +103,8 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
         Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
     });
-    Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
+
+    Route::middleware(['auth:web'])->group(function () {
         //Export Files for Category
         Route::get('/category/excel',[CategoryController::class,'exportcategoriesexcel'])->name('exportcategoriesexcel');
         Route::get('/category/csv',[CategoryController::class,'exportcategoriescsv'])->name('exportcategoriescsv');
@@ -113,31 +124,23 @@ Route::group(['prefix' => 'admin'],function(){
     Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
         Route::resource('dashboard', DashboardController::class)->only(['index']);
         Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
-
         Route::resource('brand',  BrandController::class)->only(['index']);
-
-
         Route::resource('category',  CategoryController::class)->only('index');
         Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
-
         Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
         Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
-
         Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
         Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
         Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
-
-
         Route::resource('product',  ProductController::class);
-
         Route::resource('orders', OrderController::class)->only('index');
         Route::resource('chat', ChatController::class)->only('index');
         Route::resource('post', PostController::class)->only('index');
+        Route::get('/profile/changepassword', [ProfileController::class,'changepass'])->name('AdminChangePass');
         Route::resource('profile', ProfileController::class)->only('index');
         Route::resource('changepassword', ChangePasswordController::class)->only('index');
         Route::resource('analytics', AnalyticsController::class)->only('index');
         Route::resource('report', ReportController::class)->only('index');
-
         Route::resource('customer', CustomerController::class)->only('index');
         Route::resource('user', UsersController::class)->only('index');
         Route::resource('role', RoleController::class)->only('index');

@@ -13,10 +13,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body class="login">
-        @include('admin.component.dark-mode-switcher')
-        @include('admin.component.main-color-switcher')
 
-    @yield('content')
+        <!-- Dark Mode Switcher -->
+        @include('admin.component.dark-mode-switcher')
+        <!-- Color Switcher -->
+        @include('admin.component.main-color-switcher')
+        <!-- Begin Content -->
+        @yield('content')
+        <!-- End Content -->
 
     <script src="{{ asset('dist/js/app.js') }}"></script>
 </body>

@@ -35,31 +35,24 @@
 
             <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
                 <div class="intro-y col-span-12 sm:col-span-6">
-                    <label class="form-label">First Name</label>
-                    <input type="text" name="fname" class="form-control" placeholder="First Name">
-                </div>
-                <div class="intro-y col-span-12 sm:col-span-6">
-                    <label class="form-label">Last Name</label>
-                    <input type="text" name="lname" class="form-control" placeholder="Last Name">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" value="{{ old('name') }}">
                 </div>
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
+                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" value="{{ old('email') }}">
                 </div>
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">Phone Number</label>
-                    <input type="number" name="phone" class="form-control" placeholder="Phone Number">
+                    <input type="number" name="phone" class="form-control" placeholder="Phone Number" value="{{ old('phone') }}">
                 </div>
 
-                <div class="intro-y col-span-12 sm:col-span-6">
-                    <label class="form-label">Age</label>
-                    <input type="number" name="age" class="form-control" placeholder="Age">
-                </div>
+
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">Gender</label>
                     <select name="gender" class="form-select">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="Male" @if(old('gender') == "Male") selected @endif>Male</option>
+                        <option value="Female" @if(old('gender') == "Female") selected @endif>Female</option>
                     </select>
                 </div>
                 <div class="intro-y col-span-12 sm:col-span-6">
@@ -69,6 +62,15 @@
                 <div class="intro-y col-span-12 sm:col-span-6">
                     <label class="form-label">Password Confirmation</label>
                     <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation">
+                </div>
+                <div class="intro-y col-span-12 sm:col-span-6">
+                    <label class="form-label">Birthday</label>
+                    <div class="relative w-full mx-auto">
+                        <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-slate-100 border text-slate-500 dark:bg-darkmode-700 dark:border-darkmode-800 dark:text-slate-400">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                        </div>
+                        <input type="text" class="datepicker form-control pl-12" name="birthday" data-single-mode="true" value="{{ old('birthday') }}">
+                    </div>
                 </div>
                 <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
                     <button class="btn btn-primary w-24 ml-2">Register</button>

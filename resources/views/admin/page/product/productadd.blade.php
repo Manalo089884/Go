@@ -1,5 +1,5 @@
 @extends('admin.layout.admin')
-@section('content')  
+@section('content')
 @section('title', 'Add Product')
 <h2 class="intro-y text-lg font-medium mt-10">Add Product</h2>
     @if ($errors->any())
@@ -22,20 +22,20 @@
                 @csrf
                 <!-- Product Name -->
                 <div>
-                    <div class="input-form"> 
+                    <div class="input-form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
-                            Product Name 
-                        </label> 
-                        <input id="validation-form-1" type="text" name="name" class="form-control" placeholder="Product Name" value="{{old('name')}}" > 
+                            Product Name
+                        </label>
+                        <input id="validation-form-1" type="text" name="name" class="form-control" placeholder="Product Name" value="{{old('name')}}" >
                     </div>
                 </div>
-             
+
                 <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
                     <!-- Category -->
                     <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
-                            Category 
-                        </label> 
+                            Category
+                        </label>
                         <div style="@error('brand')border: 1px solid red @enderror" class="form-control ">
                             <select data-placeholder="Select Category" class="tom-select w-full" name="category">
                                 @forelse($categories as $category)
@@ -47,13 +47,13 @@
                                 @empty
                                     <option disabled>No Results Found Add a Category first</option>
                                 @endforelse
-                            </select> 
+                            </select>
                         </div>
                     </div>
                     <!-- Brand -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-1 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Brand 
+                            Brand
                         </label>
                         <div style="@error('brand')border: 1px solid red @enderror" class="form-control ">
                             <select data-placeholder="Select Brand"  class="tom-select w-full" name="brand" >
@@ -66,16 +66,17 @@
                                 @empty
                                     <option disabled>No Results Found Add a Brand first</option>
                                 @endforelse
-                            </select> 
+                            </select>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
                     <!-- Cost Price -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Cost Price 
+                            Cost Price
                         </label>
                         <div class="input-group">
                             <input id="cprice" type="number" class="form-control " placeholder="Purchase Price"  name="cprice" value="{{old('cprice')}}">
@@ -83,12 +84,12 @@
                                 Unit
                             </div>
                         </div>
-                     
+
                     </div>
                     <!-- Selling Price -->
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Selling Price 
+                            Selling Price
                         </label>
                         <div class="input-group">
                             <input id="sprice" type="number" class="form-control" placeholder="Selling Price"  name="sprice" value="{{old('sprice')}}">
@@ -107,16 +108,16 @@
                         <span id="profit">0 </span><span> PHP</span></div>
                     </div>
                 </div>
-        
-                <div class="flex flex-col sm:flex-row items-center gap-2 mt-2">
+
+                <div class="flex flex-col sm:flex-row items-center gap-2 ">
                     <!-- Inventory -->
                     <div class="item w-1/2 h-28 mr-5 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Inventory Stocks 
+                            Inventory Stocks
                         </label>
                         <div class="input-group ">
                             <input id="crud-form-3" type="number" class="form-control" placeholder="Quantity" name="stock" value="{{old('stock')}}">
-                            <div id="input-group-1" class="input-group-text ">pcs</div>  
+                            <div id="input-group-1" class="input-group-text ">pcs</div>
                         </div>
                     </div>
                     <!-- SKU -->
@@ -132,7 +133,7 @@
                 </div>
                 <div class="mt-3">
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                        Weight 
+                        Weight
                     </label>
                     <div class="input-group">
                         <input id="crud-form-4" type="number" class="form-control" placeholder="Weight" aria-describedby="input-group-2" name="weight" value="{{old('weight')}}">
@@ -148,7 +149,7 @@
                         <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
                     </div>
                 </div>
-            
+
                 <div class="mt-3">
                     <label>Description</label>
                     <div class="mt-2">
@@ -160,7 +161,7 @@
                     <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
                     <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
                 </div>
-                   
+
                 <div class="text-right mt-5">
                     <a href="{{Route('product.index')}}"><button type="button" class="btn btn-outline-secondary w-24 mr-1">Cancel</button></a>
                     <button type="submit" class="btn btn-primary w-24 mt-3">Save</button>

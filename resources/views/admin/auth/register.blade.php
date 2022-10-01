@@ -16,6 +16,7 @@
         </div>
         <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
             <div class="my-auto mx-auto xl:ml-20 bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
+                <!-- Register Form -->
                 <form action="{{Route('register.store')}}" method="POST">
                     @csrf
                     <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sign Up</h2>
@@ -23,7 +24,6 @@
                         A few more clicks to sign in to your account. Manage all your e-commerce accounts in one place
                     </div>
                     <div class="intro-x mt-8">
-
                         <input type="text" class="intro-x login__input form-control py-3 px-4 block" placeholder="Name" name="name" value="{{old('name')}}">
                         @error('name')
                             <div class="login__input-error text-danger mt-2">{{$message}}</div>
@@ -44,17 +44,16 @@
                             <div class="login__input-error text-danger mt-2">{{$message}}</div>
                         @enderror
                         <input type="password" class="intro-x login__input form-control py-3 px-4 block mt-4" placeholder="Password Confirmation" name="password_confirmation">
-                        
+
                         <select data-placeholder="Select Category" class="tom-select w-full mt-4" name="gender">
                             <option disabled>Select Gender</option>
                             <option>Male</option>
                             <option >Female</option>
-                        </select> 
+                        </select>
                         @error('gender')
                             <div class="login__input-error text-danger mt-2">{{$message}}</div>
                         @enderror
                     </div>
-                    
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                         <input type="submit" value="Register" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">
                         <a href="{{Route('login.index')}}" class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top">
@@ -62,6 +61,7 @@
                         </a>
                     </div>
                 </form>
+                <!-- End Registration Form -->
             </div>
         </div>
     </div>

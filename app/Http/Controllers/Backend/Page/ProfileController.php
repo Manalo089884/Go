@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index(){  
+    public function index(){
         return view('admin.page.profile');
+    }
+    public function changepass(){
+        return view('admin.page.changepass');
     }
 }

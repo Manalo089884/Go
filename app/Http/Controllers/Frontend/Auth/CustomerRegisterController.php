@@ -13,21 +13,20 @@ class CustomerRegisterController extends Controller
     }
     public function store(Request $request){
          $this->validate($request,[
-            'fname' => 'required|max:255',
-            'lname' => 'required|max:255',
+            'name' => 'required|max:255',
             'email'=>'required|max:255',
             'phone'=>'required|numeric',
-            'age' => 'required|max:255|numeric',
+            'birthday' => 'required',
             'gender' => 'required|max:255',
             'password' => 'required|min:8|max:255|confirmed'
         ]);
 
+
         Customer::create([
-          'firstname' => $request->fname,
-          'lastname' => $request->lname,
+          'name' => $request->name,
           'email' => $request->email,
           'phone_number'=>$request->phone,
-          'age'=>$request->age,
+          'birthday'=>$request->birthday,
           'gender'=>$request->gender,
           'password' => Hash::make($request->password)
       ]);

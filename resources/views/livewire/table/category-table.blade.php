@@ -1,7 +1,7 @@
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
         <button class="btn btn-primary shadow-md mr-2"  data-tw-toggle="modal" data-tw-target="#add-item-modal">Add New Category </button>
-        
+
         <div class="dropdown">
             <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
                 <span class="w-5 h-5 flex items-center justify-center"><i class="fa-regular fa-plus w-4 h-4"></i></span>
@@ -24,7 +24,11 @@
             </div>
         </div>
         <div class="hidden md:block mx-auto text-slate-500">
-            Showing {{$category->firstItem()}} to {{$category->lastItem()}} of {{$category->total()}} entries
+            @if($category->count() == 0)
+                Showing 0 to 0 of 0 entries
+            @else
+                Showing {{$category->firstItem()}} to {{$category->lastItem()}} of {{$category->total()}} entries
+            @endif
         </div>
         <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
             <div class="w-56 relative text-slate-500">
@@ -45,15 +49,15 @@
             @forelse($category as $categories)
             <tr class="intro-x">
                 <td>
-                    <p class="font-medium whitespace-nowrap" >{{$categories->name}}</p> 
+                    <p class="font-medium whitespace-nowrap" >{{$categories->name}}</p>
                 </td>
                 <td class="table-report__action w-56">
                     <div class="flex justify-center items-center">
-                        <button  wire:click="selectItem({{$categories->id}},'update')" class="flex items-center mr-3" > 
-                            <i  class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit 
+                        <button  wire:click="selectItem({{$categories->id}},'update')" class="flex items-center mr-3" >
+                            <i  class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit
                         </button>
-                      
-                        <button wire:click="selectItem({{$categories->id}},'delete')"  class="flex items-center text-danger" > 
+
+                        <button wire:click="selectItem({{$categories->id}},'delete')"  class="flex items-center text-danger" >
                             <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i>  Delete
                         </button>
                     </div>
@@ -67,10 +71,10 @@
             </tbody>
         </table>
     </div>
-  
+
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
         <nav class="w-full sm:w-auto sm:mr-auto">
-            {!! $category->onEachSide(1)->links() !!}   
+            {!! $category->onEachSide(1)->links() !!}
         </nav>
         <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
             <option>10</option>

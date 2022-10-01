@@ -16,6 +16,7 @@
         </div>
         <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
             <div class="my-auto mx-auto xl:ml-20 bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
+                <!-- Reset Password Form -->
                 <form action="{{Route('reset.store')}}" method="POST">
                     @csrf
                     <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Reset Password</h2>
@@ -30,15 +31,14 @@
                         @error('email')
                             <div class="login__input-error text-danger mt-2">{{$message}}</div>
                         @enderror
-
                     </div>
-                    
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                         <input type="submit" value="Reset Password" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top" @if(session('success'))
                         disabled
                     @endif>
                     </div>
                 </form>
+                <!-- End Reset Form -->
             </div>
         </div>
     </div>

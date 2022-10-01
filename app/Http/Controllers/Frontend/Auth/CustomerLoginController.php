@@ -26,16 +26,5 @@ class CustomerLoginController extends Controller
         }else{
             return back()->with('fail', 'Incorrect credentials');
         }
-        /*$this->validate($request,[
-            'email' =>'required',
-            'password' => 'required',
-        ]);
-
-         if(!auth()->attempt($request->only('email','password'),$request->remember)){
-            return back()->with('status','Invalid username or password');
-        }
-
-        return redirect()->route('CRegister.index');
-        */
     }
 }

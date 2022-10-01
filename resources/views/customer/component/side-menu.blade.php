@@ -57,27 +57,5 @@
                 <div class="top-menu__title"> Privacy</div>
             </a>
         </li>
-        <li>
-            <a href="{{Route('cart.index')}}" class="top-menu {{ (request()->is('cart')) ? 'top-menu--active' : '' }}">
-                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
-                <div class="top-menu__title"> Cart</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{Route('wishlist.index')}} " class="top-menu {{ (request()->is('wishlist')) ? 'top-menu--active' : '' }}">
-                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
-                <div class="top-menu__title"> Wishlist</div>
-            </a>
-        </li>
-        @auth('')
-        <li>
-            <a href="{{Route('CLogout')}} " class="top-menu {{ (request()->is('wishlist')) ? 'top-menu--active' : '' }}">
-                <div class="top-menu__icon"> <i data-lucide="home"></i> </div>
-                <div class="top-menu__title"> Logout</div>
-            </a>
-        </li>
-        @endauth
-
-
     </ul>
 </nav>

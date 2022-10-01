@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 class CustomerSeeder extends Seeder
 {
     /**
@@ -17,22 +18,24 @@ class CustomerSeeder extends Seeder
     {
         DB::table('customers') ->insert([
             [
-                'firstname' => 'Joseph',
-                'lastname' => 'Joseph',
-                'email' => 'mark@gmail.com',
+                'name' => 'Sofa Rinkashime',
+                'email' => 'rinka@gmail.com',
                 'phone_number' => '09452692274',
                 'password' => bcrypt('markmark12'),
                 'gender' => 'male',
-                'age'=>'20'
+                'birthday'=>'6 Dec, 2001',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
             [
-                'firstname' => 's',
-                'lastname' => 's',
-                'email' => 'marks@gmail.com',
+                'name' => 'Shine Rinka',
+                'email' => 'shine@gmail.com',
                 'phone_number' => '09452692273',
                 'password' => bcrypt('markmark12'),
                 'gender' => 'male',
-                'age'=>'22'
+                'birthday'=>'6 Dec, 2002',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]
         ]);
     }

@@ -7,20 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use DB;
 use Carbon\Carbon;
-
 use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPassword;
 
-use Illuminate\Support\Facades\Mail;
 use App\Jobs\AdminResetPasswordJob;
 class ResetController extends Controller
 {
     public function index(){
-       //Mail::to("MarkJosephManalo1110@gmail.com")->send(new ResetPassword());
         return view('admin.auth.reset');
     }
     public function store(Request $request){
