@@ -124,30 +124,32 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/product/csv',[ProductController::class,'exportproductcsv'])->name('exportproductcsv');
         Route::get('/product/html',[ProductController::class,'exportproducthtml'])->name('exportproducthtml');
         Route::get('/product/pdf',[ProductController::class,'exportproductpdf'])->name('exportproductpdf');
+
+        Route::middleware(['PreventBackHistory'])->group(function () {
+            Route::resource('dashboard', DashboardController::class)->only(['index']);
+            Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+            Route::resource('brand',  BrandController::class)->only(['index']);
+            Route::resource('category',  CategoryController::class)->only('index');
+            Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
+            Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
+            Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
+            Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
+            Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
+            Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
+            Route::resource('product',  ProductController::class);
+            Route::resource('orders', OrderController::class)->only('index');
+            Route::resource('chat', ChatController::class)->only('index');
+            Route::resource('post', PostController::class)->only('index');
+            Route::get('/profile/changepassword', [ProfileController::class,'changepass'])->name('AdminChangePass');
+            Route::resource('profile', ProfileController::class)->only('index');
+            Route::resource('changepassword', ChangePasswordController::class)->only('index');
+            Route::resource('analytics', AnalyticsController::class)->only('index');
+            Route::resource('report', ReportController::class)->only('index');
+            Route::resource('customer', CustomerController::class)->only('index');
+            Route::resource('user', UsersController::class)->only('index');
+            Route::resource('role', RoleController::class)->only('index');
+            Route::resource('permission', PermissionController::class)->only('index');
+        });
     });
-    Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
-        Route::resource('dashboard', DashboardController::class)->only(['index']);
-        Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
-        Route::resource('brand',  BrandController::class)->only(['index']);
-        Route::resource('category',  CategoryController::class)->only('index');
-        Route::resource('inventory',  InventoryController::class)->except(['edit','show','create']);
-        Route::post('addimage/{id}', [ProductImageController::class,'addImages'])->name('add');
-        Route::delete('/productimage/{id}', [ProductImageController::class,'removeImage']);
-        Route::get('/product/archive', [ProductController::class,'ProductArchiveIndex'])->name('ProductArchiveIndex');
-        Route::put('/product/archive/{id}', [ProductController::class, 'ProductArchiveRestore']);
-        Route::delete('/product/archive/{id}', [ProductController::class, 'ProductArchiveDestroy']);
-        Route::resource('product',  ProductController::class);
-        Route::resource('orders', OrderController::class)->only('index');
-        Route::resource('chat', ChatController::class)->only('index');
-        Route::resource('post', PostController::class)->only('index');
-        Route::get('/profile/changepassword', [ProfileController::class,'changepass'])->name('AdminChangePass');
-        Route::resource('profile', ProfileController::class)->only('index');
-        Route::resource('changepassword', ChangePasswordController::class)->only('index');
-        Route::resource('analytics', AnalyticsController::class)->only('index');
-        Route::resource('report', ReportController::class)->only('index');
-        Route::resource('customer', CustomerController::class)->only('index');
-        Route::resource('user', UsersController::class)->only('index');
-        Route::resource('role', RoleController::class)->only('index');
-        Route::resource('permission', PermissionController::class)->only('index');
-    });
+
 });

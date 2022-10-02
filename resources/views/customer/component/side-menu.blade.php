@@ -18,7 +18,7 @@
         </li>
         <li>
             <a href="{{Route('CRegister.index')}}" class="top-menu {{ (request()->is('CRegister')) ? 'top-menu--active' : '' }}">
-                <div class="top-menu__title"> Register</div>
+                <div class="top-menu__title"> Sign Up</div>
             </a>
         </li>
         @endif

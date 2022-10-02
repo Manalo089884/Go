@@ -24,7 +24,7 @@
                 </div>
                 <div class="mt-2 xl:mt-0">
                     <a href="{{Route('product.create')}}">
-                        <button  type="button" class="btn btn-primary w-full sm:w-32" > <i class="fa-regular fa-plus w-4 h-4 mr-2"></i> Add Product</button>
+                        <button  type="button" class="btn btn-primary w-full sm:w-32" > </i> Add Product</button>
                     </a>
                     <a href="{{Route('ProductArchiveIndex')}}">
                         <button  type="button" class="btn btn-secondary w-full sm:w-32 mt-2 sm:mt-0 sm:ml-1" >  <i class="fa-solid fa-file-zipper w-4 h-4 mr-2"></i>Archive</button>
@@ -32,7 +32,6 @@
                 </div>
             </div>
             <div class="flex mt-5 sm:mt-0">
-                <button id="tabulator-print" class="btn btn-outline-secondary w-1/2 sm:w-auto mr-2"><i class="fa-solid fa-note-sticky w-4 h-4 mr-2"></i> Print </button>
                 <div class="dropdown w-1/2 sm:w-auto">
                     <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto" aria-expanded="false" data-tw-toggle="dropdown"> <i class="fa-regular fa-newspaper w-4 h-4 mr-2"></i> Export <i class="fa-solid fa-chevron-down w-4 h-4 ml-auto sm:ml-2"></i> </button>
                     <div class="dropdown-menu w-40">

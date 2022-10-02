@@ -89,8 +89,8 @@ class ProductTable extends Component
             $this->emit('getEditModalID',$this->selectedItem);
             $this->dispatchBrowserEvent('openEditModal');
         }else{
-            $this->emit('getAdjustModalID',$this->selectedItem);
-            $this->dispatchBrowserEvent('openAdjustModal');
+            $this->emit('getModelDeleteModalId',$this->selectedItem);
+            $this->dispatchBrowserEvent('openDeleteModal');
         }
         */
         if($action == 'delete'){

@@ -21,15 +21,15 @@
         </li>
         @if(!Auth::guard('customer')->check())
         <li>
-            <a href="{{Route('CRegister.index')}}" class="menu">
-                <div class="menu__icon"> <i data-lucide="home"></i> </div>
-                <div class="menu__title"> Register  </div>
-            </a>
-        </li>
-        <li>
             <a href="{{Route('CLogin.index')}}" class="menu">
                 <div class="menu__icon"> <i data-lucide="home"></i> </div>
                 <div class="menu__title"> Login  </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{Route('CRegister.index')}}" class="menu">
+                <div class="menu__icon"> <i data-lucide="home"></i> </div>
+                <div class="menu__title"> Sign Up  </div>
             </a>
         </li>
         @endif

@@ -15,57 +15,53 @@ use App\Exports\ProductExport;
 
 class ProductController extends Controller
 {
-    
+    public function index(){
+    return view('admin.page.Product.product');
+    }
 
+    public function create(){
+    $categories = Category::orderBy('name')->get();
+    $brands = Brand::orderBy('name')->get();
+    return view('admin.page.Product.productadd',[
+        'categories' => $categories,
+        'brands' => $brands
+    ]);
+    }
 
-      public function index(){  
-        return view('admin.page.Product.product');
-      }
+    public function store(StoreProductRequest $request){
+    $request->validated();
+    $archived = $request->boolean('status');
+    $new_product = Product::create([
+        'name' => $request->name,
+        'category_id' => $request->category,
+        'brand_id' => $request->brand,
+        'stock' => $request->stock,
+        'SKU' => $request->SKU,
+        'cprice' => $request->cprice,
+        'sprice' => $request->sprice,
+        'weight' => $request->weight,
+        'status' => $archived,
+        'description' => $request->description,
+    ]);
 
-      public function create(){
-        $categories = Category::orderBy('name')->get();
-        $brands = Brand::orderBy('name')->get();
-        return view('admin.page.Product.productadd',[
-          'categories' => $categories,
-          'brands' => $brands
+    if($request->has('images')){
+        foreach($request->file('images') as $image){
+        $imageName = time().$image->getClientOriginalName();
+        $image->move(public_path('product_images'),$imageName);
+        ProductImage::create([
+            'product_id' => $new_product->id,
+            'images' =>  $imageName,
         ]);
-      }
-
-      public function store(StoreProductRequest $request){
-        $request->validated();
-        $archived = $request->boolean('status');
-        $new_product = Product::create([
-            'name' => $request->name,
-            'category_id' => $request->category,
-            'brand_id' => $request->brand,
-            'stock' => $request->stock,
-            'SKU' => $request->SKU,
-            'cprice' => $request->cprice,
-            'sprice' => $request->sprice,
-            'weight' => $request->weight,
-            'status' => $archived,
-            'description' => $request->description,
-        ]);
-        
-        if($request->has('images')){
-          foreach($request->file('images') as $image){
-            $imageName = time().$image->getClientOriginalName();
-            $image->move(public_path('product_images'),$imageName);
-            ProductImage::create([  
-              'product_id' => $new_product->id,
-              'images' =>  $imageName,
-            ]);
-          }
-      }
-      return redirect()->route('product.index')->with('success', $request->name .' was successfully inserted');
-       
-      }
+        }
+    }
+    return redirect()->route('product.index')->with('success', $request->name .' was successfully inserted');
+    }
 
       public function edit($id){
         $product = Product::findorFail($id);
         $categories = Category::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
-        
+
         $images = $product->images;
 
         return view('admin.page.Product.productedit', compact('product'),[
@@ -73,7 +69,7 @@ class ProductController extends Controller
           'brands' => $brands,
           'images' => $images,
         ]);
-      
+
       }
 
       public function update(Request $request,$id ){
@@ -87,7 +83,7 @@ class ProductController extends Controller
             'sprice' => 'required|numeric',
             'weight' => 'required|numeric',
             'description' => 'required',
-        
+
         ));
         //$request->validated();
         $product = Product::findorFail($id);
@@ -113,7 +109,7 @@ class ProductController extends Controller
         $product = Product::findorFail($id);
         $categories = Category::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
-        
+
         $images = $product->images;
 
         return view('admin.page.Product.productshow', compact('product'),[
@@ -122,14 +118,14 @@ class ProductController extends Controller
           'images' => $images,
         ]);
       }
-      
-      public function destroy($id){ 
+
+      public function destroy($id){
         $product = Product::findorFail($id);
         $product->delete();
         return back()->with('ProductArchiveSuccess',$product->name ." Deleted Successfully");
       }
 
-       public function ProductArchiveIndex(){  
+       public function ProductArchiveIndex(){
         $products = Product::onlyTrashed()->orderBy('name')->paginate(20);
         return view('admin.page.Product.productarchive',[
             'products' => $products
@@ -146,12 +142,12 @@ class ProductController extends Controller
         Product::where('id',$id)->forceDelete();
         return back()->with('DeleteSuccess',$name  ." was Permanently Deleted");
     }
-    
+
     public function ProductArchiveRestore(Product $product,$id){
         $product = Product::onlyTrashed()->findOrFail($id);
         $name = $product->name;
         $product->restore();
-        
+
         return back()->with('RestoreSuccess',$name ." was Successfully Restored");
     }
     public function exportproductexcel(){
@@ -166,5 +162,5 @@ class ProductController extends Controller
     public function exportproductpdf(){
       return Excel::download(new ProductExport,'products.pdf');
     }
-      
+
 }

@@ -8,8 +8,8 @@
         <!-- END: Logo -->
         <nav aria-label="breadcrumb" class="-intro-x h-full mr-auto">
             <ol class="breadcrumb breadcrumb-light">
-                <li class="breadcrumb-item md:w-20"><p>Go Dental</p></li>
-                <li class="breadcrumb-item active md:w-40" aria-current="page">@yield('title')</li>
+                <li class="breadcrumb-item "><p>Go Dental</p></li>
+                <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
             </ol>
         </nav>
         <!-- BEGIN: Breadcrumb -->
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <a href="{{Route('CRegister.index')}}" class="top-menu {{ (request()->is('CRegister')) ? 'top-menu--active' : '' }}">
-                        <div class="top-menu__title"> Register</div>
+                        <div class="top-menu__title"> Sign Up</div>
                     </a>
                 </li>
                 @endif

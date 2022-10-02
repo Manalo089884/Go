@@ -1,5 +1,5 @@
 @extends('admin.layout.admin')
-@section('content')  
+@section('content')
 @section('title', 'Brand')
 <h2 class="intro-y text-lg font-medium mt-10">Brand</h2>
 <livewire:form.brand-form/>
@@ -9,23 +9,23 @@
 
 <livewire:modal.delete-brand/>
 
-<div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
+<div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
-    <div class="ml-4 mr-4"> 
-        <div class="font-medium" id="title"></div> 
-        <div class="text-slate-500 mt-1" id="message"></div> 
-     </div> 
-</div> 
+    <div class="ml-4 mr-4">
+        <div class="font-medium" id="title"></div>
+        <div class="text-slate-500 mt-1" id="message"></div>
+     </div>
+</div>
 
-<div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content"> 
-    <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i> 
-    <div class="ml-4 mr-4"> 
-        <div class="font-medium" id="title"></div> 
-        <div class="text-slate-500 mt-1" id="message"></div> 
-     </div> 
-</div> 
+<div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
+    <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
+    <div class="ml-4 mr-4">
+        <div class="font-medium" id="title"></div>
+        <div class="text-slate-500 mt-1" id="message"></div>
+     </div>
+</div>
 
-@endsection 
+@endsection
 
 @push('scripts')
 <script>
@@ -40,20 +40,20 @@
     });
     //Closing Modal and Refreshing its value
     const myModalEl = document.getElementById('add-item-modal')
-     myModalEl.addEventListener('hidden.tw.modal', function(event) { 
+     myModalEl.addEventListener('hidden.tw.modal', function(event) {
         livewire.emit('forceCloseModal');
-    }) 
+    })
     //SuccessAlert
     window.addEventListener('SuccessAlert',event => {
         let id = (Math.random() + 1).toString(36).substring(7);
-        Toastify({ 
-            node: $("#success-notification-content") .clone() .removeClass("hidden")[0], 
-            duration: 7000, 
+        Toastify({
+            node: $("#success-notification-content") .clone() .removeClass("hidden")[0],
+            duration: 7000,
             className: `toast-${id}`,
-            newWindow: false, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
+            newWindow: false,
+            close: true,
+            gravity: "top",
+            position: "right",
             stopOnFocus: true, }).showToast();
 
             const toast = document.querySelector(`.toast-${id}`)
@@ -63,14 +63,14 @@
     //Invalid Alert
     window.addEventListener('InvalidAlert',event => {
         let id = (Math.random() + 1).toString(36).substring(7);
-        Toastify({ 
-            node: $("#invalid-success-notification-content") .clone() .removeClass("hidden")[0], 
-            duration: 7000, 
-            newWindow: true, 
+        Toastify({
+            node: $("#invalid-success-notification-content") .clone() .removeClass("hidden")[0],
+            duration: 7000,
+            newWindow: true,
             className: `toast-${id}`,
-            close: true, 
-            gravity: "top", 
-            position: "right", 
+            close: true,
+            gravity: "top",
+            position: "right",
             stopOnFocus: true, }).showToast();
 
             const toast = document.querySelector(`.toast-${id}`)
@@ -89,9 +89,9 @@
     });
     //Hide Modal and Refresh its value
     const DeleteModal = document.getElementById('delete-confirmation-modal')
-    DeleteModal.addEventListener('hidden.tw.modal', function(event) { 
+    DeleteModal.addEventListener('hidden.tw.modal', function(event) {
         console.log('Working');
         livewire.emit('forceCloseModal');
-    }) 
+    })
 </script>
 @endpush

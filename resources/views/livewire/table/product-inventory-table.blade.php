@@ -4,23 +4,23 @@
             <div class="xl:flex sm:mr-auto" >
                 <div class="sm:flex items-center sm:mr-4">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Field</label>
-                    <select  class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
-                        <option value="name">Product Title A-Z</option>
-                        <option value="category">Product Title Z-A</option>
-                        <option value="">Created (oldest first)</option>
-                        <option value="">Created (newest first)</option>
-                        <option value="">Updated (oldest first)</option>
-                        <option value="">Updated (newest first)</option>
-                        <option value="">Low inventory</option>
-                        <option value="">High inventory</option>
-                        <option value="">Category A-Z</option>
-                        <option value="">Category Z-A</option>
+                    <select  wire:model="sorting" class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
+                        <option value="nameaz" >Product Title A-Z</option>
+                        <option value="nameza">Product Title Z-A</option>
+                        <option value="createdold">Created (oldest first)</option>
+                        <option value="creatednew">Created (newest first)</option>
+                        <option value="updatedatold">Updated (oldest first)</option>
+                        <option value="updatedat">Updated (newest first)</option>
+                        <option value="lowinventory">Low inventory</option>
+                        <option value="highinventory">High inventory</option>
+                        <option value="cataz">Category A-Z</option>
+                        <option value="catza">Category Z-A</option>
                     </select>
                 </div>
 
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-                    <input  type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
+                    <input wire:model="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
             </div>
         </div>
