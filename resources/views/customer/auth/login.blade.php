@@ -19,6 +19,9 @@
                 @if(session('fail'))
                     <div class="alert alert-danger show mb-2 intro-x" role="alert">{{ session('fail') }}</div>
                 @endif
+                @if(session('info'))
+                    <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('info')}}</div>
+                @endif
                 <!-- Show All error -->
                 @if ($errors->any())
                 <div class="alert alert-danger show mb-2 intro-x" role="alert">
@@ -43,7 +46,7 @@
                         <label class="form-label">Email</label>
                         <input type="text" name="email" class="form-control" placeholder="example@gmail.com">
                     </div>
-                    <div class="mt-3 w-96 intro-x">
+                    <div class="mt-3 intro-x">
                         <label class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" placeholder="password">
                     </div>
@@ -52,7 +55,7 @@
                             <input id="remember-me" type="checkbox" class="form-check-input border mr-2" name="remember">
                             <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
                         </div>
-                        <a href="">Forgot Password?</a>
+                        <a href="{{ Route('resetcustomer.index') }}">Forgot Password?</a>
                     </div>
 
                     <button class="intro-x btn btn-primary mt-5 w-full" >Login</button>

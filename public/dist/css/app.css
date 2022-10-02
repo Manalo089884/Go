@@ -10170,6 +10170,19 @@ html body {
     padding-right: 1.5rem;
     padding-bottom: 2.5rem;
 }
+.customercontent {
+    border-radius: 35px/50px 0px 0px 0px;
+    position: relative;
+    margin-left: 1rem;
+    min-height: 50vh;
+    min-width: 0px;
+    flex: 1 1 0%;
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--color-slate-100) / var(--tw-bg-opacity));
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2.5rem;
+}
 .dark .content {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-darkmode-700) / var(--tw-bg-opacity));
@@ -11772,7 +11785,6 @@ html body {
   color: rgb(var(--color-slate-400) / var(--tw-text-opacity));
 }
 .top-nav > ul li .top-menu .top-menu__title {
-  margin-left: 0.75rem;
   display: flex;
   align-items: center;
   white-space: nowrap;

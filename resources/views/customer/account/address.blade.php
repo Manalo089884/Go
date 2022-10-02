@@ -57,7 +57,7 @@
                         </table>
                     </div>
                     <div class="flex justify-end">
-                        <button type="button" class="btn btn-primary w-52 mt-3">Add New Address</button>
+                        <button class="btn btn-primary w-52 mt-3">Add New Address</button>
                     </div>
 
                 </div>

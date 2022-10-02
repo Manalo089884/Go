@@ -14,7 +14,7 @@ use App\Mail\ContactMail;
 class ContactJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
+    public $tries = 3;
     protected $details;
     /**
      * Create a new job instance.
@@ -33,10 +33,7 @@ class ContactJob implements ShouldQueue
      */
     public function handle()
     {
-
         Mail::to($this->details['email'])
         ->send(new ContactMail($this->details));
-
-
     }
 }

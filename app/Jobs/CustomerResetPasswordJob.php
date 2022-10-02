@@ -9,8 +9,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ResetPassword;
-class AdminResetPasswordJob implements ShouldQueue
+use App\Mail\CustomerResetPassword;
+class CustomerResetPasswordJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $details;
@@ -33,7 +33,6 @@ class AdminResetPasswordJob implements ShouldQueue
     public function handle()
     {
         Mail::to($this->details['email'])
-        ->send(new ResetPassword($this->details));
-
+        ->send(new CustomerResetPassword($this->details));
     }
 }

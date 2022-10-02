@@ -32,7 +32,9 @@
                         <label for="change-password-form-3" class="form-label">Confirm New Password</label>
                         <input id="change-password-form-3" type="password" class="form-control" placeholder="Input text">
                     </div>
-                    <button type="button" class="btn btn-primary mt-4">Change Password</button>
+                    <div class="flex justify-end">
+                        <button class="btn btn-primary mt-4">Change Password</button>
+                    </div>
                 </div>
             </div>
             <!-- END: Change Password -->

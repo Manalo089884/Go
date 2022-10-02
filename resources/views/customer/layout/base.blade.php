@@ -29,7 +29,6 @@
         @include('customer.component.top-menu')
         <!-- BEGIN: Top Bar -->
         @include('customer.component.side-menu')
-
         <!-- Content -->
         <div class="content content--top-nav">
             @yield('content')

@@ -32,6 +32,7 @@ use App\Http\Controllers\Frontend\Transaction\ContactController;
 
 
 use App\Http\Controllers\Frontend\Auth\CustomerProfileController;
+use App\Http\Controllers\Frontend\Auth\CustomerResetController;
 use App\Http\Controllers\Frontend\Auth\CustomerDataController;
 use App\Http\Controllers\Frontend\Auth\CustomerLoginController;
 use App\Http\Controllers\Frontend\Auth\CustomerRegisterController;
@@ -61,6 +62,9 @@ Route::resource('productcatalog', ProductCatalogController::class)->only(['index
     Route::middleware(['guest:customer','PreventBackHistory'])->group(function () {
         Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
         Route::resource('CRegister', CustomerRegisterController::class)->only(['index','store']);
+        Route::resource('resetcustomer', CustomerResetController::class)->only(['index','store']);
+        Route::get('resetcustomer/password/{token}', [CustomerResetController::class, 'ShowResetForm'])->name('customer.reset.password.form');
+        Route::post('resetcustomer/password',[CustomerResetController::class,'ResetPassword'])->name('customer.reset.password');
     });
     Route::middleware(['auth:customer','PreventBackHistory'])->group(function () {
         Route::resource('cart', CartController::class)->only(['index','store']);

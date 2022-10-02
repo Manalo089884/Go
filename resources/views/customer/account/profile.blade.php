@@ -12,7 +12,7 @@
         @include('customer.component.side-profile')
         <!-- END: Profile Menu -->
         <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
-            <!-- BEGIN: Display Information -->
+            <!-- BEGIN: Personal Information -->
             <div class="intro-y box lg:mt-5">
                 <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
                     <h2 class="font-medium text-base mr-auto">
@@ -51,17 +51,61 @@
                                 </div>
                             </div>
                             <div class="flex justify-end gap-2">
-                                <button type="button" class="btn btn-primary w-32 mt-3">Edit Profile</button>
-                                <button type="button" class="btn btn-primary w-50 mt-3">Change Password</button>
+                                <button class="btn btn-primary w-32 mt-3">Edit Profile</button>
+                                <button class="btn btn-primary w-50 mt-3">Change Password</button>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!-- END: Display Information -->
-
+            <!-- END: Personal Information -->
+            <!-- BEGIN: RECENT ORDERS -->
+            <div class="intro-y box mt-5">
+                <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                    <h2 class="font-medium text-base mr-auto">
+                        Recent Orders
+                    </h2>
+                </div>
+                <div class="p-5">
+                    <div class="overflow-x-auto">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="whitespace-nowrap">Order #</th>
+                                    <th class="whitespace-nowrap text-center">Place On</th>
+                                    <th class="whitespace-nowrap text-center">Items</th>
+                                    <th class="whitespace-nowrap text-center">Total</th>
+                                    <th class="whitespace-nowrap text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="whitespace-nowrap">489455921021952</td>
+                                    <td class="whitespace-nowrap text-center">28/03/2022</td>
+                                    <td class="whitespace-nowrap text-center">Toothpaste</td>
+                                    <td class="whitespace-nowrap text-center">₱100.00</td>
+                                    <td class="whitespace-nowrap text-center"><i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show</td>
+                                </tr>
+                                <tr>
+                                    <td class="whitespace-nowrap">189455921021932</td>
+                                    <td class="whitespace-nowrap text-center">12/04/2022</td>
+                                    <td class="whitespace-nowrap text-center">Toothbrush</td>
+                                    <td class="whitespace-nowrap text-center">₱120.00</td>
+                                    <td class="whitespace-nowrap text-center"><i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show</td>
+                                </tr>
+                                <tr>
+                                    <td class="whitespace-nowrap">789455921021952</td>
+                                    <td class="whitespace-nowrap text-center">30/06/2022</td>
+                                    <td class="whitespace-nowrap text-center">Toothpaste</td>
+                                    <td class="whitespace-nowrap text-center">₱500.00</td>
+                                    <td class="whitespace-nowrap text-center"><i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             <!-- END: RECENT ORDERS -->
         </div>
     </div>
 
