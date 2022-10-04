@@ -8,6 +8,7 @@
 <livewire:table.product-table/>
 
 <livewire:modal.delete-product/>
+
 @if(session('success'))
 <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

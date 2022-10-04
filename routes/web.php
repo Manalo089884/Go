@@ -67,12 +67,16 @@ Route::resource('productcatalog', ProductCatalogController::class)->only(['index
         Route::post('resetcustomer/password',[CustomerResetController::class,'ResetPassword'])->name('customer.reset.password');
     });
     Route::middleware(['auth:customer','PreventBackHistory'])->group(function () {
+
         Route::resource('cart', CartController::class)->only(['index','store']);
         Route::resource('wishlist', WishlistController::class)->only(['index','store']);
         Route::get('/CLogout', [CustomerLogoutController::class, 'store'])->name('CLogout');
         Route::group(['prefix' => 'user'],function(){
             Route::get('/profile', [CustomerProfileController::class,'index'])->name('customer.profile');
             Route::get('/address', [CustomerProfileController::class,'address'])->name('customer.address');
+            Route::get('/address/create', [CustomerProfileController::class,'createaddress'])->name('customer.address.create');
+            Route::post('address/create',[CustomerProfileController::class,'saveaddress']);
+            Route::get('/address/edit/{id}', [CustomerProfileController::class,'editaddress'])->name('customer.address.edit');
             Route::get('/changepassword',[CustomerProfileController::class,'changepassword'])->name('customer.change.pass');
         });
 

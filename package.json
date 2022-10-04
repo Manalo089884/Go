@@ -34,13 +34,13 @@
         "litepicker": "^2.0.11",
         "lucide": "^0.17.1",
         "pristinejs": "^0.1.9",
+        "select-philippines-address": "^1.0.6",
         "tabulator-tables": "^4.9.1",
         "tiny-slider": "^2.9.3",
         "tippy.js": "^6.2.7",
         "toastify-js": "^1.9.0",
         "tom-select": "^1.7.5",
         "xlsx": "^0.16.6"
-
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.4.0",

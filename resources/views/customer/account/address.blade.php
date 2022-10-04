@@ -1,7 +1,7 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Address Book')
-
+<script src="{{ asset('dist/js/phil-address.js') }}"></script>
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
              Welcome to Go Dental!
@@ -32,41 +32,55 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($address as $address)
                                 <tr>
-                                    <td class="whitespace-nowrap">Mark Joseph Manalo</td>
-                                    <td class="whitespace-nowrap text-center">283 Ramos Compound Baesa Quezon City</td>
-                                    <td class="whitespace-nowrap text-center">Metro Manila</td>
-                                    <td class="whitespace-nowrap text-center">09452692274</td>
-                                    <td class="whitespace-nowrap text-center"><i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit</td>
+                                    <td class="whitespace-nowrap">{{ $address->name }}</td>
+                                    <td class="whitespace-nowrap text-center">{{ $address->house }}</td>
+                                    <td class="whitespace-nowrap text-center"><p id="pro">{{ $address->province }}</p>-{{ $address->city }}-{{ $address->barangay }} </td>
+                                    <td class="whitespace-nowrap text-center">{{ $address->phone_number }}</td>
+                                    <td class="whitespace-nowrap text-center">
+                                        <a href="" class="mr-1"><i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit</a>
+                                        <a href="" class="text-danger"><i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete</td></a>
                                 </tr>
+                                @empty
                                 <tr>
-                                    <td class="whitespace-nowrap">Paul Cedrick Reyes</td>
-                                    <td class="whitespace-nowrap text-center">283 Ramos Compound Baesa Quezon City</td>
-                                    <td class="whitespace-nowrap text-center">Metro Manila</td>
-                                    <td class="whitespace-nowrap text-center">09452692274</td>
-                                    <td class="whitespace-nowrap text-center"><i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit</td>
+                                    <td colspan="5">No Address Data</td>
                                 </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap">Gene Vincent Soriano</td>
-                                    <td class="whitespace-nowrap text-center">283 Ramos Compound Baesa Quezon City</td>
-                                    <td class="whitespace-nowrap text-center">Metro Manila</td>
-                                    <td class="whitespace-nowrap text-center">09452692274</td>
-                                    <td class="whitespace-nowrap text-center"><i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit</td>
-                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
                     <div class="flex justify-end">
-                        <button class="btn btn-primary w-52 mt-3">Add New Address</button>
+                        <a href="{{ Route('customer.address.create') }}" class="btn btn-primary w-52 mt-3">Add New Address</a>
                     </div>
 
                 </div>
             </div>
             <!-- END: Display Information -->
-
+        </div>
+    </div>
+    @if(session('success'))
+    <div class="intro-y">
+        <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content ">
+            <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
+            <div class="ml-4 mr-4">
+                <div class="font-medium">New Address Added</div>
+                <div class="text-slate-500 mt-1">{{session('success')}}</div>
+            </div>
         </div>
     </div>
 
+    <script>
+    Toastify({
+        node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0],
+        duration: 7000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true, }).showToast();
+    </script>
+    @endif
 @endsection
 @push('scripts')
 <script>

@@ -2,7 +2,7 @@ import TomSelect from "tom-select";
 
 (function () {
     "use strict";
-
+    const tomSelects = []
     // Tom Select
     $(".tom-select").each(function () {
         let options = {
@@ -52,6 +52,9 @@ import TomSelect from "tom-select";
             };
         }
 
-        new TomSelect(this, options);
+        const t = new TomSelect(this, options);
+        tomSelects.push(t)
+
     });
+    window.tomSelects = tomSelects
 })();

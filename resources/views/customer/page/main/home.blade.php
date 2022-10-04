@@ -2,7 +2,7 @@
 @section('content')
 @section('title', 'Home')
 <div class="mt-5 ">
-    <div class="mx-6 pb-8 mt-5 h-full "  >
+    <div class="mx-6 pb-8 mt-5 h-full w-full "  >
         <div class="fade-mode">
             <div class="h-64 px-2">
                 <div class="h-full image-fit rounded-md overflow-hidden">
@@ -10,12 +10,12 @@
                 </div>
             </div>
             <div class="h-64 px-2">
-                <div class="h-full image-fit rounded-md overflow-hidden">
+                <div class="h-full object-cover  image-fit rounded-md overflow-hidden">
                     <img alt="" src="{{ asset('dist/images/food-beverage-10.jpg') }}" />
                 </div>
             </div>
             <div class="h-64 px-2">
-                <div class="h-full image-fit rounded-md overflow-hidden">
+                <div class="h-full object-cover  image-fit rounded-md overflow-hidden">
                     <img alt="" src=" {{ asset('dist/images/food-beverage-13.jpg') }}" />
                 </div>
             </div>
