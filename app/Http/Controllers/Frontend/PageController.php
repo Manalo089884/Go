@@ -25,4 +25,10 @@ class PageController extends Controller
     public function product(){
         return view('customer.page.cart.product', ['metaTitle' => 'Product']);
     }
+    public function shipping(){
+        return view('customer.page.regular.shipping', ['metaTitle' => 'Product']);
+    }
+    public function return(){
+        return view('customer.page.regular.returns', ['metaTitle' => 'Product']);
+    }
 }

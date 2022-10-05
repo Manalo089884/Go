@@ -140,7 +140,7 @@
 @import "./components/_tippy.css";
 @import "./components/_tabulator.css";
 @import "./components/_tom-select.css";
-@import "./components/_dropzone.css";
+/* @import "./components/_dropzone.css"; */
 @import "./components/_ckeditor.css";
 @import "./components/_zoom-vanilla.css";
 @import "./components/_dark-mode-switcher.css";

@@ -2621,7 +2621,7 @@ var populateAddressInputs = /*#__PURE__*/function () {
               return function (_x) {
                 return _ref2.apply(this, arguments);
               };
-            }()); //populate barangay select
+            }()); //populate barangay
 
             citySelect.on("change", /*#__PURE__*/function () {
               var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(value) {

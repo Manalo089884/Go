@@ -80,12 +80,12 @@
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)"class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
+                <a href="{{ Route('shipping') }}"class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
                   Shipping & Delivery
                 </a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
+                <a href="{{ Route('return') }}" class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
                   Return & Exchanges
                 </a>
               </li>

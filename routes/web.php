@@ -53,11 +53,14 @@ Route::post('/contact', [ContactController::class,'store'])->name('sendemailcont
 Route::get('/terms', [PageController::class,'terms'])->name('terms');
 Route::get('/faq', [PageController::class,'faq'])->name('faq');
 Route::get('/privacy', [PageController::class,'privacy'])->name('privacy');
-Route::get('/product', [PageController::class,'product'])->name('product');
+Route::get('/shippingdelivery', [PageController::class,'shipping'])->name('shipping');
+Route::get('/returnexchanges', [PageController::class,'return'])->name('return');
+
+Route::get('/productcatalog', [ProductCatalogController::class,'index'])->name('product');
+Route::get('/productcatalog/{product:name}', [ProductCatalogController::class,'show'])->name('productshow');
 
 
-
-Route::resource('productcatalog', ProductCatalogController::class)->only(['index','show']);
+//Route::resource('productcatalog', ProductCatalogController::class)->only(['index','show']);
 
     Route::middleware(['guest:customer','PreventBackHistory'])->group(function () {
         Route::resource('CLogin', CustomerLoginController::class)->only(['index','store']);
@@ -78,6 +81,7 @@ Route::resource('productcatalog', ProductCatalogController::class)->only(['index
             Route::post('address/create',[CustomerProfileController::class,'saveaddress']);
             Route::get('/address/edit/{id}', [CustomerProfileController::class,'editaddress'])->name('customer.address.edit');
             Route::get('/changepassword',[CustomerProfileController::class,'changepassword'])->name('customer.change.pass');
+            Route::post('changepassword',[CustomerProfileController::class,'resetpass']);
         });
 
         Route::group(['prefix' => 'customer'],function(){
@@ -85,6 +89,7 @@ Route::resource('productcatalog', ProductCatalogController::class)->only(['index
             Route::get('/returns', [CustomerDataController::class,'returns'])->name('customer.returns');
             Route::get('/reviews',[CustomerDataController::class,'reviews'])->name('customer.reviews');
             Route::get('/cancellations',[CustomerDataController::class,'cancellations'])->name('customer.cancellations');
+
         });
 
         /*
@@ -144,7 +149,10 @@ Route::group(['prefix' => 'admin'],function(){
             Route::resource('orders', OrderController::class)->only('index');
             Route::resource('chat', ChatController::class)->only('index');
             Route::resource('post', PostController::class)->only('index');
+
             Route::get('/profile/changepassword', [ProfileController::class,'changepass'])->name('AdminChangePass');
+            Route::post('/profile/changepassword', [ProfileController::class,'resetpass']);
+
             Route::resource('profile', ProfileController::class)->only('index');
             Route::resource('changepassword', ChangePasswordController::class)->only('index');
             Route::resource('analytics', AnalyticsController::class)->only('index');

@@ -1,9 +1,12 @@
 @extends('customer.layout.base')
-@section('content')  
+@section('content')
 @section('title', 'Cart')
-
-Cart
-@endsection 
+<div class="intro-y flex items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+        Cart
+    </h2>
+</div>
+@endsection
 @push('scripts')
 <script>
 </script>

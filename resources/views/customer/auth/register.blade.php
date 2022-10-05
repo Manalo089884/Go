@@ -31,7 +31,7 @@
                         @foreach ($errors->all() as $error)
                         <div>{{$error}}</div>
                         @endforeach
-                </div>
+                    </div>
                 </div>
                 @endif
                 @if(session('success'))

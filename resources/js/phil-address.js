@@ -35,7 +35,7 @@ const populateAddressInputs = async()=>{
             citySelect.addOption({value:city.city_code, text:city.city_name})
         }
     })
-    //populate barangay select
+    //populate barangay
     citySelect.on("change", async(value)=>{
         const b = await barangays(value)
         barangaySelect.clear()
@@ -44,6 +44,7 @@ const populateAddressInputs = async()=>{
             barangaySelect.addOption({value:barangay.brgy_code, text:barangay.brgy_name})
         }
     })
+
 }
 
 window.addEventListener("load", ()=>{

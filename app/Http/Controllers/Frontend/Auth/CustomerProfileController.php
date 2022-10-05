@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CustomerShippingAddress;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Hash;
 class CustomerProfileController extends Controller
 {
     public function index(){
@@ -22,9 +24,16 @@ class CustomerProfileController extends Controller
             'address' => $address
         ]);
     }
+    public function editaddress($id){
+        $address = CustomerShippingAddress::findorFail($id);
+        return view('customer.account.editaddress',[
+            'address' => $address
+        ]);
+    }
     public function createaddress(){
         return view('customer.account.createaddress');
     }
+
     public function saveaddress(Request $request){
         $this->validate($request,[
             'full_name' => 'required|max:255',
@@ -54,7 +63,30 @@ class CustomerProfileController extends Controller
             return back()->with('fail',"Invalid!!!");
         }
     }
+
     public function changepassword(){
         return view('customer.account.changepass');
     }
+
+
+    public function resetpass(Request $request){
+        if (!(Hash::check($request->get('current_password'), Auth::guard('customer')->user()->password))) {
+            // The passwords matches
+            return redirect()->back()->with("error","Your current password does not matches with the password.")->withInput();
+        }
+        if(strcmp($request->get('current_password'), $request->get('password')) == 0){
+            // Current password and new password same
+            return redirect()->back()->with("error","New Password cannot be same as your current password.")->withInput();
+        }
+        $this->validate($request,[
+            'current_password' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+         //Change Password
+         Customer::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+         return redirect()->back()->with("success","Password successfully changed!");
+    }
+
 }

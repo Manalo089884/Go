@@ -6,7 +6,7 @@
             </a>
         </li>
         <li>
-            <a href="{{Route('productcatalog.index')}}" class="top-menu {{ (request()->is('product')) ? 'top-menu--active' : '' }}">
+            <a href="{{Route('product')}}" class="top-menu {{ (request()->is('product')) ? 'top-menu--active' : '' }}">
                 <div class="top-menu__title"> Product</div>
             </a>
         </li>

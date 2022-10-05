@@ -20,6 +20,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <!-- END: CSS Assets-->
+        @livewireStyles
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
@@ -36,9 +37,11 @@
         <!-- END: Top Menu -->
         @include('customer.component.footer')
         <!-- BEGIN: JS Assets-->
-        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
         <script src="{{ asset('dist/js/app.js') }}"></script>
+        @livewireScripts
         <!-- END: JS Assets-->
+        @stack('scripts')
     </body>
 </html>
 
