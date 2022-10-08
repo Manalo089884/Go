@@ -12,4 +12,13 @@ class CustomerShippingAddress extends Model
      protected $fillable = [
         'name','customers_id','phone_number','notes','house','province','city','barangay'
     ];
+
+
+ 
+
+    public function customership(){
+        return $this-> belongsTo(Customer::class);
+    }
+
+
 }

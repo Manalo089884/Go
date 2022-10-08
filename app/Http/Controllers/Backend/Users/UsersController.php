@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Users Page
     public function index(){ 
         return view('admin.page.Users.user');
     }

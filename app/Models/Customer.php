@@ -23,6 +23,16 @@ class Customer extends Authenticatable
         'password','birthday','gender',
     ];
 
+    public function customershippingaddress()
+    {
+        return $this->hasMany(CustomerShippingAddress::class, 'customer_id','id');
+    }
+
+    public function customerscart()
+    {
+        return $this->hasMany(CustomerCart::class, 'customer_id','id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

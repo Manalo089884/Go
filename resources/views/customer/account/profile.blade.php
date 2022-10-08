@@ -52,7 +52,8 @@
                             </div>
                             <div class="flex justify-end gap-2">
                                 <button class="btn btn-primary w-32 mt-3">Edit Profile</button>
-                                <button class="btn btn-primary w-50 mt-3">Change Password</button>
+                                <a href="{{ Route('customer.change.pass') }}" class="btn btn-primary w-50 mt-3">Change Password</a>
+                           
                             </div>
                         </div>
                     </div>

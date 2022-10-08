@@ -9,13 +9,14 @@ use App\Models\ProductImage;
 use App\Http\Requests\UpdateProductImageRequest;
 class ProductImageController extends Controller
 {
+    //Remove Product Image from Product Edit
      public function removeImage($id){
         $image = ProductImage::findorfail($id);
         unlink(public_path('product_images/'.$image->images));
         $image->delete();
         return back()->with('DeleteSuccess','Image Deleted Successfully!')->withFragment('ImageList');
       }
-
+    //Add New Image from Product Edit
       public function addImages(UpdateProductImageRequest $request, $id){
         $product = Product::findorFail($id);
         $request->validated();

@@ -15,7 +15,6 @@ use App\Http\Controllers\Backend\Product\BrandController;
 use App\Http\Controllers\Backend\Product\CategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Product\ProductImageController;
-use App\Http\Controllers\Backend\Product\ProductArchiveController;
 use App\Http\Controllers\Backend\Product\InventoryController;
 use App\Http\Controllers\Backend\Transaction\ChatController;
 use App\Http\Controllers\Backend\Transaction\OrderController;

@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <button class="intro-x btn btn-primary mt-5 w-full">Register</button>
-                <div class="text-slate-500 text-justify mt-4">By proceeding to sign up,
+                <div class="text-slate-500 text-justify mt-4 intro-x">By proceeding to sign up,
                     I acknowledge that I have read and consented to Go Dental <a href="{{ Route('terms') }}" class="text-success">Terms of Use</a> and <a href="{{ Route('privacy') }}" class="text-success">Privacy Policy</a>,
                     which sets out how Go Dental collects, uses and discloses my personal data, and the rights that
                     I have under applicable law.

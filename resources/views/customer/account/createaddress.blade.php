@@ -98,5 +98,13 @@
 @endsection
 @push('scripts')
 <script>
+    const provinceCode ="{{old('province')}}"
+    const cityCode = "{{old('city')}}"
+    const brgyCode = "{{old('barangay')}}"
+    window.address = {
+        provinceCode,
+        cityCode,
+        brgyCode
+    }
 </script>
 @endpush

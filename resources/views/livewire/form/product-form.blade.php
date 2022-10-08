@@ -4,38 +4,38 @@
             <form wire:submit.prevent="StoreProductData" >
                 @csrf
                 <div>
-                    <div class="input-form"> 
+                    <div class="input-form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
-                            Product Name 
-                        </label> 
-                        <input type="text" name="name" wire:model.lazy="name" class="form-control @error('name') border-danger @enderror" placeholder="Product Name" value="{{old('name')}}" > 
+                            Product Name
+                        </label>
+                        <input type="text" name="name" wire:model.lazy="name" class="form-control @error('name') border-danger @enderror" placeholder="Product Name" value="{{old('name')}}" >
                         <div class="text-danger mt-2">@error('name'){{$message}}@enderror</div>
                     </div>
                 </div>
-             
+
                 <div class="flex flex-col sm:flex-row items-center">
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label  class="form-label w-full flex flex-col sm:flex-row">
-                            Category 
-                        </label> 
+                            Category
+                        </label>
                         <div style="@error('brand')border: 1px solid red @enderror" class="form-control ">
-                            <select   name="category" wire:model="category" >
+                            <select name="category" wire:model="category" >
                                 <option value="" >Select Category</option>
-                                   
+
 
                                 @foreach($categories as $category)
                                         <option value="{{$category->id}}" >{{$category->name}}</option>
-                                   
-                          
+
+
                                 @endforeach
-                            </select> 
+                            </select>
                         </div>
                         <div class="text-danger mt-2">@error('category'){{$message}}@enderror</div>
                     </div>
 
                     <div class="item w-1/2 h-28 mr-2 sm:mr-1 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Brand 
+                            Brand
                         </label>
                         <div style="@error('brand')border: 1px solid red @enderror" class="form-control ">
                             <select data-placeholder="Select Brand"  class="tom-select w-full" name="brand" wire:model.lazy="brand" >
@@ -48,7 +48,7 @@
                                 @empty
                                     <option disabled>No Results Found Add a Brand first</option>
                                 @endforelse
-                            </select> 
+                            </select>
                         </div>
                         <div class="text-danger mt-2">@error('brand'){{$message}}@enderror</div>
                     </div>
@@ -57,7 +57,7 @@
                 <div class="flex flex-col sm:flex-row items-center">
                     <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Cost Price 
+                            Cost Price
                         </label>
                         <div class="input-group">
                             <input id="cprice" type="number" class="form-control @error('cprice') border-danger @enderror" name="cprice" wire:model.lazy="cprice" value="{{old('cprice')}}">
@@ -70,7 +70,7 @@
 
                 <div class="item w-1/2 h-28 mr-2 sm:mr-0 w-full form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                            Selling Price 
+                            Selling Price
                         </label>
                         <div class="input-group">
                             <input id="sprice" type="number" class="form-control @error('sprice') border-danger @enderror" name="sprice" wire:model.lazy="sprice" value="{{old('sprice')}}">
@@ -103,17 +103,17 @@
             <!--Inventory -->
             <div class="mt-3">
                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                    Inventory Stocks 
+                    Inventory Stocks
                 </label>
                 <div class="input-group ">
                     <input id="crud-form-3" type="number" class="form-control @error('stock') border-danger @enderror" name="stock" wire:model.lazy="stock" value="{{old('stock')}}">
                     <div id="input-group-1" class="input-group-text ">pcs</div>
-                    
+
                 </div><div class="text-danger mt-2">@error('stock'){{$message}}@enderror</div>
             </div>
             <div class="mt-3">
                 <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
-                    Weight 
+                    Weight
                 </label>
                 <div class="input-group">
                     <input id="crud-form-4" type="number" class="form-control @error('weight') border-danger @enderror" name="weight" wire:model.lazy="weight" value="{{old('weight')}}">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="text-danger mt-2">@error('status'){{$message}}@enderror</div>
             </div>
-            
+
             <div class="mt-3">
                 <label>Description</label>
                 <div class="mt-2">
@@ -145,7 +145,7 @@
                 <input type="file" name="images[]" placeholder="Choose files" multiple accept="image/*" >
                 <div class="text-danger mt-2">@error('images'){{$message}}@enderror</div>
             </div>
-                   
+
             <div class="text-right mt-5">
                 <a href="{{Route('product.index')}}"><button type="button" class="btn btn-outline-secondary w-24 mr-1">Cancel</button></a>
                 <button type="submit" class="btn btn-primary w-24 mt-3">Save</button>

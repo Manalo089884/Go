@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Report Page
     public function index(){ 
         return view('admin.page.Report.report');
     }

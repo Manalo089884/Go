@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Post Page
     public function index(){ 
         return view('admin.page.Transaction.post');
     }

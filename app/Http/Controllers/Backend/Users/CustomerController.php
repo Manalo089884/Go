@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Customer Page
     public function index(){ 
         return view('admin.page.Users.customer');
     }

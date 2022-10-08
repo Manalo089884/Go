@@ -21,8 +21,9 @@ class Product extends Model
         'description',
     ];
 
+
     public static function search($search){
-      return empty($search) ? static::query() : 
+      return empty($search) ? static::query() :
       static::query()->where('name','like','%'.$search.'%')
       ->orWhere('stock','like','%'.$search.'%');
     }
@@ -34,5 +35,9 @@ class Product extends Model
     }
     public function images(){
        return $this->hasMany(ProductImage::class);
+    }
+    public function productcart()
+    {
+        return $this-> belongsTo(CustomerCart::class);
     }
 }

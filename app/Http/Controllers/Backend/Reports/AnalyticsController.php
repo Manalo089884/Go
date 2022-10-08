@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class AnalyticsController extends Controller
 {
-     public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Analytics Page
     public function index(){ 
         return view('admin.page.Report.analytics');
     }

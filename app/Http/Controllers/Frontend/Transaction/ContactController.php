@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Mail;
 use App\Jobs\ContactJob;
 class ContactController extends Controller
 {
+    //Show Contact Page where customers can directly send an email to go dental email
     public function index(){
         return view('customer.page.regular.contact');
     }
+    //Submission of Contact Page and Send Mail
     public function store(Request $request){
         $request->validate([
             'name'=>'required',

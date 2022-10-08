@@ -12,12 +12,15 @@ use App\Models\ProductImage;
 class ProductCatalogController extends Controller
 {
     public function index(){
-        $products = Product::where('status', 1)->orderBy('name')->paginate(20);
+        $categories = Category::orderby('name')->get();
+        $products = Product::where('status', 1)->orderBy('name')->with('images')->paginate(20);
         return view('customer.page.cart.product',[
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
     public function show(Product $product){
+
         return view('customer.page.cart.productshow',[
             'product' => $product
         ]);

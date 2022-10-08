@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Role Page
     public function index(){ 
         return view('admin.page.Users.role');
     }

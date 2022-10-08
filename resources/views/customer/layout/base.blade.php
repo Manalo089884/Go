@@ -10,7 +10,9 @@
         <meta name="description" content="Go Dental E-Commerce Seller">
         <meta name="keywords" content="Go Dental">
         <meta name="author" content="Mark Joseph Manalo">
-        <meta name="_token" content="{{csrf_token()}}" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
         <title>Go Dental - @yield('title')</title>
         <!-- BEGIN: CSS Assets-->
         <script src="https://kit.fontawesome.com/1cff19edbf.js" crossorigin="anonymous"></script>

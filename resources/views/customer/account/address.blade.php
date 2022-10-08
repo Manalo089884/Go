@@ -1,6 +1,7 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Address Book')
+<script src="{{ asset('dist/js/phil-conv-address.js') }}"></script>
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
              Welcome to Go Dental!

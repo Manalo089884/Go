@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Transaction Page
     public function index(){ 
         return view('admin.page.Transaction.chat');
     }

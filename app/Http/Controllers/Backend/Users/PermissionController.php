@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    public function __construct(){
-        $this->middleware(['auth']);
-    }
+    //Show Permission Page
     public function index(){ 
         return view('admin.page.Users.permission');
     }

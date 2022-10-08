@@ -1,5 +1,5 @@
  <!-- Footer -->
- <script src="https://cdn.tailwindcss.com"></script>
+
 
  <footer class="pt-10 bg-success">
     <div>
@@ -7,7 +7,7 @@
 
         <!-- GO DENTAL / Div1 -->
 
-        <div class="flex-auto text-gray-200 md:w-72">
+        <div class="intro-x flex-auto text-gray-200 md:w-72 ">
             <p class="mb-4 text-lg font-semibold md:text-center">GO DENTAL</p>
                 <span class="text-base font-light mb-7">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -21,7 +21,7 @@
 
         <!-- Contact Us / Div2 -->
 
-        <div class="text-gray-200 md:w-48">
+        <div class="intro-x text-gray-200 md:w-48">
             <a href="{{ Route('contact') }}" class="mb-4 text-lg font-semibold">Contact Us</a>
               <ul>
                 <div class="mb-4">
@@ -34,7 +34,7 @@
                         <div>
                     </li>
                     <li>
-                        <div class="flex items-center gap-1 mb-2">
+                        <div class="intro-x flex items-center gap-1 mb-2">
                             <i class="text-base fas fa-envelope"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color hover:text-primary">
                                 godental@gmail.com
@@ -44,7 +44,7 @@
                 </div>
               </ul>
               <!-- Legal / Div2.1 -->
-              <h4 class="mb-3 text-lg font-semibold">Legal</h4>
+              <h4 class="intro-x mb-3 text-lg font-semibold">Legal</h4>
               <ul>
                 <li>
                     <a href="{{ Route('terms') }}" class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
@@ -61,7 +61,7 @@
 
         <!-- Customer Care / Div3 -->
 
-        <div class="text-gray-200 md:w-48">
+        <div class="intro-x text-gray-200 md:w-48">
             <h4 class="mb-4 text-lg font-semibold text-dark">Customer Care</h4>
             <ul>
               <li>
@@ -94,8 +94,8 @@
 
         <!-- Our Address / Div4 -->
 
-          <div class="md:w-96">
-            <h4 class="mb-2 text-lg font-semibold text-gray-200">Our Address</h4>
+          <div class="intro-x md:w-96">
+            <h4 class="intro-x mb-2 text-lg font-semibold text-gray-200">Our Address</h4>
                 <p class="inline-block mb-2 text-base leading-loose text-gray-200 hover:text-primary">
                 Grand Royale Subdivision, Brgy. Pinagbakahan, City of Malolos
                 Bulacan 3000
@@ -103,17 +103,17 @@
                 <h4 class="mb-4 text-lg font-semibold text-center text-gray-200">Follow Us</h4>
                 <div class="flex flex-row mx-auto text-gray-200 gap-9">
                     <div class="flex justify-end flex-1">
-                        <a href="javascript:void(0)" class="hover:text-primary">
+                        <a href="{{ url('https://www.instagram.com/godentalsph/') }}" class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-instagram"></i>
                         </a>
                     </div>
                     <div class="flex justify-center flex-1">
-                        <a href="javascript:void(0)" class="hover:text-primary">
+                        <a href="{{ url('https://www.facebook.com/GoDentals') }}" class="hover:text-primary">
                             <i class="text-3xl fa fa-facebook-square"></i>
                         </a>
                     </div>
                     <div class="flex justify-start flex-1">
-                        <a href="javascript:void(0)"class="hover:text-primary">
+                        <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}"class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-twitter"></i>
                         </a>
                     </div>

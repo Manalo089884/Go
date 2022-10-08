@@ -34,6 +34,7 @@ import "./validation";
 import "./notification";
 import "./tabulator";
 import "./calendar";
+import "./zoom";
 
 /*
  |--------------------------------------------------------------------------
