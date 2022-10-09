@@ -30,6 +30,42 @@ class CustomerProfileController extends Controller
             'address' => $address
         ]);
     }
+
+    public function updateaddress(Request $request, $id){
+        $address = CustomerShippingAddress::findorFail($id);
+        $this->validate($request,[
+            'full_name' => 'required|max:255',
+            'phone_number' => 'required|digits:11',
+            'house' => 'required|max:255',
+            'province' => 'required|max:255',
+            'city' => 'required|max:255',
+            'barangay' => 'required|max:255',
+        ]);
+
+        if (Auth::guard('customer')->check()){
+            $customer_id = Auth::id();
+            $address->name = $request->input('full_name');
+            $address->phone_number = $request->input('phone_number');
+            $address->house = $request->input('house');
+            $address->province = $request->input('province');
+            $address->city = $request->input('city');
+            $address->barangay = $request->input('barangay');
+            $address->update();
+
+            return redirect()->route('customer.address')->with('success', 'Address was edited successfully');
+
+
+        }else{
+            return back()->with('fail',"Invalid!!!");
+        }
+    }
+    public function destroyaddress($id){
+        $address = CustomerShippingAddress::findorFail($id);
+
+        $address->delete();
+        return back()->with('deleteSuccess', $address->name ." Deleted Successfully");
+    }
+
     public function createaddress(){
         return view('customer.account.createaddress');
     }
@@ -37,7 +73,7 @@ class CustomerProfileController extends Controller
     public function saveaddress(Request $request){
         $this->validate($request,[
             'full_name' => 'required|max:255',
-            'phone_number' => 'required|digits:11',
+            'phone_number' => 'required',
             'house' => 'required|max:255',
             'province' => 'required|max:255',
             'city' => 'required|max:255',
@@ -58,7 +94,6 @@ class CustomerProfileController extends Controller
             ]);
             return redirect()->route('customer.address')->with('success', 'Address was successfully added');
 
-            return back()->with('success',"Account Created Successfully");
         }else{
             return back()->with('fail',"Invalid!!!");
         }
@@ -67,7 +102,6 @@ class CustomerProfileController extends Controller
     public function changepassword(){
         return view('customer.account.changepass');
     }
-
 
     public function resetpass(Request $request){
         if (!(Hash::check($request->get('current_password'), Auth::guard('customer')->user()->password))) {

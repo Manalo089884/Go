@@ -14,7 +14,7 @@ module.exports = {
         "./resources/view/customer/component/*.php",
         "./resources/view/customer/**/*.php",
         "./resources/view/customer/page/**/*.php",
-        ".//*.html",
+        // ".//*.html",
     ],
     darkMode: "class",
     theme: {

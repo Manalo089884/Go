@@ -1,4 +1,5 @@
 <div>
+
     <div class="overflow-x-auto">
         <table class="table table-bordered table-hover">
             <thead class="table-light">
@@ -29,4 +30,5 @@
             </tbody>
         </table>
     </div>
+    <script src="{{ asset('dist/js/phil-conv-address.js') }}"></script>
 </div>

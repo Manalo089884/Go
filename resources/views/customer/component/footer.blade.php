@@ -44,7 +44,7 @@
                 </div>
               </ul>
               <!-- Legal / Div2.1 -->
-              <h4 class="intro-x mb-3 text-lg font-semibold">Legal</h4>
+              <h4 class="intro-x mb-3 text-lg font-semibold ">Legal</h4>
               <ul>
                 <li>
                     <a href="{{ Route('terms') }}" class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">
@@ -62,7 +62,7 @@
         <!-- Customer Care / Div3 -->
 
         <div class="intro-x text-gray-200 md:w-48">
-            <h4 class="mb-4 text-lg font-semibold text-dark">Customer Care</h4>
+            <h4 class="mb-4 text-lg font-semibold text-gray-200">Customer Care</h4>
             <ul>
               <li>
                 <a href="{{ Route('about') }}" class="inline-block mb-2 text-base leading-loose text-body-color hover:text-primary">

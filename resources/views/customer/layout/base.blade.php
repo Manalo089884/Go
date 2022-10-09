@@ -4,8 +4,9 @@
     <head>
         <meta charset="utf-8">
         <link href="{{asset('icons/log.png')}}" rel="shortcut icon">
-
+        <link rel="stylesheet" href="{{ asset('dist/css/build.css') }}" />
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Go Dental E-Commerce Seller">
         <meta name="keywords" content="Go Dental">
@@ -43,7 +44,10 @@
         <script src="{{ asset('dist/js/app.js') }}"></script>
         @livewireScripts
         <!-- END: JS Assets-->
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+
         @stack('scripts')
+
     </body>
 </html>
 

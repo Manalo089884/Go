@@ -111,35 +111,15 @@
             <!-- END: Product Layout -->
 
             <!-- BEGIN: Pagination -->
-            <div class="flex justify-center col-span-12 intro-y">
-                <div class="flex flex-wrap items-center intro-y sm:flex-row sm:flex-nowrap ">
-                    <nav class="flex w-full sm:w-auto sm:mr-auto">
-                        <!-- Note* Pagination's CSS comes from the template, not tailwind -->
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevrons-left"></i> </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevron-left"></i> </a>
-                            </li>
-                            <li class="page-item"> <a class="page-link" href="#">...</a> </li>
-                            <li class="page-item"> <a class="page-link" href="#">1</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="#">2</a> </li>
-                            <li class="page-item"> <a class="page-link" href="#">3</a> </li>
-                            <li class="page-item"> <a class="page-link" href="#">...</a> </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevron-right"></i> </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"> <i class="w-4 h-4" data-lucide="chevrons-right"></i> </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+
             <!-- END: Pagination -->
         </div>
+
     </div>
+
+</div>
+<div class="w-full intro-y flex justify-end mt-2" style="width: 500px">
+    {{$products->onEachSide(1)->links('pagination::simple-bootstrap-4')}}
 </div>
 
 <!-- Mobile Filter/Nav Bar -->

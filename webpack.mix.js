@@ -20,6 +20,7 @@ mix.js("resources/js/app.js", "public/dist/js")
     .js("resources/js/ckeditor-balloon-block.js", "public/dist/js")
     .js("resources/js/ckeditor-document.js", "public/dist/js")
     .css("public/dist/css/_app.css", "public/dist/css/app.css")
+    .css("resources/css/_tailwind.css", "public/dist/css/build.css")
     .options({
         processCssUrls: false,
     })

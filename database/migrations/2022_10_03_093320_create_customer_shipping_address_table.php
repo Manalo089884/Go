@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('customers_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('name');
             $table->string('phone_number');
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->string('house');
             $table->string('province');
             $table->string('city');

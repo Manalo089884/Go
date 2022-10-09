@@ -15,7 +15,6 @@ class CartController extends Controller
         }else{
             return redirect()->route('CLogin.index');
         }
-
         return view('customer.page.cart.cart',[
             'cart' => $cart
         ]);

@@ -17,23 +17,91 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        /*
+
         DB::table('category')->insert([
             [
-                'name' => 'Blue',
+                'name' => 'Gloves',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Red',
+                'name' => 'Mask',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
-                'name' => 'Green',
+                'name' => 'Bib',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Suction Tip',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Dental Stones',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Saturing Materials',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Root Canal Materials',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Prophylaxis Materials',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Bonding Agent',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Consumable Item',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Clearner Solution',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Cements',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Restorative Materials',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Wound Dressing Materials',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Needles',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Tropical Anes',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Local Anes',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Others',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Alignates',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Ortho Product',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         ]);
-        */
-        Category::factory(100)->create();
+
+        //Category::factory(100)->create();
     }
 }

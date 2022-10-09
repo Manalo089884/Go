@@ -1,7 +1,7 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Address Book')
-<script src="{{ asset('dist/js/phil-conv-address.js') }}"></script>
+
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
              Welcome to Go Dental!
@@ -20,11 +20,40 @@
                     </h2>
                 </div>
                 <div class="p-5">
-
-                    <livewire:table.customer-address-table/>
-
-                    <livewire:modal.delete-customer-address/>
-
+                    <div class="overflow-x-auto">
+                        <table class="table table-bordered table-hover" id="datatable">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="whitespace-nowrap">Full Name</th>
+                                    <th class="whitespace-nowrap text-center">Address</th>
+                                    <th class="whitespace-nowrap text-center">Postcode</th>
+                                    <th class="whitespace-nowrap text-center">Phone Number</th>
+                                    <th class="whitespace-nowrap text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="addressTbody">
+                                @forelse ($address as $address)
+                                <tr>
+                                    <td class="whitespace-nowrap">{{ $address->name }}</td>
+                                    <td class="whitespace-nowrap text-center">{{ $address->house }}</td>
+                                    <td class="whitespace-nowrap text-center address">{{ $address->province }}-{{ $address->city }}-{{ $address->barangay}}</td>
+                                    <td class="whitespace-nowrap text-center">{{ $address->phone_number }}</td>
+                                    <td class="whitespace-nowrap text-center flex items-center justify-center">
+                                        <a href="{{ Route('customer.address.edit', $address->id) }}" class="mr-1">
+                                            <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit</a>
+                                        <a class="flex items-center text-danger" href="javascript:;"  id="deleteAddress" data-name="{{$address->name}}"  data-id="{{$address->id}}">
+                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
+                                         </a>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="5">No Address Data</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="flex justify-end">
                         <a href="{{ Route('customer.address.create') }}" class="btn btn-primary w-52 mt-3">Add New Address</a>
                     </div>
@@ -40,14 +69,13 @@
             <div class="text-slate-500 mt-1" id="message"></div>
          </div>
     </div>
-
-    @if(session('success'))
+    @if(session('deleteSuccess'))
     <div class="intro-y">
         <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content ">
             <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
             <div class="ml-4 mr-4">
-                <div class="font-medium">New Address Added</div>
-                <div class="text-slate-500 mt-1">{{session('success')}}</div>
+                <div class="font-medium">Address Deleted Successfully</div>
+                <div class="text-slate-500 mt-1">{{session('deleteSuccess')}}</div>
             </div>
         </div>
     </div>
@@ -63,9 +91,53 @@
         stopOnFocus: true, }).showToast();
     </script>
     @endif
+    @if(session('success'))
+        <div class="intro-y">
+            <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content ">
+                <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
+                <div class="ml-4 mr-4">
+                    <div class="font-medium">New Address Added</div>
+                    <div class="text-slate-500 mt-1">{{session('success')}}</div>
+                </div>
+            </div>
+        </div>
 
+        <script>
+        Toastify({
+            node: $("#edit-success-notification-content") .clone() .removeClass("hidden")[0],
+            duration: 7000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true, }).showToast();
+        </script>
+    @endif
+
+
+    <x-Modal.DeleteModal>
+        <div class="p-5 text-center">
+            <i data-lucide="x-circle" class="w-16 h-16 text-danger mx-auto mt-3"></i>
+            <div class="text-3xl mt-5">
+                Are you sure?
+            </div>
+            <div class="text-slate-500 mt-2">
+                Do you really want to delete this address
+                <div id="delete_address"></div>
+            </div>
+        </div>
+        <form action method="POST" id="deleteAddressForm">
+            @method('DELETE')
+            @csrf
+            <div class="px-5 pb-8 text-center">
+                <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
+                <button type="submit" class="btn btn-danger w-24">Delete</button>
+            </div>
+        </form>
+    </x-Modal.DeleteModal>
 @endsection
 @push('scripts')
+<script src="{{ asset('dist/js/phil-conv-address.js') }}"></script>
 <script>
        window.addEventListener('SuccessAlert',event => {
         let id = (Math.random() + 1).toString(36).substring(7);
@@ -97,5 +169,25 @@
     const DeleteModal = document.getElementById('delete-confirmation-modal')
     DeleteModal.addEventListener('hidden.tw.modal', function(event) {
         livewire.emit('forceCloseModal');
-    })</script>
+    })
+    $(document).ready(function () {
+    $("#datatable").on("click", "#deleteAddress", function () {
+        var id = $(this).data("id");
+        var name = $(this).data("name");
+        $("#deleteAddressForm").attr("action", "/user/address/" + id);
+        $("#delete_address").text(name);
+        const myModal = tailwind.Modal.getInstance(
+            document.querySelector("#delete-confirmation-modal")
+        );
+        myModal.show();
+    });
+
+});
+
+
+
+
+    </script>
+
+
 @endpush

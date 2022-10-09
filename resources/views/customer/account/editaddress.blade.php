@@ -38,7 +38,7 @@
                 @if(session('fail'))
                      <div class="alert alert-danger show flex items-center mb-2" role="alert"> <i data-lucide="alert-octagon" class="w-6 h-6 mr-2"></i> {{ session('fail') }} </div>
                 @endif
-                <form action="{{ Route('customer.address.create') }}" method="POST">
+                <form action="{{ Route('customer.address.edit', $address->id ) }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-12 gap-x-5">
                     <div class="col-span-12 xl:col-span-6">

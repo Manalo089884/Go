@@ -79,6 +79,8 @@ Route::get('/productcatalog/{product:name}', [ProductCatalogController::class,'s
             Route::get('/address/create', [CustomerProfileController::class,'createaddress'])->name('customer.address.create');
             Route::post('address/create',[CustomerProfileController::class,'saveaddress']);
             Route::get('/address/edit/{id}', [CustomerProfileController::class,'editaddress'])->name('customer.address.edit');
+            Route::post('/address/edit/{id}', [CustomerProfileController::class,'updateaddress']);
+            Route::delete('/address/{id}', [CustomerProfileController::class, 'destroyaddress']);
             Route::get('/changepassword',[CustomerProfileController::class,'changepassword'])->name('customer.change.pass');
             Route::post('changepassword',[CustomerProfileController::class,'resetpass']);
         });
