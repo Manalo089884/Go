@@ -83,7 +83,10 @@
             </div>
             @else
             <h2 class="intro-y text-lg font-medium mt-10">
-                No Results found <strong>{{$search}}</strong>
+                <div class="flex justify-center flex-col">
+                    <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
+                    <div class="flex justify-center">No Results found <strong class="ml-1"> {{ $search }}</strong>  </div>
+                </div>
             </h2>
             @endif
         </div>

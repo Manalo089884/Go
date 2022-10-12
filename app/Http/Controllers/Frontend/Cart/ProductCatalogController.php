@@ -13,7 +13,7 @@ class ProductCatalogController extends Controller
 {
     public function index(){
         $categories = Category::orderby('name')->get();
-        $products = Product::where('status', 1)->orderBy('name')->with('images')->paginate(12);
+        $products = Product::where('status', 1)->orderBy('name')->with('images')->get();
         return view('customer.page.cart.product',[
             'products' => $products,
             'categories' => $categories

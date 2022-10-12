@@ -10,21 +10,29 @@ class ProductForm extends Component
 {
     public $brand;
     public $category;
-    public $name,$stock,$cprice,$sprice,$weight,$status,$description;
+    public $name,$stock,$cprice,$sprice,$weight,$sku,$status,$description;
 
     public $listofcategory;
     public $listofbrand;
-   
+
     public function render()
     {
         $categories = Category::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
         return view('livewire.form.product-form',[
-         
+
             'categories' => $categories
             ,'brands' => $brands
         ]);
     }
+
+    public function mount(){
+        $categories = Category::orderBy('name','desc')->get()->first();
+
+
+
+    }
+
     public function updated($fields){
         $this->validateOnly($fields,[
             'name' => 'required',
@@ -51,6 +59,6 @@ class ProductForm extends Component
     }
     public function StoreProductData(){
        $this->validate();
-     
+
     }
 }

@@ -1,11 +1,28 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Cart')
+@if(count($cart) == 0)
+<div class="flex items-center justify-center mt-48 intro-y 	">
+    <div>
+        <div>
+            <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
+        </div>
+        <div class="flex justify-center mt-2 text-lg text-slate-600 font-medium leading-none mt-3">There are no items in this cart</div>
+        <div class="flex justify-center mt-2">
+            <a href="{{ Route('product') }}" class="btn btn-primary mt-3">Continue Shopping</a>
+        </div>
+
+    </div>
+</div>
+@else
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         Cart
     </h2>
 </div>
+
+
+
 <div class="grid grid-cols-12 gap-6">
     <!-- BEGIN: Profile Menu -->
     <div class="col-span-12 lg:col-span-4 2xl:col-span-3 flex lg:block flex-col-reverse">
@@ -79,6 +96,9 @@
                 </h2>
             </div>
             <div class="p-5">
+
+
+
                 <div class="overflow-x-auto">
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -112,11 +132,13 @@
                         </tbody>
                      </table>
                     </div>
+
             </div>
         </div>
         <!-- END: Display Information -->
     </div>
 </div>
+@endif
 @endsection
 @push('scripts')
 <script>

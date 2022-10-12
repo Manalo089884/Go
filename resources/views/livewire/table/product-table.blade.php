@@ -68,7 +68,7 @@
                    </thead>
                    <tbody>
                    @foreach($products as $product)
-                       <tr>
+                       <tr class="intro-x">
                            <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product->id)}}">{{$product->name}}
                             <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div></a>
                             </td>
@@ -92,8 +92,8 @@
                                    <div class="flex justify-center items-center">
                                         <a class="flex items-center mr-3" href="{{Route('product.show',$product->id)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
                                         <a class="flex items-center mr-3" href="{{Route('product.edit',$product->id)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
-                                        <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center text-danger">
-                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
+                                        <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center ">
+                                            <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Archive
                                         </button>
                                    </div>
                                </div>

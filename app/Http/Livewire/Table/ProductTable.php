@@ -10,7 +10,7 @@ class ProductTable extends Component
 {
     use WithPagination;
     public $sorting;
-    public $perPage = 5;
+    public $perPage = 10;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
     protected $paginationTheme = 'bootstrap';
@@ -25,7 +25,7 @@ class ProductTable extends Component
 
     public function mount(){
         $this->sorting = "nameaz";
-        $this->perPage = 5;
+        $this->perPage = 10;
     }
 
     public function render(){

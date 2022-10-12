@@ -27,16 +27,16 @@ class StoreProductRequest extends FormRequest
             'name'=>'required|unique:product,name',
             'category' => 'required',
             'brand' => 'required',
-            'stock' => 'required|numeric',
+            'stock' => 'required|integer|min:0',
             'SKU' => 'required',
-            'cprice' => 'required|numeric',
-            'sprice' => 'required|numeric',
-            'weight' => 'required|numeric',
+            'cprice' => 'required|numeric|min:0',
+            'sprice' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
             'description' => 'required',
             //'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-        
+
         ];
     }
     public function messages(){

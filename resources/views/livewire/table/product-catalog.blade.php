@@ -1,7 +1,3 @@
-@extends('customer.layout.base')
-@section('content')
-@section('title', 'Product')
-
 <div>
     <div class="grid grid-cols-12 gap-6">
         <!-- BEGIN: Product Filter -->
@@ -94,11 +90,3 @@
         </div>
     </div>
 </div>
-
-
-@endsection
-@push('scripts')
-<script>
-</script>
-@endpush
-

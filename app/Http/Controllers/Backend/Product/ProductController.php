@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index(){
       return view('admin.page.Product.product');
     }
-    
+
     //Show Add Product Form
     public function create(){
       $categories = Category::orderBy('name')->get();
@@ -29,7 +29,7 @@ class ProductController extends Controller
           'brands' => $brands
       ]);
     }
-    
+
     //Store Product in Database
     public function store(StoreProductRequest $request){
       $request->validated();
@@ -73,17 +73,17 @@ class ProductController extends Controller
         'images' => $images,
       ]);
     }
-    
+
     //Update Product Info from database
     public function update(Request $request,$id ){
         $this->validate($request, array(
             'name'=> "required|unique:product,name,$id",
             'category' => 'required',
             'brand' => 'required',
-            'stock' => 'required|numeric',
+            'stock' => 'required|numeric|min:0',
             'SKU' => 'required',
-            'cprice' => 'required|numeric',
-            'sprice' => 'required|numeric',
+            'cprice' => 'required|numeric|min:0',
+            'sprice' => 'required|numeric|min:0',
             'weight' => 'required|numeric',
             'description' => 'required',
 
@@ -108,7 +108,7 @@ class ProductController extends Controller
         //return redirect('admin/product')->with('ProductEditSuccess', $request->name .' was successfully Edited');
     }
 
-    
+
     //Show Product Page Info
     public function show($id){
       $product = Product::with('category','brand','images')->findorFail($id);
@@ -121,23 +121,23 @@ class ProductController extends Controller
             'products' => $products
         ]);
       }
-    
+
       //Export Product to Excel
-    
+
       public function exportproductexcel(){
       return Excel::download(new ProductExport,'products.xlsx');
     }
-    
-    //Export Product to CSV 
+
+    //Export Product to CSV
     public function exportproductcsv(){
       return Excel::download(new ProductExport,'products.csv');
     }
-    
+
     //Export Product to HTML
     public function exportproducthtml(){
       return Excel::download(new ProductExport,'products.html');
     }
-    
+
     //Export Product to PDF
     public function exportproductpdf(){
       return Excel::download(new ProductExport,'products.pdf');
