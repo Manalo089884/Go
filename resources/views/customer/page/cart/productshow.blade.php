@@ -1,7 +1,7 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Displaying Product Info')
-<div class="items-center justify-center flex">
+<div class="items-center justify-center flex" id="ProductShowVue">
     <div style="width: 60rem">
         <!-- Begin Header of Product -->
         <div class="intro-y box px-5 pt-5 mt-7">
@@ -27,11 +27,12 @@
                             <div class="text-slate-500">Selling Price</div>
                             <div class="flex  flex-row   h-8 w-50 justify-center items-center rounded-lg relative bg-transparent mt-1">
                                 <form action="" class="flex flex-row ">
-                                    <button data-action="decrement" type="button" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
+                                    <button type="button" @click="decrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">−</span>
                                     </button>
-                                    <input type="text" class="h-8 outline-none focus:outline-none text-center w-14 bg-gray-300 font-medium text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" value="0"></input>
-                                    <button data-action="increment" type="button" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
+                                    <input type="text" class="h-8 outline-none focus:outline-none text-center w-14 bg-gray-300 font-medium text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" :value="product.quantity" />
+        
+                                    <button type="button" @click="incrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">+</span>
                                     </button>
                                 </form>
@@ -39,7 +40,7 @@
                             <div class="text-slate-500">Quantity</div>
                             <br>
                             @if(Auth::guard('customer')->check())
-                                <button class="intro-x btn btn-primary mt-5 w-full">Add to Cart</button>
+                                <button class="intro-x btn btn-primary mt-5 w-full" @click="addToCart">Add to Cart</button>
                             @else
                             <!-- BEGIN: Modal Toggle -->
                                 <div class="text-center">
@@ -183,41 +184,8 @@
 @endsection
 @push('scripts')
 <script>
-    function decrement(e) {
-        const btn = e.target.parentNode.parentElement.querySelector(
-        'button[data-action="decrement"]'
-        );
-        const target = btn.nextElementSibling;
-        let value = Number(target.value);
-        value--;
-        target.value = value;
-    }
-
-    function increment(e) {
-        const btn = e.target.parentNode.parentElement.querySelector(
-        'button[data-action="decrement"]'
-        );
-        const target = btn.nextElementSibling;
-        let value = Number(target.value);
-        value++;
-        target.value = value;
-    }
-
-    const decrementButtons = document.querySelectorAll(
-        `button[data-action="decrement"]`
-    );
-
-    const incrementButtons = document.querySelectorAll(
-        `button[data-action="increment"]`
-    );
-
-    decrementButtons.forEach(btn => {
-        btn.addEventListener("click", decrement);
-    });
-
-    incrementButtons.forEach(btn => {
-        btn.addEventListener("click", increment);
-    });
+        window.productId = "{{$product->id}}"
 </script>
+<script src="{{ asset('dist/js/product-show.js') }}"></script>
 @endpush
 

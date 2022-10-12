@@ -20,4 +20,15 @@ class CartController extends Controller
         ]);
 
     }
+    public function addToCart(Request $request){
+        try{
+            $customer_id = Auth::id();
+            CustomerCart::create(['customers_id' => $customer_id, 'product_id'=> $request->id, 'quantity'=> $request->quantity]);
+                return json_encode(array('message'=>"Item successfully added to cart", 'status'=>200));
+            }
+        catch(Exception $e){
+            return json_encode(array('error'=>$e, 'status'=>500));
+        }
+    }
+
 }
