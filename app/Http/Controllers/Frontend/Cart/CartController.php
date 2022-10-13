@@ -16,7 +16,8 @@ class CartController extends Controller
             return redirect()->route('CLogin.index');
         }
         return view('customer.page.cart.cart',[
-            'cart' => $cart
+            'cart' => $cart,
+            'cart_json'=> json_encode($cart)
         ]);
 
     }

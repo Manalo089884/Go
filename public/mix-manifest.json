@@ -8,6 +8,7 @@
     "/dist/js/ckeditor-balloon-block.js": "/dist/js/ckeditor-balloon-block.js",
     "/dist/js/ckeditor-document.js": "/dist/js/ckeditor-document.js",
     "/dist/js/product-show.js": "/dist/js/product-show.js",
+    "/dist/js/cart.vue.js": "/dist/js/cart.vue.js",
     "/dist/css/build.css": "/dist/css/build.css",
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/json/location.json": "/dist/json/location.json",
