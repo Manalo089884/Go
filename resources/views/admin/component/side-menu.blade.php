@@ -1,7 +1,7 @@
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4 mt-3">
         <img alt="Go Dental" class="w-6" src="{{asset('icons/log.png')}}">
-        <span class="hidden xl:block text-white text-lg ml-3"> Go Dental </span> 
+        <span class="hidden xl:block text-white text-lg ml-3"> Go Dental </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -33,6 +33,12 @@
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                         <div class="side-menu__title"> Category </div>
                     </a>
+                    <li>
+                        <a href="{{ route('supplier.index') }}" class="side-menu">
+                            <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                            <div class="side-menu__title"> Supplier </div>
+                        </a>
+                    </li>
                 </li>
             </ul>
         </li>
@@ -101,14 +107,14 @@
             <a href="{{Route('user.index')}}" class="side-menu {{ (request()->is('admin/user')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="contact"></i> </div>
                 <div class="side-menu__title"> Users </div>
-            </a>    
+            </a>
         </li>
         <!--Roles-->
         <li>
             <a href="javascript:;" class="side-menu {{ (request()->is('admin/role')) || (request()->is('admin/permission')) ?  'side-menu--active ' : '' }}">
                 <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                 <div class="side-menu__title">
-                    Roles 
+                    Roles
                     <div class="side-menu__sub-icon "> <i data-lucide="chevron-down"></i> </div>
                 </div>
             </a>
@@ -135,7 +141,7 @@
                 <div class="side-menu__icon"> <i data-lucide="file-text"></i> </div>
                 <div class="side-menu__title"> Reports </div>
             </a>
-        </li> 
+        </li>
         <!--Analytics-->
         <li>
             <a href="{{Route('analytics.index')}}" class="side-menu {{ (request()->is('admin/analytics')) ? 'side-menu--active' : '' }}">

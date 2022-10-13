@@ -30,6 +30,12 @@
                         <div class="menu__title"> Category </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{Route('supplier.index')}}" class="menu">
+                        <div class="menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="menu__title"> Supplier </div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li>

@@ -1,0 +1,104 @@
+@extends('customer.layout.base')
+@section('content')
+@section('title', 'Product')
+
+<div class="grid grid-cols-12 gap-6">
+    <!-- BEGIN: Product Filter -->
+    <div class="col-span-12 lg:col-span-3 2xl:col-span-2 flex lg:block flex-col-reverse">
+        <div class="intro-y box mt-5">
+            <div class="relative flex items-center p-5">
+                <div class="ml-4 mr-auto">
+                    <div class="font-medium text-base">Product Filters</div>
+                </div>
+            </div>
+            <div class="p-5 border-t border-slate-200/60 dark:border-darkmode-400">
+                <input type="search" class="form-control" name="Search" placeholder="Search Product">
+            </div>
+            <div class="p-5 border-t border-slate-200/60 dark:border-darkmode-400">
+                <div class="font-medium text-base p-2">Sort By Category:</div>
+                <select data-placeholder="Select Category" class="tom-select w-full" name="category">
+                    @forelse($categories as $category)
+                        @if(old('category') == $category->id )
+                            <option value="{{$category->id}}" selected>{{$category->name}}</option>
+                        @else
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endif
+                    @empty
+                        <option disabled>No Results Found Add a Category first</option>
+                    @endforelse
+                </select>
+            </div>
+            <div class="p-5 border-t border-slate-200/60 dark:border-darkmode-400">
+                <div class="font-medium text-base p-2">Price:</div>
+                <div class="flex justify-between gap-2 ">
+                    <input id="opt4" type="text" value="" name="r-option-4" class="form-control" placeholder="Min" class="w-1/3 h-5 mr-5 bg-white border-gray-400 rounded ">
+                    <input id="opt4" type="text" value="" name="r-option-4" class="form-control" placeholder="Max" class="w-1/3 h-5 bg-white border-gray-400 rounded ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Product Filter -->
+    <div class="col-span-12 lg:col-span-9 2xl:col-span-10">
+        <!-- BEGIN: Product List -->
+        <div class="intro-y lg:mt-5">
+            <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+                <h2 class="font-medium text-base mr-auto">
+                    List of Products
+                </h2>
+            </div>
+            <div class="p-5">
+                <div class="grid grid-cols-12 gap-6  intro-y">
+                    <!-- BEGIN: Product Layout -->
+                    @forelse ($products as $product)
+                        <div class="box col-span-6 sm:col-span-4 lg:col-span-3 xl:col-span-3 2xl:col-span-2">
+                            <div class="text-slate-500 p-1 flex justify-end">{{ $product->category->name }}</div>
+                            <a href="{{ Route('productshow', $product) }}">
+                            <div class="flex items-center  border-b border-slate-200/60 dark:border-darkmode-400"></div>
+                                <div class="p-5">
+                                    <div class="h-48 2xl:h-56">
+                                        @if(count($product->images) == 0)
+                                            <img alt="Missing Image"  class="object-fill h-48 rounded-md w-96" src="{{ asset('dist/images/logo.png') }}">
+                                        @else
+                                            @foreach ($product->images->take(1)  as $model)
+                                                <img alt="Missing Image"  class="object-fill h-48 rounded-md w-96" src="/product_images/{{$model->images}}">
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                                <!-- Product Details Container -->
+                                <div class="ml-3 mr-auto">
+                                    <div class="font-medium">{{ $product->name }}</div>
+                                </div>
+                                <div class="px-2 pt-3 pb-2 border-t border-slate-200/60 dark:border-darkmode-400">
+                                    <div class="flex w-full text-xs text-slate-500">
+                                        <div class="mr-auto"> Price: <span class="">{{$product->sprice }}</span> </div>
+                                        <?php if ($product->stock <= 60) { ?>
+                                            <div class="text-xs "><span class="text-red-300 ">{{$product->stock }}</span> Stocks Left!</div>
+                                            <?php } ?>
+                                        <!--<div class="ml-auto"> Likes: <span class="font-medium">136k</span> </div>-->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @empty
+                        <div>No Products</div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+        <div class="intro-y  mt-2 w-full">
+            <div class="flex justify-end mt-4 w-full sm:w-96">
+                {{$products->onEachSide(1)->links('pagination::bootstrap-4')}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@endsection
+@push('scripts')
+<script>
+</script>
+@endpush
+

@@ -60,8 +60,8 @@ class ProductController extends Controller
       return redirect()->route('product.index')->with('success', $request->name .' was successfully inserted');
     }
     //Show Edit Product Page
-    public function edit($id){
-      $product = Product::findorFail($id);
+    public function edit(Product $product){
+      //$product = Product::findorFail($id);
       $categories = Category::orderBy('name')->get();
       $brands = Brand::orderBy('name')->get();
 
@@ -110,8 +110,8 @@ class ProductController extends Controller
 
 
     //Show Product Page Info
-    public function show($id){
-      $product = Product::with('category','brand','images')->findorFail($id);
+    public function show(Product $product){
+      //$product = Product::with('category','brand','images')->findorFail($id);
       return view('admin.page.Product.productshow', compact('product'));
     }
       //Show Product Archive Page
@@ -122,9 +122,8 @@ class ProductController extends Controller
         ]);
       }
 
-      //Export Product to Excel
-
-      public function exportproductexcel(){
+    //Export Product to Excel
+    public function exportproductexcel(){
       return Excel::download(new ProductExport,'products.xlsx');
     }
 

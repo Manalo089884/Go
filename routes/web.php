@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\Product\CategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Product\ProductImageController;
 use App\Http\Controllers\Backend\Product\InventoryController;
+use App\Http\Controllers\Backend\Product\SupplierController;
 use App\Http\Controllers\Backend\Transaction\ChatController;
 use App\Http\Controllers\Backend\Transaction\OrderController;
 use App\Http\Controllers\Backend\Transaction\PostController;
@@ -134,6 +135,13 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/product/csv',[ProductController::class,'exportproductcsv'])->name('exportproductcsv');
         Route::get('/product/html',[ProductController::class,'exportproducthtml'])->name('exportproducthtml');
         Route::get('/product/pdf',[ProductController::class,'exportproductpdf'])->name('exportproductpdf');
+        //Export Files for Supplier
+        Route::get('/supplier/excel',[SupplierController::class,'exportsupplierexcel'])->name('exportsupplierexcel');
+        Route::get('/supplier/csv',[SupplierController::class,'exportsuppliercsv'])->name('exportsuppliercsv');
+        Route::get('/supplier/html',[SupplierController::class,'exportsupplierhtml'])->name('exportsupplierhtml');
+        Route::get('/supplier/pdf',[SupplierController::class,'exportsupplierpdf'])->name('exportsupplierpdf');
+
+
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::resource('dashboard', DashboardController::class)->only(['index']);
@@ -150,6 +158,8 @@ Route::group(['prefix' => 'admin'],function(){
             Route::resource('orders', OrderController::class)->only('index');
             Route::resource('chat', ChatController::class)->only('index');
             Route::resource('post', PostController::class)->only('index');
+            Route::get('/supplier/archive', [SupplierController::class,'SupplierArchiveIndex'])->name('SupplierArchiveIndex');
+            Route::resource('supplier', SupplierController::class);
 
             Route::get('/profile/changepassword', [ProfileController::class,'changepass'])->name('AdminChangePass');
             Route::post('/profile/changepassword', [ProfileController::class,'resetpass']);

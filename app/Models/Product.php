@@ -27,7 +27,10 @@ class Product extends Model
       static::query()->where('name','like','%'.$search.'%')
       ->orWhere('stock','like','%'.$search.'%');
     }
-
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
     public function brand(){
         return $this-> belongsTo(Brand::class);
     }

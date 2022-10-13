@@ -113,7 +113,7 @@
                         </a>
                     </div>
                     <div class="flex justify-start flex-1">
-                        <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}"class="hover:text-primary">
+                        <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}" target="_blank" class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-twitter"></i>
                         </a>
                     </div>

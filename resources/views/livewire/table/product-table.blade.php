@@ -20,7 +20,7 @@
 
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-                    <input wire:model="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
+                    <input wire:model.lazy="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
                 <div class="mt-2 xl:mt-0">
                     <a href="{{Route('product.create')}}">
@@ -90,8 +90,8 @@
                            <td class="table-report__action w-56">
                                <div class="flex justify-center items-center">
                                    <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href="{{Route('product.show',$product->id)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
-                                        <a class="flex items-center mr-3" href="{{Route('product.edit',$product->id)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
+                                        <a class="flex items-center mr-3" href="{{Route('product.show',$product)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
+                                        <a class="flex items-center mr-3" href="{{Route('product.edit',$product)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
                                         <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center ">
                                             <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Archive
                                         </button>

@@ -56,7 +56,7 @@ class BrandForm extends Component
             $model->update();
 
             $this->dispatchBrowserEvent('SuccessAlert',[
-                'name' => $this->oldname.' was sucessfully changed to '.$this->name, 
+                'name' => $this->oldname.' was sucessfully changed to '.$this->name,
                 'title' => 'Record Successfully Edit',
             ]);
         }else{
@@ -71,7 +71,7 @@ class BrandForm extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
-    
+
     private function cleanVars(){
         $this->modelId = null;
         $this->name = null;
