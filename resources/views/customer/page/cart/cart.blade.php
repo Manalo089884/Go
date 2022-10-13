@@ -2,7 +2,7 @@
 @section('content')
 @section('title', 'Cart')
 @if(count($cart) == 0)
-<div class="flex items-center justify-center mt-48 intro-y 	">
+<div class="flex items-center justify-center mt-48 intro-y">
     <div>
         <div>
             <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
@@ -23,7 +23,7 @@
 
 
 
-<div class="grid grid-cols-12 gap-6">
+<div class="grid grid-cols-12 gap-6" id="CartVue">
     <!-- BEGIN: Profile Menu -->
     <div class="col-span-12 lg:col-span-4 2xl:col-span-3 flex lg:block flex-col-reverse">
         <div class="intro-y box mt-5">
@@ -41,10 +41,10 @@
                 <h1 class="font-medium leading-none mt-1">Order Summary</h1>
                 <div class="flex justify-between mt-3">
                     <div>
-                        <h1>Subtotal (15 items)</h1>
+                        <h1>Subtotal (items)</h1>
                     </div>
                     <div>
-                        <h1>₱1,200</h1>
+                        <h1>@{{subTotal}}</h1>
                     </div>
                 </div>
                 <div class="flex justify-between mt-3 ">
@@ -52,7 +52,7 @@
                         <h1>Shipping Fee</h1>
                     </div>
                     <div>
-                        <h1>₱120</h1>
+                        <h1>@{{shippingFee}}</h1>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
                         <h1 class="font-medium leading-none mt-1 mb-2">Subtotal</h1>
                     </div>
                     <div>
-                        <h1>₱1,320</h1>
+                        <h1>@{{totalWithShipppingFee}}</h1>
                     </div>
                 </div>
 
@@ -111,24 +111,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cart as $cart)
-                                <tr>
-                                    @foreach ($cart->getProduct as $model)
-                                    <td class="w-20"><input type="checkbox" class="form-control" name="" id=""></td>
-                                    <td class="whitespace-nowrap text-center"> {{   $model->name }}</td>
-                                    <td class="whitespace-nowrap text-center"> {{   $model->category->name }}</td>
-                                    <td class="whitespace-nowrap text-center">{{ $cart->quantity }}</td>
+
+                                <tr v-for="item in cartItems">  
+                                    <td class="w-20"><input type="checkbox" class="form-control" name="" id="" v-model="item.checked"></td>
+                                    <td class="whitespace-nowrap text-center">@{{item.name}} </td>
+                                    <td class="whitespace-nowrap text-center"> </td>
+                                    <td class="whitespace-nowrap text-center">@{{item.quantity}}</td>
                                     <td class="whitespace-nowrap flex justify-center items-center">
-                                        <button  wire:click="selectItem({{$cart->id}},'update')" class="flex items-center mr-3" >
+                                        <button  class="flex items-center mr-3" >
                                             <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Adjust
                                         </button>
-                                        <button wire:click="selectItem({{$cart->id}},'delete')" class="flex items-center text-danger">
+                                        <button class="flex items-center text-danger">
                                             <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
                                         </button>
                                     </td>
-                                    @endforeach
                                 </tr>
-                            @endforeach
+                          
                         </tbody>
                      </table>
                     </div>
@@ -137,10 +135,14 @@
         </div>
         <!-- END: Display Information -->
     </div>
+   
 </div>
 @endif
 @endsection
 @push('scripts')
 <script>
+    console.log(`{!!$cart_json!!}`)
+    window.cartItems = JSON.parse(`{!!$cart_json!!}`) ?? []
 </script>
+<script src="{{ asset('dist/js/cart.vue.js') }}"></script>
 @endpush

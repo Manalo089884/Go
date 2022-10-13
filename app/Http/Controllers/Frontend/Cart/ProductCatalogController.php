@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\CustomerCart;
+use Illuminate\Support\Facades\Auth;
 
 class ProductCatalogController extends Controller
 {
@@ -25,4 +27,5 @@ class ProductCatalogController extends Controller
             'product' => $product
         ]);
     }
+  
 }

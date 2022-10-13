@@ -58,7 +58,7 @@ Route::get('/returnexchanges', [PageController::class,'return'])->name('return')
 
 Route::get('/productcatalog', [ProductCatalogController::class,'index'])->name('product');
 Route::get('/productcatalog/{product:name}', [ProductCatalogController::class,'show'])->name('productshow');
-
+Route::get('/product/cart');
 
 //Route::resource('productcatalog', ProductCatalogController::class)->only(['index','show']);
 
@@ -72,6 +72,7 @@ Route::get('/productcatalog/{product:name}', [ProductCatalogController::class,'s
     Route::middleware(['auth:customer','PreventBackHistory'])->group(function () {
 
         Route::resource('cart', CartController::class)->only(['index','store']);
+        Route::post('/product/cart/', [CartController::class,'addToCart']);
         Route::resource('wishlist', WishlistController::class)->only(['index','store']);
         Route::get('/CLogout', [CustomerLogoutController::class, 'store'])->name('CLogout');
         Route::group(['prefix' => 'user'],function(){
