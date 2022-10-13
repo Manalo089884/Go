@@ -184,6 +184,7 @@
 @endsection
 @push('scripts')
 <script>
+
         window.productId = "{{$product->id}}"
 </script>
 <script src="{{ asset('dist/js/product-show.js') }}"></script>
