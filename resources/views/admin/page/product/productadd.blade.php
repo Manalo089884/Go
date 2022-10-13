@@ -47,14 +47,26 @@
                             @endforelse
                         </select>
                     </div>
-                    <div class="mt-3">
-                        <label for="inventory" class="form-label">Inventory Stock</label>
-                        <div class="input-group">
-                            <input  type="number" class="form-control" placeholder="Please Enter Inventory Stock" name="stock" value="{{old('stock')}}">
-                            <div class="input-group-text">
-                                PCS
+                    <div class="mt-3 grid grid-cols-12 gap-2  ">
+                        <div class="col-span-6 sm:col-span-12">
+                            <label for="inventory" class="form-label">Inventory Stock</label>
+                            <div class="input-group">
+                                <input  type="number" class="form-control" placeholder="Inventory Stock" name="stock" value="{{old('stock')}}">
+                                <div class="input-group-text">
+                                    PCS
+                                </div>
                             </div>
                         </div>
+                        <div class="col-span-6 sm:col-span-12">
+                            <label for="inventory" class="form-label">Inventory Warning Level</label>
+                            <div class="input-group">
+                                <input  type="number" class="form-control" placeholder="Warning Stock" name="w_stock" value="{{old('w_stock')}}">
+                                <div class="input-group-text">
+                                    PCS
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="mt-3">
                         <label for="weight" class="form-label">Weight</label>
@@ -106,17 +118,25 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    $('#cprice,#sprice').keyup(function(){
-                        var x = $('#sprice').val();
-                        var y = $('#cprice').val();
-                        var total = x - y;
-                        $('#profit').text(total);
-                        var margin = (total/x) * 100;
+                <div class="col-span-12 xl:col-span-6 mt-3">
+                    <div>
+                        <div>
+                            <label for="Category" class="form-label">Supplier Name</label>
+                            <select data-placeholder="Select Category" class="tom-select w-full" name="supplier">
+                                @forelse($suppliers as $supplier)
+                                    @if(old('category') == $supplier->id )
+                                        <option value="{{$supplier->id}}" selected>{{$supplier->name}}</option>
+                                    @else
+                                        <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                    @endif
+                                @empty
+                                    <option disabled>No Results Found Add a Supplier first</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
 
-                        $('#margin').text( parseFloat(margin).toFixed(2));
-                    });
-                </script>
+                </div>
                 <div class="col-span-12">
                     <div class="mt-3">
                         <label>Active Status</label>
@@ -124,10 +144,11 @@
                             <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
                         </div>
                     </div>
-            <div class="mt-3">
-                <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
-                <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
-            </div>
+                    <div class="mt-3">
+                        <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
+                        <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
+                    </div>
+
                     <div class="mt-3">
                         <label for="description" class="form-label">Description</label>
                         <div class="mt-2">
@@ -144,9 +165,22 @@
             </div>
         </div>
     </form>
-    </div>
+</div>
 
-
-<script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
+<script>
+    $('#cprice,#sprice').keyup(function(){
+        var x = $('#sprice').val();
+        var y = $('#cprice').val();
+        var total = x - y;
+        $('#profit').text(total);
+        var margin = (total/x) * 100;
+        $('#margin').text( parseFloat(margin).toFixed(2));
+    });
+</script>
 @endsection
 
+@push('scripts')
+<script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
+
+
+@endpush

@@ -105,17 +105,17 @@
                             <tr>
                                 <th class="whitespace-nowrap">#</th>
                                 <th class="whitespace-nowrap text-center">Product Name</th>
-                                <th class="whitespace-nowrap text-center">Category</th>
+
                                 <th class="whitespace-nowrap text-center">Quantity</th>
                                 <th class="whitespace-nowrap text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                                <tr v-for="item in cartItems">  
+                                <tr v-for="item in cartItems">
                                     <td class="w-20"><input type="checkbox" class="form-control" name="" id="" v-model="item.checked"></td>
                                     <td class="whitespace-nowrap text-center">@{{item.name}} </td>
-                                    <td class="whitespace-nowrap text-center"> </td>
+
                                     <td class="whitespace-nowrap text-center">@{{item.quantity}}</td>
                                     <td class="whitespace-nowrap flex justify-center items-center">
                                         <button  class="flex items-center mr-3" >
@@ -126,7 +126,7 @@
                                         </button>
                                     </td>
                                 </tr>
-                          
+
                         </tbody>
                      </table>
                     </div>
@@ -135,7 +135,7 @@
         </div>
         <!-- END: Display Information -->
     </div>
-   
+
 </div>
 @endif
 @endsection

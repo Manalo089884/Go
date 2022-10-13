@@ -9,7 +9,7 @@
     <div class="intro-y box mt-2 lg:mt-5">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
-                Add Product Form
+                Editing Product - {{ $product->name }}
             </h2>
         </div>
         <form action="{{Route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
@@ -53,12 +53,23 @@
                             @endif
                         </select>
                     </div>
-                    <div class="mt-3">
-                        <label for="inventory" class="form-label">Inventory Stock</label>
-                        <div class="input-group">
-                            <input  type="number" class="form-control" placeholder="Please Enter Inventory Stock" name="stock" value="{{old('stock')  ?? $product->stock}}">
-                            <div class="input-group-text">
-                                PCS
+                    <div class="mt-3 grid grid-cols-12 gap-2 ">
+                        <div class="col-span-6 sm:col-span-12">
+                            <label for="inventory" class="form-label">Inventory Stock</label>
+                            <div class="input-group">
+                                <input  type="number" class="form-control" placeholder="Inventory Stock" name="stock" value="{{old('stock')  ?? $product->stock}}">
+                                <div class="input-group-text">
+                                    PCS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 sm:col-span-12">
+                            <label for="inventory" class="form-label">Inventory Warning Level</label>
+                            <div class="input-group">
+                                <input  type="number" class="form-control" placeholder="Warning Stock" name="w_stock" value="{{old('w_stock') ?? $product->stock_warning}}">
+                                <div class="input-group-text">
+                                    PCS
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,6 +135,26 @@
                         $('#margin').text( parseFloat(margin).toFixed(2));
                     });
                 </script>
+                   <div class="col-span-12 xl:col-span-6 mt-3">
+                    <div>
+                        <div>
+                            <label for="Category" class="form-label">Supplier Name</label>
+                            <select data-placeholder="Select Category" class="tom-select w-full" name="supplier">
+                                @forelse($suppliers as $supplier)
+                                    @if(old('supplier') == $supplier->id || $product->suppliers_id)
+                                    <option value="{{$product->suppliers_id}}" selected> {{$product->suppliers->name }}</option>
+                                    <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                    @else
+                                        <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                    @endif
+                                @empty
+                                    <option disabled>No Results Found Add a Supplier first</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="col-span-12">
                     <div class="mt-3">
                         <label>Active Status</label>

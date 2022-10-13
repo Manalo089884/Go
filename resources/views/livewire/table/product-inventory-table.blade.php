@@ -39,7 +39,7 @@
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product->id)}}">{{$product->name}}
+                            <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div></a>
                              </td>
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>

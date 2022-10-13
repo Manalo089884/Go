@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Supplier;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Maatwebsite\Excel\Facades\Excel;
@@ -24,9 +25,11 @@ class ProductController extends Controller
     public function create(){
       $categories = Category::orderBy('name')->get();
       $brands = Brand::orderBy('name')->get();
+      $suppliers = Supplier::orderBy('name')->get();
       return view('admin.page.Product.productadd',[
           'categories' => $categories,
-          'brands' => $brands
+          'brands' => $brands,
+          'suppliers' => $suppliers
       ]);
     }
 
@@ -38,13 +41,16 @@ class ProductController extends Controller
           'name' => $request->name,
           'category_id' => $request->category,
           'brand_id' => $request->brand,
+          'suppliers_id' => $request->supplier,
           'stock' => $request->stock,
           'SKU' => $request->SKU,
           'cprice' => $request->cprice,
           'sprice' => $request->sprice,
           'weight' => $request->weight,
           'status' => $archived,
+          'stock_warning' => $request->w_stock,
           'description' => $request->description,
+
       ]);
 
       if($request->has('images')){
@@ -64,12 +70,13 @@ class ProductController extends Controller
       //$product = Product::findorFail($id);
       $categories = Category::orderBy('name')->get();
       $brands = Brand::orderBy('name')->get();
-
+      $suppliers = Supplier::orderBy('name')->get();
       $images = $product->images;
 
       return view('admin.page.Product.productedit', compact('product'),[
         'categories' => $categories,
         'brands' => $brands,
+        'suppliers' => $suppliers,
         'images' => $images,
       ]);
     }
@@ -80,7 +87,9 @@ class ProductController extends Controller
             'name'=> "required|unique:product,name,$id",
             'category' => 'required',
             'brand' => 'required',
+            'supplier' => 'required',
             'stock' => 'required|numeric|min:0',
+            'w_stock' => 'required|numeric|min:0',
             'SKU' => 'required',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'required|numeric|min:0',
@@ -95,7 +104,9 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->category_id = $request->input('category');
         $product->brand_id = $request->input('brand');
+        $product->suppliers_id = $request->input('supplier');
         $product->stock = $request->input('stock');
+        $product->stock_warning = $request->input('w_stock');
         $product->SKU = $request->input('SKU');
         $product->cprice = $request->input('cprice');
         $product->sprice = $request->input('sprice');

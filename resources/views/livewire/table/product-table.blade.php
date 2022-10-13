@@ -20,7 +20,7 @@
 
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-                    <input wire:model.lazy="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
+                    <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
                 </div>
                 <div class="mt-2 xl:mt-0">
                     <a href="{{Route('product.create')}}">
@@ -69,7 +69,7 @@
                    <tbody>
                    @foreach($products as $product)
                        <tr class="intro-x">
-                           <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product->id)}}">{{$product->name}}
+                           <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
                             <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div></a>
                             </td>
                            <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
@@ -104,9 +104,12 @@
                </table>
            </div>
            @else
-           <h2 class="intro-y text-lg font-medium mt-10">
-               No Results found <strong>{{$search}}</strong>
-           </h2>
+            <h2 class="intro-y text-lg font-medium mt-10">
+                <div class="flex justify-center flex-col">
+                    <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
+                    <div class="flex justify-center">No Results found <strong class="ml-1"> {{ $search }}</strong>  </div>
+                </div>
+            </h2>
            @endif
        </div>
 

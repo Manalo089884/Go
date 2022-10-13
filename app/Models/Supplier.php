@@ -20,6 +20,11 @@ class Supplier extends Model
    {
        return 'name';
    }
+   public function supplierTransactions()
+   {
+       return $this->hasMany(Product::class, 'suppliers_id','id');
+   }
+
    public static function search($search){
     return empty($search) ? static::query() :
     static::query()->where('name','like','%'.$search.'%')
