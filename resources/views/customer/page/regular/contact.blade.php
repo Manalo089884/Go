@@ -3,9 +3,9 @@
 @section('title', 'Contact')
 
 
-<!-- BEGIN: Wizard Layout -->
-<div class="md:flex justify-center lg:flex justify-center">
-<div class="intro-y box py-10 sm:py-20 mt-5 w-full   ">
+<!-- BEGIN: Contact Page -->
+<div class="md:flex justify-center lg:flex justify-center flex" >
+<div class="intro-y box py-10 sm:py-20 mt-5 w-full   " >
     <div class="px-5 mt-10">
         <div class="font-medium text-center text-5xl">Contact</div>
         <div class="text-slate-500 text-center mt-2">To start off, please enter your username, email address and password.</div>

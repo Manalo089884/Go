@@ -11,6 +11,10 @@
             <h2 class="font-medium text-base mr-auto">
                 Product Information
             </h2>
+
+            <button wire:click="selectItem({{$product->name}},'show')" class="btn btn-outline-primary w-32 mr-1">
+                <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Supplier Info
+            </button>
         </div>
         <div class="p-5">
             <div class="grid grid-cols-12 gap-x-5">
@@ -65,7 +69,9 @@
 
             </div>
             <div class="flex justify-end mt-5">
-                <a href="{{Route('product.index')}}"  class="btn btn-outline-secondary w-24 mr-1">Return</a>
+                <a href="{{Route('product.index')}}"  class="btn btn-outline-dark  w-32 mr-1">Archive Product</a>
+                <a href="{{Route('product.index')}}"  class="btn btn-outline-danger w-32	 mr-1">Delete Product</a>
+                <a href="{{Route('product.index')}}"  class="btn btn-outline-success  w-32 mr-1">Return</a>
             </div>
         </div>
     </div>
