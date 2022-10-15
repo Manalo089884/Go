@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class PermissionController extends Controller
 {
     //Show Permission Page
-    public function index(){ 
-        return view('admin.page.Users.permission');
+    public function index(){
+
+        return view('admin.page.Users.permission',[
+            'users' => $users
+        ]);
     }
 }

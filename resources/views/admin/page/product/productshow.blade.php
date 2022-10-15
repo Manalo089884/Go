@@ -11,11 +11,14 @@
             <h2 class="font-medium text-base mr-auto">
                 Product Information
             </h2>
-
-            <button wire:click="selectItem({{$product->name}},'show')" class="btn btn-outline-primary w-32 mr-1">
-                <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Supplier Info
-            </button>
-        </div>
+            <!-- BEGIN: Modal Toggle -->
+            <div class="text-center">
+                <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#ShowSupplierModal" class="btn btn-outline-primary w-32 mr-1">
+                    <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Supplier Info
+                </a>
+            </div>
+             <!-- END: Modal Toggle --> <!-- BEGIN: Modal Content -->
+          </div>
         <div class="p-5">
             <div class="grid grid-cols-12 gap-x-5">
                 <div class="col-span-12 xl:col-span-6">
@@ -40,8 +43,6 @@
                         @endif
                     </div>
                 </div>
-
-
                 <div class="col-span-12 xl:col-span-6">
                     <div class="mt-3 xl:mt-0">
                         <label for="Cost" class="form-label">Cost Price</label>
@@ -69,9 +70,9 @@
 
             </div>
             <div class="flex justify-end mt-5">
-                <a href="{{Route('product.index')}}"  class="btn btn-outline-dark  w-32 mr-1">Archive Product</a>
-                <a href="{{Route('product.index')}}"  class="btn btn-outline-danger w-32	 mr-1">Delete Product</a>
-                <a href="{{Route('product.index')}}"  class="btn btn-outline-success  w-32 mr-1">Return</a>
+                <a href="" class="btn btn-outline-dark w-32 mr-1">Archive Product</a>
+                <a href="" class="btn btn-outline-danger w-32 mr-1">Delete Product</a>
+                <a href="{{Route('product.index')}}" class="btn btn-outline-success  w-32 mr-1">Return</a>
             </div>
         </div>
     </div>
@@ -114,5 +115,42 @@
     </div>
     <!-- END: Product Image  -->
 </div>
+
+<div id="ShowSupplierModal" class="modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="font-medium text-base mr-auto">
+                    Supplier Information
+                </h2>
+            </div>
+            <div class="modal-body grid grid-cols-12 gap-4 gap-y-3">
+                <div class="col-span-12 sm:col-span-6">
+                    <label for="modal-form-1" class="form-label font-medium">Supplier Name:</label>
+                    <label class="form-label">{{ $product->suppliers->name }}</label>
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                    <label for="modal-form-1" class="form-label font-medium">Supplier Email:</label>
+                    <label class="form-label">{{ $product->suppliers->email }}</label>
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                    <label for="modal-form-1" class="form-label font-medium">Supplier Contact Number:</label>
+                    <label class="form-label">{{ $product->suppliers->contact }}</label>
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                    <label for="modal-form-1" class="form-label font-medium">Supplier Address:</label>
+                    <label class="form-label">{{ $product->suppliers->address }}</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-20 mr-1">
+                    Dismiss
+                </button>
+            </div>
+            <!-- END: Modal Footer -->
+        </div>
+    </div>
+</div>
+
 
 @endsection

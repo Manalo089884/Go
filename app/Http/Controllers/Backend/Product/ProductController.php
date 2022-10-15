@@ -122,7 +122,6 @@ class ProductController extends Controller
 
     //Show Product Page Info
     public function show(Product $product){
-      //$product = Product::with('category','brand','images')->findorFail($id);
       return view('admin.page.product.productshow', compact('product'));
     }
       //Show Product Archive Page

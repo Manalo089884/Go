@@ -11,21 +11,19 @@
                 <div class="col-span-12 sm:col-span-6">
                     <label for="modal-form-1" class="form-label font-medium">Supplier Name:</label>
                     <label class="form-label">{{ $name }}</label>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6">
+                </div>
+                <div class="col-span-12 sm:col-span-6">
                     <label for="modal-form-1" class="form-label font-medium">Supplier Email:</label>
                     <label class="form-label">{{ $email }}</label>
-
-                    </div>
-                    <div class="col-span-12 sm:col-span-6">
+                </div>
+                <div class="col-span-12 sm:col-span-6">
                     <label for="modal-form-1" class="form-label font-medium">Supplier Contact Number:</label>
                     <label class="form-label">{{ $contact }}</label>
-                    </div>
-
-                    <div class="col-span-12 sm:col-span-6">
+                </div>
+                <div class="col-span-12 sm:col-span-6">
                     <label for="modal-form-1" class="form-label font-medium">Supplier Address:</label>
                     <label class="form-label">{{ $contact }}</label>
-                    </div>
+                </div>
             </div>
             <div class="modal-footer text-right">
                 <button wire:click="closeModal" type="button" class="btn btn-primary w-32 mr-1">Return</button>

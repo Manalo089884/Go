@@ -12,7 +12,7 @@ class Brand extends Model
      protected $fillable = [
         'name',
     ];
-      public function brandTransactions()
+    public function brandTransactions()
     {
         return $this->hasMany(Product::class, 'brand_id','id');
     }

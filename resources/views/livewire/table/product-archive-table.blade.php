@@ -38,8 +38,7 @@
                         <tr>
                             <th class="whitespace-nowrap ">Product Name</th>
                             <th class="whitespace-nowrap text-center">Category</th>
-                            <th class="whitespace-nowrap text-center">Inventory</th>
-                            <th class="whitespace-nowrap text-center">Status</th>
+                            <th class="whitespace-nowrap text-center">Deleted At</th>
                             <th class="whitespace-nowrap text-center">Actions</th>
                         </tr>
                     </thead>
@@ -50,23 +49,14 @@
                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
                             </td>
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
-                            <td class="whitespace-nowrap text-center">
-                             @if($product->stock <= 10)
-                             <div class="text-danger">{{$product->stock}} in stock</div>
-                             @else
-                                 {{$product->stock}} in stock
-                             @endif
-                         </td>
-                            <td class="whitespace-nowrap">
-                                @if($product->status == 1)
-                                    <div class="flex items-center justify-center text-success"> <i class="fa-regular fa-square-check w-4 h-4 mr-1"></i> Active </div>
-                                @elseif ($product->status == 0)
-                                    <div class="flex items-center justify-center text-danger"> <i class="fa-regular fa-circle-xmark w-4 h-4 mr-1"></i> Draft </div>
-                                @endif
-                            </td>
+                            <td class="whitespace-nowrap text-center">{{ $product->deleted_at->diffForHumans()}}</td>
+
                             <td class="table-report__action w-56">
                                 <div class="flex justify-center items-center">
                                     <div class="flex justify-center items-center">
+                                        <button wire:click="selectItem({{$product->id}},'show')" class="flex items-center  w-full mr-2">
+                                            <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Show
+                                        </button>
                                         <button wire:click="selectItem({{$product->id}},'restore')" class="flex items-center text-success mr-2">
                                             <i class="fa-regular fa-window-restore w-4 h-4 mr-1"></i>Restore
                                         </button>

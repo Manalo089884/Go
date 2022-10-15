@@ -17,16 +17,32 @@ class AdminAccountSeeder extends Seeder
     {
         DB::table('users') ->insert([
         [
-            'name' => 'Joseph', 
+            'name' => 'Mark Joseph Manalo',
             'email' => 'markjosephmanalo1110@gmail.com',
-            'password' => bcrypt('markmark12'), 
+            'roles_id' => 1,
+            'phone_number' => '09452692274',
+            'address' => '283 Ramos Compound Baesa Quezon City',
+            'password' => bcrypt('markmark12'),
             'gender' => 'male',
             'age'=>'20'
         ],
         [
-            'name' => 'Marky', 
+            'name' => 'Paul Cedrick Reyes',
+            'roles_id' => 2,
+            'phone_number' => '09369332354',
+            'address' => '281 Ramos Compound Baesa Quezon City',
             'email' => 'programmingmind1110@gmail.com',
-            'password' => bcrypt('markmark12'), 
+            'password' => bcrypt('markmark12'),
+            'gender' => 'female',
+            'age'=>'22'
+        ],
+        [
+            'name' => 'Gene Vincent Soriano',
+            'roles_id' => 3,
+            'phone_number' => '09165751961',
+            'address' => '282 Ramos Compound Baesa Quezon City',
+            'email' => 'gvasoriano@gmail.com',
+            'password' => bcrypt('markmark12'),
             'gender' => 'female',
             'age'=>'22'
         ]

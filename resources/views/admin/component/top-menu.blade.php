@@ -173,13 +173,17 @@
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
-            <img alt="Profile Image" src="{{asset('dist/images/profile-15.jpg')}}">
+            @if(!empty(Auth::guard('web')->user()->photo))
+                <img src="{{ url('storage/photos/'.Auth::guard('web')->user()->photo) }}" class="rounded-full"  alt="Missing Image">
+            @else
+                <img alt="Missing Image" class="rounded-full" src="{{asset('dist/images/undraw_pic.svg')}}">
+            @endif
         </div>
         <div class="dropdown-menu w-56">
             <ul class="dropdown-content bg-primary text-white">
                 <li class="p-2">
                     <div class="font-medium">{{Auth::guard('web')->user()->name}}</div>
-                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Full Stack Developer</div>
+                    <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">{{Auth::guard('web')->user()->roles->name}}</div>
                 </li>
                 <li>
                     <hr class="dropdown-divider border-white/[0.08]">

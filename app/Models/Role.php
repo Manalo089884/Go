@@ -10,12 +10,16 @@ class Role extends Model
     use HasFactory;
 
     protected $table = 'roles';
-     protected $fillable = [
+    protected $fillable = [
         'name',
     ];
-    
+    public function roleTransaction()
+    {
+        return $this->hasMany(User::class, 'roles_id','id');
+    }
+
     public static function search($search){
-        return empty($search) ? static::query() : 
+        return empty($search) ? static::query() :
         static::query()->where('name','like','%'.$search.'%');
     }
 }

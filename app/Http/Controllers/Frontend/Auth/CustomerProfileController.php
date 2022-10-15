@@ -17,11 +17,13 @@ class CustomerProfileController extends Controller
         if (Auth::guard('customer')->check()){
             $customer_id = Auth::id();
             $address = CustomerShippingAddress::where('customers_id', $customer_id)->orderBy('name')->get();
+            $countaddress =  CustomerShippingAddress::where('customers_id', $customer_id)->count();
         }else{
             return redirect()->route('CLogin.index');
         }
         return view('customer.account.address',[
-            'address' => $address
+            'address' => $address,
+            'countaddress' => $countaddress
         ]);
     }
     public function editaddress($id){

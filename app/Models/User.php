@@ -19,9 +19,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password','age',
-        'gender',
+        'gender', 'address', 'phone_number','photo','roles_id'
     ];
 
+    public static function search($search){
+        return empty($search) ? static::query() :
+        static::query()->where('name','like','%'.$search.'%')
+        ->orWhere('email','like','%'.$search.'%')
+        ->orWhere('phone_number','like','%'.$search.'%')
+        ->orWhere('address','like','%'.$search.'%');
+      }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -52,12 +59,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    public function getPhotoUrlAttribute()
-    {
-        if ($this->foto !== null) {
-            return url('media/user/' . $this->id . '/' . $this->foto);
-        } else {
-            return url('media-example/no-image.png');
-        }
+    public function roles(){
+        return $this-> belongsTo(Role::class);
     }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+
 }

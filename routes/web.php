@@ -156,9 +156,9 @@ Route::group(['prefix' => 'admin'],function(){
             Route::resource('profile', ProfileController::class)->only('index');
             Route::resource('changepassword', ChangePasswordController::class)->only('index');
             Route::resource('analytics', AnalyticsController::class)->only('index');
-            Route::resource('report', ReportController::class)->only('index');
+            Route::resource('report', ReportController::class);
             Route::resource('customer', CustomerController::class)->only('index');
-            Route::resource('user', UsersController::class)->only('index');
+            Route::resource('user', UsersController::class);
             Route::resource('role', RoleController::class)->only('index');
             Route::resource('permission', PermissionController::class)->only('index');
         });
