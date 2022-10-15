@@ -31,7 +31,7 @@
                                         <span class="m-auto text-2xl font-thin">−</span>
                                     </button>
                                     <input type="text" class="h-8 outline-none focus:outline-none text-center w-14 bg-gray-300 font-medium text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" :value="product.quantity" />
-        
+
                                     <button type="button" @click="incrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">+</span>
                                     </button>
@@ -86,34 +86,28 @@
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="ml-4">
-                                    <h3 class="font-medium">Brand Name:</h3>
-                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->brand->name }}</div>
+                                    <h3 class="font-medium text-base">Brand Name:</h3>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->brand->name }}</div>
                                 </div>
                             </div>
                             <br>
                             <div class="flex items-center">
                                 <div class="ml-4">
-                                    <h3 class="font-medium">Category Name:</h3>
-                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->category->name }}</div>
+                                    <h3 class="font-medium text-base">Category Name:</h3>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->category->name }}</div>
                                 </div>
                             </div>
                             <br>
                             <div class="flex items-center">
                                 <div class="ml-4">
-                                    <h3 class="font-medium">Stocks:</h3>
-                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->stock }}</div>
+                                    <h3 class="font-medium text-base">Stocks:</h3>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->stock }} pcs</div>
                                 </div>
                             </div>
                             <div class="flex items-center mt-5">
                                 <div class="ml-4">
-                                    <h3 class="font-medium">Weight:</h3>
-                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->weight }}</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center mt-5">
-                                <div class="ml-4">
-                                    <h3 class="font-medium">Product Description</h3>
-                                    <div class="text-slate-500 text-xs mt-0.5">{!! $product->description !!}</div>
+                                    <h3 class="font-medium text-base">Weight:</h3>
+                                    <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }} grams</div>
                                 </div>
                             </div>
                         </div>
@@ -171,21 +165,20 @@
     <div class="intro-y box px-1 pt-1 mt-7 " style="width: 60rem">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
-                Product Rating and Reviews
+                Product Description
             </h2>
+        </div>
+        <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
+            <div class="text-slate-500 text-base	 mt-0.5">{!! $product->description !!}</div>
         </div>
     </div>
 </div>
 <!-- END Product Review -->
 
-
-
-
 @endsection
 @push('scripts')
 <script>
-
-        window.productId = "{{$product->id}}"
+    window.productId = "{{$product->id}}"
 </script>
 <script src="{{ asset('dist/js/product-show.js') }}"></script>
 @endpush

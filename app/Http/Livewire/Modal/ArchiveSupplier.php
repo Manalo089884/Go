@@ -33,13 +33,19 @@ class ArchiveSupplier extends Component
 
     public function delete(){
         $supplier = Supplier::find($this->modelId);
+        if($supplier->supplierTransactions()->count()){
+            $this->dispatchBrowserEvent('InvalidAlert',[
+                'name' => $supplier->name.' has a product records!',
+                'title' => 'Archived Failed!',
+            ]);
+        }else{
+            $supplier->delete();
+            $this->dispatchBrowserEvent('SuccessAlert',[
+                'name' => $supplier->name.' was successfully archived!',
+                'title' => 'Record Archived',
+            ]);
+        }
 
-
-        $supplier->delete();
-        $this->dispatchBrowserEvent('SuccessAlert',[
-            'name' => $supplier->name.' was successfully archived!',
-            'title' => 'Record Archived',
-        ]);
 
         $this->emit('refreshParent');
         $this->cleanVars();

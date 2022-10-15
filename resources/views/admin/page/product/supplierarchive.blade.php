@@ -11,7 +11,7 @@
 
 <livewire:modal.restore-supplier/>
 
-
+<livewire:modal.show-supplier/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
     <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>
@@ -62,17 +62,36 @@
                 toast.querySelector("#message").innerText = event.detail.name
     });
 
+    //ShowSupplierModal
+    const ShowSupplier = tailwind.Modal.getOrCreateInstance(document.querySelector("#ShowSupplierModal"));
+     //Show Delete Modal
+     window.addEventListener('openShowModal',event => {
+        ShowSupplier.show();
+    });
+    //Hide Delete Modal
+    window.addEventListener('CloseShowModal',event => {
+        ShowSupplier.hide();
+    });
+
+    //Hide Modal and Refresh its value
+    const ShowModalClose = document.getElementById('ShowSupplierModal')
+    ShowModalClose.addEventListener('hidden.tw.modal', function(event) {
+        livewire.emit('forceCloseModal');
+    });
+
     //Delete Modal
-    const ProductDeleteModal = tailwind.Modal.getOrCreateInstance(document.querySelector("#delete-confirmation-modal"));
+    const SupplierDeleteModal = tailwind.Modal.getOrCreateInstance(document.querySelector("#delete-confirmation-modal"));
     //Show Delete Modal
     window.addEventListener('openDeleteModal',event => {
-        ProductDeleteModal.show();
-        console.log('open');
+        SupplierDeleteModal.show();
+
     });
     //Hide Delete Modal
     window.addEventListener('CloseDeleteModal',event => {
-        ProductDeleteModal.hide();
+        SupplierDeleteModal.hide();
     });
+
+
     //Hide Modal and Refresh its value
     const DeleteModal = document.getElementById('delete-confirmation-modal')
     DeleteModal.addEventListener('hidden.tw.modal', function(event) {
@@ -95,7 +114,6 @@
     //Hide Modal and Refresh its value
     const RestoreModal = document.getElementById('restore-modal')
     RestoreModal.addEventListener('hidden.tw.modal', function(event) {
-        console.log('Working');
         livewire.emit('forceCloseModal');
     });
 </script>

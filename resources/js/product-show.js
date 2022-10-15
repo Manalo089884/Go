@@ -5,7 +5,7 @@ import axios from 'axios'
 createApp({
     setup(){
         const product = ref({
-            id: null,    
+            id: null,
             quantity: 1
         })
         const incrementQuantity = ()=>{
@@ -14,7 +14,7 @@ createApp({
         const decrementQuantity = ()=>{
             if(product.value.quantity <= 1) return
             product.value.quantity -= 1
-           
+
         }
         const addToCart = async()=>{
             try{

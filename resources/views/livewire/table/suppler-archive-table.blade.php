@@ -6,12 +6,10 @@
                     <div class="sm:flex items-center sm:mr-4">
                         <label class="flex-none xl:w-auto xl:flex-initial mr-2">Sort</label>
                         <select wire:model="sorting" class="form-select w-full sm:w-32 2xl:w-full mt-2 sm:mt-0 sm:w-auto">
+                            <option value="deletednew">Deleted (newest first)</option>
+                            <option value="deletedold">Deleted (oldest first)</option>
                             <option value="nameaz" >Supplier Name A-Z</option>
                             <option value="nameza">Supplier Name Z-A</option>
-                            <option value="createdold">Created (oldest first)</option>
-                            <option value="creatednew">Created (newest first)</option>
-                            <option value="updatedatold">Updated (oldest first)</option>
-                            <option value="updatedat">Updated (newest first)</option>
                         </select>
                     </div>
 
@@ -34,25 +32,21 @@
                        <thead>
                            <tr>
                                <th class="whitespace-nowrap ">Supplier Name</th>
-                               <th class="whitespace-nowrap text-center">Email</th>
-                               <th class="whitespace-nowrap text-center">Contact Number</th>
-                               <th class="whitespace-nowrap text-center">Address</th>
+                               <th class="whitespace-nowrap text-center">Deleted At</th>
                                <th class="whitespace-nowrap text-center">Actions</th>
                            </tr>
                        </thead>
                        <tbody>
                        @foreach($suppliers as $supplier)
                            <tr class="intro-x">
-                               <td class="whitespace-nowrap font-medium"><a href="">{{$supplier->name}}</td>
-                                <td class="whitespace-nowrap text-center">{{$supplier->email}}</td>
-                               <td class="whitespace-nowrap text-center">{{$supplier->contact}}</td>
-                               <td class="whitespace-nowrap text-center">
-                               {{ $supplier->address }}
-                            </td>
-
-                               <td class="table-report__action w-56">
+                                <td class="whitespace-nowrap font-medium"><a href="">{{$supplier->name}}</td>
+                                <td class="whitespace-nowrap text-center">{{ $supplier->deleted_at->diffForHumans()}}</td>
+                                <td class="table-report__action w-56">
                                    <div class="flex justify-center items-center">
                                        <div class="flex justify-center items-center">
+                                            <button wire:click="selectItem({{$supplier->id}},'show')" class="flex items-center  w-full mr-2">
+                                                <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Show
+                                            </button>
                                             <button wire:click="selectItem({{$supplier->id}},'restore')" class="flex items-center text-success mr-2">
                                                 <i class="fa-regular fa-window-restore w-4 h-4 mr-1"></i>Restore
                                             </button>

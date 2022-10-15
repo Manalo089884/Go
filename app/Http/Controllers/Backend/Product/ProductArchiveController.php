@@ -11,9 +11,9 @@ use App\Models\ProductImage;
 
 class ProductArchiveController extends Controller
 {
-    public function index(){  
+    public function index(){
         $products = Product::onlyTrashed()->orderBy('name')->paginate(20);
-        return view('admin.page.Product.productarchive',[
+        return view('admin.page.product.productarchive',[
             'products' => $products
         ]);
       }
@@ -28,12 +28,12 @@ class ProductArchiveController extends Controller
         Product::where('id',$id)->forceDelete();
         return back()->with('success',$name  ." was Permanently Deleted");
     }
-    
+
     public function update(Product $product,$id){
         $product = Product::onlyTrashed()->findOrFail($id);
         $name = $product->name;
         $product->restore();
-        
+
         return back()->with('success',$name ." was Successfully Restored");
     }
 }

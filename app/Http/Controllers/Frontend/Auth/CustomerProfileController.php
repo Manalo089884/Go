@@ -51,14 +51,12 @@ class CustomerProfileController extends Controller
             $address->city = $request->input('city');
             $address->barangay = $request->input('barangay');
             $address->update();
-
             return redirect()->route('customer.address')->with('success', 'Address was edited successfully');
-
-
         }else{
             return back()->with('fail',"Invalid!!!");
         }
     }
+
     public function destroyaddress($id){
         $address = CustomerShippingAddress::findorFail($id);
 
@@ -82,20 +80,26 @@ class CustomerProfileController extends Controller
 
         if (Auth::guard('customer')->check()){
             $customer_id = Auth::id();
-            CustomerShippingAddress::create([
-                'name' => $request->full_name,
-                'customers_id' => $customer_id,
-                'phone_number' => $request->phone_number,
-                'notes'=>$request->notes,
-                'house' => $request->house,
-                'province'=>$request->province,
-                'city'=>$request->city,
-                'barangay' => $request->barangay
-            ]);
-            return redirect()->route('customer.address')->with('success', 'Address was successfully added');
+            $customeraddress = CustomerShippingAddress::where('customers_id', $customer_id)->count();
+            if($customeraddress <= 4){
+                CustomerShippingAddress::create([
+                    'name' => $request->full_name,
+                    'customers_id' => $customer_id,
+                    'phone_number' => $request->phone_number,
+                    'notes'=>$request->notes,
+                    'house' => $request->house,
+                    'province'=>$request->province,
+                    'city'=>$request->city,
+                    'barangay' => $request->barangay
+                ]);
+                return redirect()->route('customer.address')->with('success', 'Address was successfully added');
 
+            }else{
+                return redirect()->route('customer.address')->with('invalid', 'You can only add up to five shipping address');
+
+            }
         }else{
-            return back()->with('fail',"Invalid!!!");
+            return back()->with('invalid',"Invalid!!!");
         }
     }
 

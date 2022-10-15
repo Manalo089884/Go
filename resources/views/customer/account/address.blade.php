@@ -113,6 +113,26 @@
             stopOnFocus: true, }).showToast();
         </script>
     @endif
+    @if(session('invalid'))
+        <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
+            <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
+            <div class="ml-4 mr-4">
+                <div class="font-medium" id="title">Operation Failed</div>
+                <div class="text-slate-500 mt-1" id="message">{{session('invalid')}}</div>
+            </div>
+        </div>
+
+        <script>
+        Toastify({
+            node: $("#invalid-success-notification-content") .clone() .removeClass("hidden")[0],
+            duration: 7000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true, }).showToast();
+        </script>
+    @endif
 
 
     <x-Modal.DeleteModal>

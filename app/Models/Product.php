@@ -12,7 +12,9 @@ class Product extends Model
         'name',
         'category_id',
         'brand_id',
+        'suppliers_id',
         'stock',
+        'stock_warning',
         'SKU',
         'cprice',
         'sprice',
@@ -36,6 +38,9 @@ class Product extends Model
     }
      public function category(){
         return $this-> belongsTo(Category::class);
+    }
+    public function suppliers(){
+        return $this-> belongsTo(Supplier::class);
     }
     public function images(){
        return $this->hasMany(ProductImage::class);

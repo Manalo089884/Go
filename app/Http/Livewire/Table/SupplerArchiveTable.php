@@ -22,67 +22,34 @@ class SupplerArchiveTable extends Component
     ];
 
     public function mount(){
-        $this->sorting = "nameaz";
+        $this->sorting = "deletednew";
         $this->perPage = 10;
     }
-
-
 
     public function render()
     {
         if($this->sorting == 'nameaz'){
             $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
             ->onlyTrashed()
             ->orderBy('name','asc')
             ->paginate($this->perPage);
         }elseif($this->sorting == 'nameza'){
             $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
             ->onlyTrashed()
             ->orderBy('name','desc')
             ->paginate($this->perPage);
-        }elseif($this->sorting == 'createdold'){
+        }elseif($this->sorting == 'deletednew'){
             $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
             ->onlyTrashed()
-            ->orderBy('created_at','asc')
+            ->orderBy('deleted_at','desc')
             ->paginate($this->perPage);
-        }elseif($this->sorting == 'creatednew'){
+        }elseif($this->sorting == 'deletedold'){
             $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
             ->onlyTrashed()
-            ->orderBy('created_at','desc')
-            ->paginate($this->perPage);
-        }elseif($this->sorting == 'updatedatold'){
-            $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
-            ->onlyTrashed()
-            ->orderBy('updated_at','asc')
-            ->paginate($this->perPage);
-        }elseif($this->sorting == 'updatedat'){
-            $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
-            ->onlyTrashed()
-            ->orderBy('updated_at','desc')
+            ->orderBy('deleted_at','asc')
             ->paginate($this->perPage);
         }else{
             $suppliers = Supplier::where('name','like','%'.$this->search.'%')
-            ->orWhere('email','like','%'.$this->search.'%')
-            ->orWhere('contact','like','%'.$this->search.'%')
-            ->orWhere('address','like','%'.$this->search.'%')
             ->onlyTrashed()
             ->orderBy('name','asc')
             ->paginate($this->perPage);
@@ -98,10 +65,12 @@ class SupplerArchiveTable extends Component
         if($action == 'delete'){
             $this->emit('getModelDeleteModalId',$this->selectedItem);
             $this->dispatchBrowserEvent('openDeleteModal');
+        }elseif($action == 'show'){
+            $this->emit('getSupplierModalId',$this->selectedItem);
+            $this->dispatchBrowserEvent('openShowModal');
         }else{
             $this->emit('getModelRestoreId',$this->selectedItem);
             $this->dispatchBrowserEvent('OpenRestoreModal');
-
         }
         $this->action = $action;
     }

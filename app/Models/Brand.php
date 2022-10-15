@@ -16,9 +16,9 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class, 'brand_id','id');
     }
-    
+
     public static function search($search){
-        return empty($search) ? static::query() : 
+        return empty($search) ? static::query() :
         static::query()->where('name','like','%'.$search.'%');
     }
 }

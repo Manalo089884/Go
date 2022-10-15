@@ -44,7 +44,7 @@
                         <h1>Subtotal (items)</h1>
                     </div>
                     <div>
-                        <h1>@{{subTotal}}</h1>
+                        <h1>₱@{{subTotal}}</h1>
                     </div>
                 </div>
                 <div class="flex justify-between mt-3 ">
@@ -52,7 +52,7 @@
                         <h1>Shipping Fee</h1>
                     </div>
                     <div>
-                        <h1>@{{shippingFee}}</h1>
+                        <h1>₱@{{shippingFee}}</h1>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@
                         <h1 class="font-medium leading-none mt-1 mb-2">Subtotal</h1>
                     </div>
                     <div>
-                        <h1>@{{totalWithShipppingFee}}</h1>
+                        <h1>₱@{{totalWithShipppingFee}}</h1>
                     </div>
                 </div>
 
@@ -105,18 +105,20 @@
                             <tr>
                                 <th class="whitespace-nowrap">#</th>
                                 <th class="whitespace-nowrap text-center">Product Name</th>
-                                <th class="whitespace-nowrap text-center">Category</th>
+
                                 <th class="whitespace-nowrap text-center">Quantity</th>
+                                <th class="whitespace-nowrap text-center">Item Price</th>
                                 <th class="whitespace-nowrap text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                                <tr v-for="item in cartItems">  
+                                <tr v-for="item in cartItems">
                                     <td class="w-20"><input type="checkbox" class="form-control" name="" id="" v-model="item.checked"></td>
                                     <td class="whitespace-nowrap text-center">@{{item.name}} </td>
-                                    <td class="whitespace-nowrap text-center"> </td>
+
                                     <td class="whitespace-nowrap text-center">@{{item.quantity}}</td>
+                                    <td class="whitespace-nowrap text-center">₱@{{ item.sprice }}</td>
                                     <td class="whitespace-nowrap flex justify-center items-center">
                                         <button  class="flex items-center mr-3" >
                                             <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Adjust
@@ -126,7 +128,7 @@
                                         </button>
                                     </td>
                                 </tr>
-                          
+
                         </tbody>
                      </table>
                     </div>
@@ -135,7 +137,7 @@
         </div>
         <!-- END: Display Information -->
     </div>
-   
+
 </div>
 @endif
 @endsection

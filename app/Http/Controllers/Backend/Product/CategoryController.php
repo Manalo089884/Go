@@ -8,8 +8,8 @@ use App\Exports\CategoryExport;
 class CategoryController extends Controller
 {
     //Show Category Page
-    public function index(){  
-      return view('admin.page.Product.category'); 
+    public function index(){
+      return view('admin.page.product.category');
     }
     //Export Category to Excel
     public function exportcategoriesexcel(){
@@ -26,6 +26,6 @@ class CategoryController extends Controller
     //Export Category to PDF
     public function exportcategoriespdf(){
       return Excel::download(new CategoryExport,'categories.pdf');
-    }   
+    }
 
 }

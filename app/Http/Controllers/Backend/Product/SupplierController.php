@@ -10,23 +10,23 @@ use App\Exports\SupplierExport;
 class SupplierController extends Controller
 {
     public function index(){
-        return view('admin.page.Product.supplier');
+        return view('admin.page.product.supplier');
     }
     public function create(){
-        return view('admin.page.Product.supplieradd');
+        return view('admin.page.product.supplieradd');
     }
     public function edit(Supplier $supplier){
-        return view('admin.page.Product.supplieredit',[
+        return view('admin.page.product.supplieredit',[
             'supplier' => $supplier
         ]);
     }
     public function show(Supplier $supplier){
-        return view('admin.page.Product.suppliershow',[
+        return view('admin.page.product.suppliershow',[
             'supplier' => $supplier
         ]);
     }
     public function SupplierArchiveIndex(){
-        return view('admin.page.Product.supplierarchive');
+        return view('admin.page.product.supplierarchive');
     }
 
      //Export Product to Excel
