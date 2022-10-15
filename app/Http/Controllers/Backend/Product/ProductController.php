@@ -26,7 +26,11 @@ class ProductController extends Controller
       $categories = Category::orderBy('name')->get();
       $brands = Brand::orderBy('name')->get();
       $suppliers = Supplier::orderBy('name')->get();
+<<<<<<< HEAD
       return view('admin.page.product.productadd',[
+=======
+      return view('admin.page.Product.productadd',[
+>>>>>>> 54110e7fb0021a6dcea9bf34c6c21169dadbb802
           'categories' => $categories,
           'brands' => $brands,
           'suppliers' => $suppliers
