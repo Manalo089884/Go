@@ -159,7 +159,7 @@
                     <div class="mt-3">
                         <label>Active Status</label>
                         <div class="form-switch mt-2">
-                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
+                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') || $product->status == 1 ? 'checked' : ''}}  >
                         </div>
                     </div>
 

@@ -11637,7 +11637,6 @@ html body {
                 position: relative;
                 margin-right: 0.25rem;
                 display: flex;
-                margin-top: 10px;
                 align-items: center;
                 border-radius: 0.75rem;
                 padding-left: 1.25rem;
@@ -18285,3 +18284,4 @@ html body {
     color: rgb(var(--color-success) / var(--tw-text-opacity));
   }
 }
+

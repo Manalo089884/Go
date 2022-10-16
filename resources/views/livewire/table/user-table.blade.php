@@ -50,7 +50,9 @@
                         </div>
                     </div>
                     <div class="absolute right-0 top-0 mr-5 mt-3 dropdown">
-                        <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown"> <i data-lucide="more-horizontal" class="w-5 h-5 text-slate-500"></i> </a>
+                        <a class="dropdown-toggle w-5 h-5 block" href="javascript:;" aria-expanded="false" data-tw-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical text-slate-500 w-5 h-5"></i>
+                        </a>
                         <div class="dropdown-menu w-40">
                             <div class="dropdown-content">
                                 <a href="" class="dropdown-item"> <i class="fa-solid fa-pen mr-1"></i> Edit </a>
@@ -71,7 +73,12 @@
             </div>
         </div>
         @empty
-            <h1 class="intro-y flex justify-center">No Users Found</h1>
+        <div class="intro-y col-span-12 flex justify-center box p-10">
+            <div class="flex justify-center flex-col">
+                <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
+                <div class="flex justify-center mt-1">No Results found <strong class="ml-1"> {{ $search }}</strong>  </div>
+            </div>
+        </div>
         @endforelse
 
 

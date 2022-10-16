@@ -11772,7 +11772,6 @@ html body {
   color: rgb(var(--color-slate-400) / var(--tw-text-opacity));
 }
 .top-nav > ul li .top-menu .top-menu__title {
-  margin-left: 0.75rem;
   display: flex;
   align-items: center;
   white-space: nowrap;

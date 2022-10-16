@@ -33,16 +33,16 @@
                     <div class="dropdown-menu w-40">
                         <ul class="dropdown-content">
                             <li>
-                                <a href="{{Route('exportsupplierexcel')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export Excel </a>
+                                <a href="{{Route('exportsupplierexcel')}}" class="dropdown-item">  <i class="fa-solid fa-file-excel mr-1"></i>  Export Excel </a>
                             </li>
                             <li>
-                                <a  href="{{Route('exportsuppliercsv')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export CSV </a>
+                                <a  href="{{Route('exportsuppliercsv')}}" class="dropdown-item">  <i class="fa-solid fa-file-csv mr-1"></i>Export CSV </a>
                             </li>
                             <li>
-                                <a href="{{Route('exportsupplierpdf')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export PDF </a>
+                                <a href="{{Route('exportsupplierpdf')}}" class="dropdown-item"> <i class="fa-solid fa-file-pdf mr-1"></i> Export PDF </a>
                             </li>
                             <li>
-                                <a  href="{{Route('exportsupplierhtml')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export HTML </a>
+                                <a  href="{{Route('exportsupplierhtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export HTML </a>
                             </li>
                         </ul>
                     </div>

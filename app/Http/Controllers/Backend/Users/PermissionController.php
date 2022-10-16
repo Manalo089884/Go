@@ -10,8 +10,6 @@ class PermissionController extends Controller
     //Show Permission Page
     public function index(){
 
-        return view('admin.page.Users.permission',[
-            'users' => $users
-        ]);
+        return view('admin.page.Users.permission');
     }
 }

@@ -29,7 +29,6 @@
                 </div>
             </div>
         </div>
-
         <div class="overflow-x-auto scrollbar-hidden">
             @if($products->count())
             <div class="overflow-x-auto">

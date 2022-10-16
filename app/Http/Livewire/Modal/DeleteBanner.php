@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
-use App\Models\Role;
-
-class DeleteRole extends Component
+use App\Models\Home;
+use Illuminate\Support\Facades\Storage;
+class DeleteBanner extends Component
 {
     public $modelId;
-
     protected $listeners = [
         'getModelDeleteModalId',
         'refreshChild' => '$refresh',
@@ -18,10 +17,8 @@ class DeleteRole extends Component
         $this->cleanVars();
         $this->resetErrorBag();
     }
-
     private function cleanVars(){
         $this->modelId = null;
-
     }
     public function getModelDeleteModalId($modelId){
         $this->modelId = $modelId;
@@ -30,29 +27,22 @@ class DeleteRole extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
-
     public function delete(){
-        $role = Role::find($this->modelId);
+        $home = Home::find($this->modelId);
 
+        Storage::delete('public/banner/'.$home->featured_image);
+        $home->delete();
+        $this->dispatchBrowserEvent('SuccessAlert',[
+            'name' => $home->name.' was successfully deleted!',
+            'title' => 'Record Deleted',
+        ]);
 
-        if($role->roleTransaction()->count()){
-            $this->dispatchBrowserEvent('InvalidAlert',[
-                'name' => $role->name.' has a product records!',
-                'title' => 'Delete Failed!',
-            ]);
-        }else{
-            $role->delete();
-            $this->dispatchBrowserEvent('SuccessAlert',[
-                'name' => $role->name.' was successfully deleted!',
-                'title' => 'Record Deleted',
-            ]);
-        }
         $this->emit('refreshParent');
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
     public function render()
     {
-        return view('livewire.modal.delete-role');
+        return view('livewire.modal.delete-banner');
     }
 }

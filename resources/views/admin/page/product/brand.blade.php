@@ -6,7 +6,6 @@
 
 <livewire:table.brand-table/>
 
-
 <livewire:modal.delete-brand/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Modal;
 
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\ProductImage;
+
 class ForceDeleteProduct extends Component
 {
     public $modelId;
@@ -26,7 +28,7 @@ class ForceDeleteProduct extends Component
     }
 
     public function getModelDeleteModalId($modelId){
-        $this->modelId = $modelId;   
+        $this->modelId = $modelId;
     }
 
     public function closeModal(){
@@ -36,14 +38,19 @@ class ForceDeleteProduct extends Component
 
     public function delete(){
         $product = Product::onlyTrashed()->find($this->modelId);
-            $product->forcedelete();
-            $this->dispatchBrowserEvent('SuccessAlert',[
-                'name' => $product->name.' was successfully deleted!',
-                'title' => 'Record Deleted',
-            ]);
-        
+        $image = ProductImage::where('product_id', '=' , $product->id )->get();
+
+       foreach ($image as $item) {
+            unlink(public_path('product_images/'.$item->images));
+      }
+        $product->forcedelete();
+        $this->dispatchBrowserEvent('SuccessAlert',[
+            'name' => $product->name.' was successfully deleted!',
+            'title' => 'Record Deleted',
+        ]);
+
         $this->emit('refreshParent');
         $this->cleanVars();
-        $this->dispatchBrowserEvent('CloseDeleteModal');  
+        $this->dispatchBrowserEvent('CloseDeleteModal');
     }
 }

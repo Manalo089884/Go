@@ -133,6 +133,11 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/supplier/csv',[SupplierController::class,'exportsuppliercsv'])->name('exportsuppliercsv');
         Route::get('/supplier/html',[SupplierController::class,'exportsupplierhtml'])->name('exportsupplierhtml');
         Route::get('/supplier/pdf',[SupplierController::class,'exportsupplierpdf'])->name('exportsupplierpdf');
+        //Export Files for Role
+        Route::get('/role/excel',[RoleController::class,'exportroleexcel'])->name('exportroleexcel');
+        Route::get('/role/csv',[RoleController::class,'exportrolecsv'])->name('exportrolecsv');
+        Route::get('/role/html',[RoleController::class,'exportrolehtml'])->name('exportrolehtml');
+        Route::get('/role/pdf',[RoleController::class,'exportrolepdf'])->name('exportrolepdf');
 
         Route::middleware(['PreventBackHistory'])->group(function () {
             Route::get('/logout', [LogoutController::class, 'store'])->name('logout');

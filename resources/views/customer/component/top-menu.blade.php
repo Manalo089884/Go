@@ -1,14 +1,14 @@
 <div class="top-bar-boxed border-b border-white/[0.08] -mt-7 md:mt-0 -mx-3 sm:-mx-8 md:mx-0 px-4 sm:px-8 md:px-6 mb-14 md:mb-8">
     <div class="h-full flex items-center">
         <!-- BEGIN: Logo -->
-        <a href="" class="-intro-x hidden md:flex md:w-40">
+        <a href="" class="-intro-x hidden md:flex w-6 xl:w-32">
             <img alt="Go Dental" class="w-6" src="{{asset('icons/log.png')}}">
             <span class="hidden xl:block text-white text-lg ml-3 "> Go Dental </span>
         </a>
         <!-- END: Logo -->
         <nav aria-label="breadcrumb" class="-intro-x h-full mr-auto">
             <ol class="breadcrumb breadcrumb-light">
-                <li class="breadcrumb-item "><p>Go Dental</p></li>
+                <li class="breadcrumb-item w-20 "><p>Go Dental</p></li>
                 <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
             </ol>
         </nav>

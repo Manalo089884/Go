@@ -29,10 +29,7 @@
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
 
-        <!-- Dark Mode Switcher -->
-        @include('admin.component.dark-mode-switcher')
-        <!-- Color Switcher -->
-        @include('admin.component.main-color-switcher')
+
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->
