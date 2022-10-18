@@ -16,9 +16,7 @@
                 <form action="{{Route('CategoryArchiveIndex')}}" method="GET">
                     <input type="text" class="form-control w-56 box pr-10" name="search" id="search" placeholder="Search..." value="{{request()->query('search')}}">
                     <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-lucide="search"></i>
-
                 </form>
-
             </div>
         </div>
     </div>
