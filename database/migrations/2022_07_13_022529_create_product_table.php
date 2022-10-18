@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('brand_id')->constrained('brand');
             $table->foreignId('suppliers_id')->constrained('suppliers');
             $table->integer('stock');
-            $table->integer('stock_warning')->nullable();
+            $table->integer('stock_warning');
             $table->string('SKU')->unique();
             $table->decimal('cprice',8,2);
             $table->decimal('sprice',8,2);

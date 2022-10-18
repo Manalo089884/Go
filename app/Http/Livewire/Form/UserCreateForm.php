@@ -60,7 +60,7 @@ class UserCreateForm extends Component
             $this->picture->store('public/photos');
         }
         User::create($data);
-        return redirect()->route('user.index')->with('success', 'Address was edited successfully');
+        return redirect()->route('user.index')->with('success', $this->name .' was successfully inserted');
 
 
 

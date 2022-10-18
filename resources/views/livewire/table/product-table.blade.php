@@ -74,7 +74,7 @@
                             </td>
                            <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
                            <td class="whitespace-nowrap text-center">
-                            @if($product->stock <= 10)
+                            @if($product->stock <= $product->stock_warning)
                             <div class="text-danger">{{$product->stock}} in stock</div>
                             @else
                                 {{$product->stock}} in stock

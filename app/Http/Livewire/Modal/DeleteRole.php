@@ -37,7 +37,7 @@ class DeleteRole extends Component
 
         if($role->roleTransaction()->count()){
             $this->dispatchBrowserEvent('InvalidAlert',[
-                'name' => $role->name.' has a product records!',
+                'name' => $role->name.' has a User records!',
                 'title' => 'Delete Failed!',
             ]);
         }else{

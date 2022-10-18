@@ -23,9 +23,10 @@ class DashboardController extends Controller
         $homecount = Home::all()->count();
         $activeproductcount = Product::all()->where('status','=','1')->count();
         $inactiveproductcount = Product::all()->where('status','=','0')->count();
-
         $customercount = Customer::all()->count();
         $usercount = User::all()->count();
+        $criticalproducts = Product::get()->where('stock','<=','stock_warning')->take(4);
+
         return view('admin.page.dashboard',[
             'brandcount' => $brandcount,
             'categorycount' => $categorycount,
@@ -35,8 +36,8 @@ class DashboardController extends Controller
             'inactiveproductcount' => $inactiveproductcount,
             'customercount' => $customercount,
             'usercount' => $usercount,
-            'homecount' => $homecount
-
+            'homecount' => $homecount,
+            'criticalproducts' => $criticalproducts,
         ]);
     }
 }

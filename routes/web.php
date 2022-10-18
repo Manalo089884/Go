@@ -34,6 +34,7 @@ use App\Http\Controllers\Backend\Users\PermissionController;
 
 //Import Customer Page(About Us, Frequently Asked Question, Contact Page)
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\Transaction\ContactController;
 //Import Customer Account Controller
 use App\Http\Controllers\Frontend\Auth\CustomerProfileController;
@@ -52,6 +53,7 @@ Route::middleware(['PreventBackHistory'])->group(function () {
     Route::get('/',function(){
         return view('customer.page.main.home');
     });
+    Route::get('/',[Homecontroller::class,'index'])->name('home');
     Route::get('/about', [PageController::class,'about'])->name('about');
     Route::get('/contact', [ContactController::class,'index'])->name('contact');
     Route::post('/contact', [ContactController::class,'store'])->name('sendemailcontact');

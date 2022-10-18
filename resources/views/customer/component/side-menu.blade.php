@@ -1,7 +1,7 @@
 <nav class="top-nav lg:hidden">
     <ul>
         <li>
-            <a href="/" class="top-menu">
+            <a href="{{ Route('home') }}" class="top-menu">
                 <div class="top-menu__title"> Home</div>
             </a>
         </li>

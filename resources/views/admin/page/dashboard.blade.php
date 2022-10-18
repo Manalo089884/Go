@@ -19,10 +19,8 @@
                             <i data-lucide="pie-chart" class="w-10 h-10 text-pending"></i>
                             <div class="justify-start flex items-center text-slate-600 dark:text-slate-300 mt-12"> My Total Assets <i data-lucide="alert-circle" class="tooltip w-4 h-4 ml-1.5" title="Total value of your sales: $158.409.416"></i> </div>
                             <div class="flex items-center justify-start mt-4">
-                                <div class="relative text-2xl font-medium pl-3 ml-0.5"> <span class="absolute text-xl font-medium top-0 left-0 -ml-0.5">$</span> 1,413,102.02 </div>
-                                <a class="text-slate-500 ml-4" href=""> <i data-lucide="refresh-ccw" class="w-4 h-4"></i> </a>
+                                <div class="relative text-2xl font-medium pl-3 ml-0.5"> <span class="absolute text-xl font-medium top-0 left-0 -ml-0.5">₱</span> 1,413,102.02 </div>
                             </div>
-                            <div class="mt-4 text-slate-500 text-xs">Last updated 1 hour ago</div>
                             <button class="btn btn-outline-secondary relative justify-start rounded-full mt-12">
                                 Download Reports
                                 <span class="w-8 h-8 absolute flex justify-center items-center bg-primary text-white rounded-full right-0 top-0 bottom-0 my-auto ml-auto mr-0.5"> <i data-lucide="arrow-right" class="w-4 h-4"></i> </span>
@@ -56,19 +54,19 @@
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Currently Active Products</div>
+                                        <div class="text-slate-500">Currently Active Products:</div>
                                         <div class="mt-1.5 flex items-center">
                                             <div class="text-base">{{ $activeproductcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Currently Inactive Products</div>
+                                        <div class="text-slate-500">Currently Inactive Products:</div>
                                         <div class="mt-1.5 flex items-center">
                                             <div class="text-base">{{ $inactiveproductcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Home Banner</div>
+                                        <div class="text-slate-500">Home Banner:</div>
                                         <div class="mt-1.5 flex items-center">
                                             <div class="text-base">{{ $homecount }}</div>
                                         </div>
@@ -132,58 +130,32 @@
             <div class="col-span-12 lg:col-span-8 xl:col-span-4 mt-6">
                 <div class="intro-y flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
-                        Weekly Best Sellers
+                        Critical Level Products
                     </h2>
                 </div>
                 <div class="mt-5">
+
+                    @foreach ($criticalproducts as $product)
+                    @if($product->stock <= $product->stock_warning)
                     <div class="intro-y">
                         <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                             <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-2.jpg') }}">
+                                <img alt="Go Dental Image" src="{{ asset('dist/images/logo.png') }}">
                             </div>
                             <div class="ml-4 mr-auto">
-                                <div class="font-medium">Johnny Depp</div>
-                                <div class="text-slate-500 text-xs mt-0.5">27 April 2022</div>
+                                <div class="font-medium">{{ $product->name }}</div>
+                                <div class="text-slate-500 text-xs mt-0.5">{{ $product->category->name }}</div>
                             </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
+                            <div class="py-1 px-2 rounded-full text-xs bg-danger text-white cursor-pointer font-medium">{{ $product->stock }}</div>
                         </div>
                     </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-9.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Russell Crowe</div>
-                                <div class="text-slate-500 text-xs mt-0.5">20 June 2021</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-6.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Arnold Schwarzenegger</div>
-                                <div class="text-slate-500 text-xs mt-0.5">25 September 2021</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-13.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Russell Crowe</div>
-                                <div class="text-slate-500 text-xs mt-0.5">3 June 2022</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
+                    @else
+
+                    @endif
+
+                    @endforeach
+
+
                     <a href="" class="intro-y w-full block text-center rounded-md py-4 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
                 </div>
             </div>

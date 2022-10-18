@@ -23,7 +23,13 @@
                         <div class="w-full flex flex-col lg:flex-row items-center">
                             <div class="lg:ml-2 text-center lg:text-left mt-3 lg:mt-0">
                                 <a href="" class="font-medium">{{ $banner->title }}</a>
-                                <div class="text-slate-500 text-xs mt-0.5">{{ $banner->status }}</div>
+                                <p class="text-slate-500 text-xs mt-0.5">
+                                    @if($banner->status == 'Active')
+                                        <p class="text-success"><i class="fa-regular fa-square-check w-4 h-4"></i> {{ $banner->status }}</p>
+                                    @else
+                                        <p class="text-danger"><i class="fa-regular fa-circle-xmark w-4 h-4"></i>{{ $banner->status }}</p>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="absolute right-0 top-0 mr-5 mt-3 dropdown">
@@ -39,13 +45,13 @@
                         </div>
                     </div>
                     <div class="w-full flex justify-center border-t border-slate-200/60 dark:border-darkmode-400 mt-2"> </div>
-                    <div class="flex justify-center text-center lg:text-left p-5">
-                        @if(!empty($banner->featured_image))
-                            <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="w-full h-96" alt="">
-                        @else
-                            <img alt="Missing Image" class="w-56 h-56" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
-                        @endif
-                    </div>
+                        <div class="flex justify-center text-center lg:text-left p-5 ">
+                            @if(!empty($banner->featured_image))
+                                <img src="{{ url('storage/banner/'.$banner->featured_image) }}" data-action="zoom" class="w-full h-56" alt="">
+                            @else
+                                <img alt="Missing Image" class="w-56 h-56" data-action="zoom" src="{{asset('dist/images/undraw_pic.svg')}}">
+                            @endif
+                        </div>
                 </div>
             </div>
         @empty

@@ -48,20 +48,20 @@
                     </h2>
                 </div>
                 <div class="p-5">
-                    <div class="grid grid-cols-12 gap-6  intro-y">
+                    <div class="grid grid-cols-12 gap-4 sm:gap-2  intro-y max-width place-items-center">
                         <!-- BEGIN: Product Layout -->
                         @forelse ($products as $product)
-                            <div class="box col-span-6 sm:col-span-4 lg:col-span-3 xl:col-span-3 2xl:col-span-2">
+                            <div class="box col-span-12 max-w-xs  md:col-span-4 lg:col-span-4 xl:col-span-3 2xl:col-span-2 ">
                                 <div class="text-slate-500 p-1 flex justify-end">{{ $product->category->name }}</div>
                                 <a href="{{ Route('productshow', $product) }}">
                                 <div class="flex items-center  border-b border-slate-200/60 dark:border-darkmode-400"></div>
                                     <div class="p-5">
                                         <div class="h-48 2xl:h-56">
                                             @if(count($product->images) == 0)
-                                                <img alt="Missing Image"  class="object-fill h-48 rounded-md w-96" src="{{ asset('dist/images/logo.png') }}">
+                                                <img alt="Missing Image"  class="object-fill    h-48 rounded-md w-96" src="{{ asset('dist/images/logo.png') }}">
                                             @else
                                                 @foreach ($product->images->take(1)  as $model)
-                                                    <img alt="Missing Image"  class="object-fill h-48 rounded-md w-96" src="/product_images/{{$model->images}}">
+                                                    <img alt="Missing Image"  class="object-fill    h-48 rounded-md w-96" src="/product_images/{{$model->images}}">
                                                 @endforeach
                                             @endif
                                         </div>

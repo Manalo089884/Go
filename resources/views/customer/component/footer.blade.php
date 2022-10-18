@@ -37,7 +37,7 @@
                         <div class="intro-x flex items-center gap-1 mb-2">
                             <i class="text-base fas fa-envelope"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color hover:text-primary">
-                                godental@gmail.com
+                                godentalsph@gmail.com
                             </a>
                         </div>
                     </li>

@@ -34,7 +34,7 @@ class DeleteBanner extends Component
         $home->delete();
         $this->dispatchBrowserEvent('SuccessAlert',[
             'name' => $home->name.' was successfully deleted!',
-            'title' => 'Record Deleted',
+            'title' => 'Home Banner Deleted',
         ]);
 
         $this->emit('refreshParent');

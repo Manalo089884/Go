@@ -29,7 +29,7 @@ import "./tiny-slider";
 import "./tippy";
 import "./datepicker";
 import "./tom-select";
-import "./dropzone";
+//import "./dropzone";
 import "./validation";
 import "./notification";
 import "./tabulator";
@@ -44,7 +44,7 @@ import "./zoom";
  | Import JS custom components.
  |
  */
-import "./maps";
+
 import "./chat";
 import "./show-modal";
 import "./show-slide-over";
