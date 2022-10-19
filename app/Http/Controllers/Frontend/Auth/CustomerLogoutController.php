@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class CustomerLogoutController extends Controller
 {
+    //Logout Customer Controller
     public function store(){
         Auth::guard('customer')->logout();
         return redirect()->route('CLogin.index');

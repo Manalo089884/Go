@@ -22,7 +22,6 @@ class ProductCatalogController extends Controller
         ]);
     }
     public function show(Product $product){
-
         return view('customer.page.cart.productshow',[
             'product' => $product
         ]);

@@ -1,7 +1,7 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Displaying Product Info')
-<div class="items-center justify-center flex" id="ProductShowVue">
+<div class="items-center justify-center flex">
     <div style="width: 60rem">
         <!-- Begin Header of Product -->
         <div class="intro-y box px-5 pt-5 mt-7">
@@ -15,16 +15,17 @@
                 <div class="mt-6 lg:mt-0 flex-1 px-5 border-l border-r border-slate-200/60 dark:border-darkmode-400 border-t lg:border-t-0 pt-5 lg:pt-0">
                     <div class="font-medium text-center lg:text-left lg:mt-3">Product Details</div>
                     <div class="flex flex-col justify-center items-center lg:items-start mt-4">
-                        <div class="truncate sm:whitespace-normal flex items-center"> Sold:  </div>
-                        <div class="truncate sm:whitespace-normal flex items-center mt-3">Ratings: </div>
+                        <div class="truncate sm:whitespace-normal flex items-center"> Sold:  100</div>
+                        <div class="truncate sm:whitespace-normal flex items-center mt-3">Ratings: 5/5</div>
                         <div class="truncate sm:whitespace-normal flex items-center mt-3">Stocks: {{ $product->stock }} </div>
+                        <div class="truncate sm:whitespace-normal flex items-center mt-3">Views: 1,000</div>
                     </div>
                 </div>
                 <div class="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-0 border-t lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-5 lg:pt-0">
-                    <div class="text-center rounded-md w-40 py-3">
+                    <div class="text-center rounded-md w-40 py-3"  id="ProductShowVue">
                         <div class=" flex-col justify-center items-center lg:items-start mt-4">
                             <div class="font-bold tracking-wide text-primary text-xl " >{{ $product->sprice }}</div>
-                            <div class="text-slate-500">Selling Price</div>
+                            <div class="text-slate-500">Price</div>
                             <div class="flex  flex-row   h-8 w-50 justify-center items-center rounded-lg relative bg-transparent mt-1">
                                 <form action="" class="flex flex-row ">
                                     <button type="button" @click="decrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
@@ -110,6 +111,7 @@
                                     <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }} grams</div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <!-- END: Product Details -->

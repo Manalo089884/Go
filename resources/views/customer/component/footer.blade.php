@@ -101,8 +101,8 @@
                 Bulacan 3000
                 </p>
                 <h4 class="mb-4 text-lg font-semibold text-center text-gray-200">Follow Us</h4>
-                <div class="flex flex-row mx-auto text-gray-200 gap-9">
-                    <div class="flex justify-end flex-1">
+                <div class="flex flex-row mx-auto text-gray-21`00 gap-9">
+                    <div class="flex justify-end flex-1 mb-5">
                         <a href="{{ url('https://www.instagram.com/godentalsph/') }}" class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-instagram"></i>
                         </a>

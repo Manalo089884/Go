@@ -30,7 +30,7 @@ class ContactMail extends Mailable
     {
         return $this->subject($this->details['subject'])
         ->from('godentalsph@gmail.com','Go Dental')
-        ->markdown('template.ContactForm')
+        ->markdown('customer.mail.contact-mail')
         ->with([
                 'name' => $this->details['name'],
                 'subject' => $this->details['subject'],

@@ -19,8 +19,13 @@ class Customer extends Authenticatable
      */
 
     protected $fillable = [
-        'name', 'email','phone_number',
-        'password','birthday','gender',
+        'name',
+        'email',
+        'phone_number',
+        'password',
+        'birthday',
+        'gender',
+        'email_verified'
     ];
 
     public function customershippingaddress()

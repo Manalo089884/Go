@@ -5,20 +5,17 @@ namespace App\Http\Controllers\Frontend\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Http\Requests\StoreLoginRequest;
 use Illuminate\Support\Facades\Auth;
 class CustomerLoginController extends Controller
 {
-
-     public function index(){
+    //Login Customer Controller
+    public function index(){
         return view('customer.auth.login');
     }
-    public function store(Request $request){
-        $this->validate($request,[
-            'email' =>'required|email|exists:customers,email',
-            'password' => 'required',
-        ],[
-            'email.exists' => 'Email does not exists'
-        ]);
+    //Login Function
+    public function store(StoreLoginRequest $request){
+        $request->validated();
 
         $creds = $request->only('email','password');
         if(Auth::guard('customer')->attempt($request->only('email','password'),$request->remember)){

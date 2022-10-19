@@ -56,7 +56,7 @@
                                 <a href="{{ Route('productshow', $product) }}">
                                 <div class="flex items-center  border-b border-slate-200/60 dark:border-darkmode-400"></div>
                                     <div class="p-5">
-                                        <div class="h-48 2xl:h-56">
+                                        <div class="h-48 2xl:h-48">
                                             @if(count($product->images) == 0)
                                                 <img alt="Missing Image"  class="object-fill    h-48 rounded-md w-96" src="{{ asset('dist/images/logo.png') }}">
                                             @else

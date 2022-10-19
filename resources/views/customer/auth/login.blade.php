@@ -22,6 +22,10 @@
                 @if(session('info'))
                     <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('info')}}</div>
                 @endif
+
+                @if(session('verifiedEmail'))
+                    <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('verifiedEmail')}}</div>
+                @endif
                 <!-- Show All error -->
                 @if ($errors->any())
                 <div class="alert alert-danger show mb-2 intro-x" role="alert">

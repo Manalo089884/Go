@@ -8,11 +8,15 @@ use App\Models\CustomerShippingAddress;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreCustomerAddress;
+use App\Http\Requests\UpdateCustomerAddress;
 class CustomerProfileController extends Controller
 {
+    //Profile
     public function index(){
         return view('customer.account.profile');
     }
+    //Address Page
     public function address(){
         if (Auth::guard('customer')->check()){
             $customer_id = Auth::id();
@@ -26,59 +30,13 @@ class CustomerProfileController extends Controller
             'countaddress' => $countaddress
         ]);
     }
-    public function editaddress($id){
-        $address = CustomerShippingAddress::findorFail($id);
-        return view('customer.account.editaddress',[
-            'address' => $address
-        ]);
-    }
-
-    public function updateaddress(Request $request, $id){
-        $address = CustomerShippingAddress::findorFail($id);
-        $this->validate($request,[
-            'full_name' => 'required|max:255',
-            'phone_number' => 'required|digits:11',
-            'house' => 'required|max:255',
-            'province' => 'required|max:255',
-            'city' => 'required|max:255',
-            'barangay' => 'required|max:255',
-        ]);
-
-        if (Auth::guard('customer')->check()){
-            $customer_id = Auth::id();
-            $address->name = $request->input('full_name');
-            $address->phone_number = $request->input('phone_number');
-            $address->house = $request->input('house');
-            $address->province = $request->input('province');
-            $address->city = $request->input('city');
-            $address->barangay = $request->input('barangay');
-            $address->update();
-            return redirect()->route('customer.address')->with('success', 'Address was edited successfully');
-        }else{
-            return back()->with('fail',"Invalid!!!");
-        }
-    }
-
-    public function destroyaddress($id){
-        $address = CustomerShippingAddress::findorFail($id);
-
-        $address->delete();
-        return back()->with('deleteSuccess', $address->name ." Deleted Successfully");
-    }
-
+    //Create Address Page
     public function createaddress(){
         return view('customer.account.createaddress');
     }
-
-    public function saveaddress(Request $request){
-        $this->validate($request,[
-            'full_name' => 'required|max:255',
-            'phone_number' => 'required',
-            'house' => 'required|max:255',
-            'province' => 'required|max:255',
-            'city' => 'required|max:255',
-            'barangay' => 'required|max:255',
-        ]);
+    //Store Customer Address
+    public function saveaddress(StoreCustomerAddress $request){
+        $request->validated();
 
         if (Auth::guard('customer')->check()){
             $customer_id = Auth::id();
@@ -104,11 +62,45 @@ class CustomerProfileController extends Controller
             return back()->with('invalid',"Invalid!!!");
         }
     }
+    //Edit Customer Address
+    public function editaddress($id){
+        $address = CustomerShippingAddress::findorFail($id);
+        return view('customer.account.editaddress',[
+            'address' => $address
+        ]);
+    }
+    //Update Customer Address
+    public function updateaddress(UpdateCustomerAddress $request, $id){
+        $address = CustomerShippingAddress::findorFail($id);
+        $request->validated();
 
+        if (Auth::guard('customer')->check()){
+            $customer_id = Auth::id();
+            $address->name = $request->input('full_name');
+            $address->phone_number = $request->input('phone_number');
+            $address->house = $request->input('house');
+            $address->province = $request->input('province');
+            $address->city = $request->input('city');
+            $address->barangay = $request->input('barangay');
+            $address->update();
+            return redirect()->route('customer.address')->with('success', 'Address was edited successfully');
+        }else{
+            return back()->with('fail',"Invalid!!!");
+        }
+    }
+
+    //Delete Customer Address
+    public function destroyaddress($id){
+        $address = CustomerShippingAddress::findorFail($id);
+        $address->delete();
+        return back()->with('deleteSuccess', $address->name ." Deleted Successfully");
+    }
+    //Change Password Page
     public function changepassword(){
         return view('customer.account.changepass');
     }
 
+    //Reset Password
     public function resetpass(Request $request){
         if (!(Hash::check($request->get('current_password'), Auth::guard('customer')->user()->password))) {
             // The passwords matches

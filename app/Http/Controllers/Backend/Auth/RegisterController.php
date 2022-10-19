@@ -6,21 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Requests\StoreUserRequest;
 class RegisterController extends Controller
 {
 
      public function index(){
         return view('admin.auth.register');
     }
-    public function store(Request $request){
-         $this->validate($request,[
-            'name' => 'required|max:255',
-            'email'=>'required|max:255',
-            'password'=>'required|confirmed',
-            'age' => 'required|max:255',
-            'gender' => 'required|max:255',
-        ]);
+    public function store(StoreUserRequest $request){
+
+        $request->validated();
+
          $save = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -34,9 +30,6 @@ class RegisterController extends Controller
         }else{
           return back()->with('fail', "Something went wrong, failed to register");
         }
-          //auth()->attempt($request->only('email','password'));
-        //redirect
-         //return redirect()->route('login.index');
 
     }
 }
