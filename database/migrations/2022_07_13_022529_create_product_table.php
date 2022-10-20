@@ -1,0 +1,62 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('product', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->foreignId('category_id')->constrained('category');
+            $table->foreignId('brand_id')->constrained('brand');
+<<<<<<< HEAD
+<<<<<<< HEAD
+            $table->foreignId('suppliers_id')->constrained('suppliers');
+            $table->integer('stock');
+            $table->integer('stock_warning');
+=======
+            $table->integer('stock');
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+            $table->foreignId('suppliers_id')->constrained('suppliers');
+            $table->integer('stock');
+            $table->integer('stock_warning');
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
+            $table->string('SKU')->unique();
+            $table->decimal('cprice',8,2);
+            $table->decimal('sprice',8,2);
+            $table->decimal('weight',8,2);
+            $table->string('status');
+            $table->longText('description');
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('product');
+    }
+};
