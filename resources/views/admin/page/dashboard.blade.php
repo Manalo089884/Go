@@ -20,6 +20,7 @@
                             <div class="justify-start flex items-center text-slate-600 dark:text-slate-300 mt-12"> My Total Assets <i data-lucide="alert-circle" class="tooltip w-4 h-4 ml-1.5" title="Total value of your sales: $158.409.416"></i> </div>
                             <div class="flex items-center justify-start mt-4">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <div class="relative text-2xl font-medium pl-3 ml-0.5"> <span class="absolute text-xl font-medium top-0 left-0 -ml-0.5">₱</span> 1,413,102.02 </div>
                             </div>
 =======
@@ -28,12 +29,17 @@
                             </div>
                             <div class="mt-4 text-slate-500 text-xs">Last updated 1 hour ago</div>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                                <div class="relative text-2xl font-medium pl-3 ml-0.5"> <span class="absolute text-xl font-medium top-0 left-0 -ml-0.5">₱</span> 1,413,102.02 </div>
+                            </div>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             <button class="btn btn-outline-secondary relative justify-start rounded-full mt-12">
                                 Download Reports
                                 <span class="w-8 h-8 absolute flex justify-center items-center bg-primary text-white rounded-full right-0 top-0 bottom-0 my-auto ml-auto mr-0.5"> <i data-lucide="arrow-right" class="w-4 h-4"></i> </span>
                             </button>
                         </div>
                         <div class="col-span-12 lg:col-span-8 p-8 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-darkmode-300 border-dashed">
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div class="tab-content px-5 pb-5 pt-10">
                                 <div class="tab-pane active grid grid-cols-12 gap-y-8 gap-x-10" id="weekly-report" role="tabpanel" aria-labelledby="weekly-report-tab">
@@ -99,63 +105,68 @@
                                 </li>
                             </ul>
                             <div class="tab-content px-5 pb-5">
+=======
+                            <div class="tab-content px-5 pb-5 pt-10">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                                 <div class="tab-pane active grid grid-cols-12 gap-y-8 gap-x-10" id="weekly-report" role="tabpanel" aria-labelledby="weekly-report-tab">
                                     <div class="col-span-6 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Unpaid Loan</div>
+                                        <div class="text-slate-500">Total No of Brands:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">4.501</div>
-                                            <div class="text-danger flex text-xs font-medium tooltip cursor-pointer ml-2" title="2% Lower than last month"> 2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i> </div>
+                                            <div class="text-base">{{ $brandcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Active Partner</div>
+                                        <div class="text-slate-500">Total No of Category:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">2</div>
+                                            <div class="text-base">{{ $categorycount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Paid Installment</div>
+                                        <div class="text-slate-500">No of Suppliers:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">$72.000</div>
+                                            <div class="text-base">{{ $suppliercount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Disbursement</div>
+                                        <div class="text-slate-500">Total No. of Products:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">$54.000</div>
+                                            <div class="text-base">{{ $productcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Success Payment</div>
+                                        <div class="text-slate-500">Currently Active Products:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">2.500</div>
-                                            <div class="text-success flex text-xs font-medium tooltip cursor-pointer ml-2" title="52% Higher than last month"> 52% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i> </div>
+                                            <div class="text-base">{{ $activeproductcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Unpaid Loan</div>
+                                        <div class="text-slate-500">Currently Inactive Products:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">$72.000</div>
+                                            <div class="text-base">{{ $inactiveproductcount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Posted Campaign</div>
+                                        <div class="text-slate-500">Home Banner:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">4.501</div>
+                                            <div class="text-base">{{ $homecount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Social Media</div>
+                                        <div class="text-slate-500">No of Customers:</div>
                                         <div class="mt-1.5 flex items-center">
-                                            <div class="text-base">2</div>
+                                            <div class="text-base">{{ $customercount }}</div>
                                         </div>
                                     </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-4">
-                                        <div class="text-slate-500">Net Margin</div>
+                                        <div class="text-slate-500">Employee Account:</div>
                                         <div class="mt-1.5 flex items-center">
+<<<<<<< HEAD
                                             <div class="text-base">$72.000</div>
                                             <div class="text-success flex text-xs font-medium tooltip cursor-pointer ml-2" title="49% Higher than last month"> 49% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i> </div>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                                            <div class="text-base">{{ $usercount }}</div>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                                         </div>
                                     </div>
                                 </div>
@@ -206,6 +217,7 @@
                 <div class="intro-y flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         Critical Level Products
                     </h2>
                 </div>
@@ -234,58 +246,38 @@
 
 =======
                         Weekly Best Sellers
+=======
+                        Critical Level Products
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     </h2>
                 </div>
                 <div class="mt-5">
+
+                    @foreach ($criticalproducts as $product)
+                    @if($product->stock <= $product->stock_warning)
                     <div class="intro-y">
                         <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
                             <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-2.jpg') }}">
+                                <img alt="Go Dental Image" src="{{ asset('dist/images/logo.png') }}">
                             </div>
                             <div class="ml-4 mr-auto">
-                                <div class="font-medium">Johnny Depp</div>
-                                <div class="text-slate-500 text-xs mt-0.5">27 April 2022</div>
+                                <div class="font-medium">{{ $product->name }}</div>
+                                <div class="text-slate-500 text-xs mt-0.5">{{ $product->category->name }}</div>
                             </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
+                            <div class="py-1 px-2 rounded-full text-xs bg-danger text-white cursor-pointer font-medium">{{ $product->stock }}</div>
                         </div>
                     </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-9.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Russell Crowe</div>
-                                <div class="text-slate-500 text-xs mt-0.5">20 June 2021</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-6.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Arnold Schwarzenegger</div>
-                                <div class="text-slate-500 text-xs mt-0.5">25 September 2021</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
-                    <div class="intro-y">
-                        <div class="box px-4 py-4 mb-3 flex items-center zoom-in">
-                            <div class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden">
-                                <img alt="Go Dental Image" src="{{ asset('dist/images/profile-13.jpg') }}">
-                            </div>
-                            <div class="ml-4 mr-auto">
-                                <div class="font-medium">Russell Crowe</div>
-                                <div class="text-slate-500 text-xs mt-0.5">3 June 2022</div>
-                            </div>
-                            <div class="py-1 px-2 rounded-full text-xs bg-success text-white cursor-pointer font-medium">137 Sales</div>
-                        </div>
-                    </div>
+<<<<<<< HEAD
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                    @else
+
+                    @endif
+
+                    @endforeach
+
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <a href="" class="intro-y w-full block text-center rounded-md py-4 border border-dotted border-slate-400 dark:border-darkmode-300 text-slate-500">View More</a>
                 </div>
             </div>
@@ -785,6 +777,7 @@
                 </div>
                 <!-- END: Transactions -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
                 <!-- BEGIN: Schedules -->
@@ -874,6 +867,9 @@
                 </div>
                 <!-- END: Schedules -->
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </div>
         </div>
     </div>

@@ -14,8 +14,12 @@
 =======
             </a>
             <div class="my-auto">
+<<<<<<< HEAD
                 <img alt="Go Dental Image" class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/login_shop.svg') }}">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                <img alt="Go Dental Image " class="-intro-x w-1/2 -mt-16" src="{{ asset('dist/images/login_shop.svg') }}">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="-intro-x text-white font-medium text-3xl leading-tight mt-10"> Create a new password for {{$email}}</div>
             </div>
         </div>

@@ -2,22 +2,31 @@
     <div class="h-full flex items-center">
         <!-- BEGIN: Logo -->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="" class="-intro-x hidden md:flex w-6 xl:w-32">
             <img alt="Go Dental" class="w-6 md:w-14	" src="{{asset('icons/log.png')}}">
 =======
         <a href="" class="-intro-x hidden md:flex md:w-40">
             <img alt="Go Dental" class="w-6" src="{{asset('icons/log.png')}}">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+        <a href="" class="-intro-x hidden md:flex w-6 xl:w-32">
+            <img alt="Go Dental" class="w-6 md:w-14	" src="{{asset('icons/log.png')}}">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             <span class="hidden xl:block text-white text-lg ml-3 "> Go Dental </span>
         </a>
         <!-- END: Logo -->
         <nav aria-label="breadcrumb" class="-intro-x h-full mr-auto">
             <ol class="breadcrumb breadcrumb-light">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <li class="breadcrumb-item w-20 "><p>Go Dental</p></li>
 =======
                 <li class="breadcrumb-item "><p>Go Dental</p></li>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                <li class="breadcrumb-item w-20 "><p>Go Dental</p></li>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
             </ol>
         </nav>
@@ -26,10 +35,14 @@
             <ul>
                 <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <a href="{{ Route('home') }}" class="top-menu {{ (request()->is('/')) ? 'top-menu--active' : '' }}">
 =======
                     <a href="/" class="top-menu {{ (request()->is('/')) ? 'top-menu--active' : '' }}">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                    <a href="{{ Route('home') }}" class="top-menu {{ (request()->is('/')) ? 'top-menu--active' : '' }}">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                         <div class="top-menu__title"> Home</div>
                     </a>
                 </li>

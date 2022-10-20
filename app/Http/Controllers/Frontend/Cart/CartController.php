@@ -17,11 +17,16 @@ class CartController extends Controller
         }
         return view('customer.page.cart.cart',[
 <<<<<<< HEAD
+<<<<<<< HEAD
             'cart' => $cart,
             'cart_json'=> json_encode($cart)
 =======
             'cart' => $cart
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+            'cart' => $cart,
+            'cart_json'=> json_encode($cart)
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         ]);
 
     }

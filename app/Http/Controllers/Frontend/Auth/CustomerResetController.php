@@ -20,9 +20,13 @@ class CustomerResetController extends Controller
         return view('customer.auth.reset');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     public function store(Request $request){
         $request->validate([
             'email' => 'required|email|exists:customers,email'

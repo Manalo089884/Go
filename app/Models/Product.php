@@ -13,12 +13,18 @@ class Product extends Model
         'category_id',
         'brand_id',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'suppliers_id',
         'stock',
         'stock_warning',
 =======
         'stock',
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+        'suppliers_id',
+        'stock',
+        'stock_warning',
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         'SKU',
         'cprice',
         'sprice',
@@ -34,13 +40,19 @@ class Product extends Model
       ->orWhere('stock','like','%'.$search.'%');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     public function getRouteKeyName()
     {
         return 'name';
     }
+<<<<<<< HEAD
 =======
 
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     public function brand(){
         return $this-> belongsTo(Brand::class);
     }
@@ -48,11 +60,17 @@ class Product extends Model
         return $this-> belongsTo(Category::class);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function suppliers(){
         return $this-> belongsTo(Supplier::class);
     }
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+    public function suppliers(){
+        return $this-> belongsTo(Supplier::class);
+    }
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     public function images(){
        return $this->hasMany(ProductImage::class);
     }

@@ -13,6 +13,7 @@
                 <ul class="dropdown-content">
                     <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <a href="{{Route('exportbrandexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export to Excel  </a>
                     </li>
                     <li>
@@ -25,16 +26,23 @@
                         <a href="{{Route('exportbrandhtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export to HTML </a>
 =======
                         <a href="{{Route('exportbrandexcel')}}" class="dropdown-item"> <i data-lucide="printer" class="w-4 h-4 mr-2"></i> Export to Excel  </a>
+=======
+                        <a href="{{Route('exportbrandexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export to Excel  </a>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     </li>
                     <li>
-                        <a href="{{Route('exportbrandcsv')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to CSV </a>
+                        <a href="{{Route('exportbrandcsv')}}" class="dropdown-item"> <i class="fa-solid fa-file-csv mr-1"></i> Export to CSV </a>
                     </li>
                     <li>
-                        <a href="{{Route('exportbrandpdf')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to PDF </a>
+                        <a href="{{Route('exportbrandpdf')}}" class="dropdown-item"> <i class="fa-solid fa-file-pdf mr-1"></i>Export to PDF </a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="{{Route('exportbrandhtml')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to HTML </a>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                        <a href="{{Route('exportbrandhtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export to HTML </a>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     </li>
                 </ul>
             </div>

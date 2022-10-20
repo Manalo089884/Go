@@ -40,10 +40,14 @@
                     @foreach($products as $product)
                         <tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
 =======
                             <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product->id)}}">{{$product->name}}
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                            <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div></a>
                              </td>
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>

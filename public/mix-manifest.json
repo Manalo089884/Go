@@ -9,9 +9,13 @@
     "/dist/js/ckeditor-document.js": "/dist/js/ckeditor-document.js",
     "/dist/js/product-show.js": "/dist/js/product-show.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/dist/js/cart.vue.js": "/dist/js/cart.vue.js",
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+    "/dist/js/cart.vue.js": "/dist/js/cart.vue.js",
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     "/dist/css/build.css": "/dist/css/build.css",
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/json/location.json": "/dist/json/location.json",
@@ -123,9 +127,13 @@
     "/dist/images/slide_3.jpg": "/dist/images/slide_3.jpg",
     "/dist/images/undraw_inspiration.svg": "/dist/images/undraw_inspiration.svg",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/dist/images/undraw_pic.svg": "/dist/images/undraw_pic.svg",
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+    "/dist/images/undraw_pic.svg": "/dist/images/undraw_pic.svg",
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     "/dist/images/undraw_profile_pic.svg": "/dist/images/undraw_profile_pic.svg",
     "/dist/images/woman-illustration.svg": "/dist/images/woman-illustration.svg"
 }

@@ -23,12 +23,18 @@
                     <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('info')}}</div>
                 @endif
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 
                 @if(session('verifiedEmail'))
                     <div class="intro-x alert alert-dark show mb-2 mt-2" role="alert">{{session('verifiedEmail')}}</div>
                 @endif
+<<<<<<< HEAD
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <!-- Show All error -->
                 @if ($errors->any())
                 <div class="alert alert-danger show mb-2 intro-x" role="alert">

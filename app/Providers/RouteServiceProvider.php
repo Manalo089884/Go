@@ -47,12 +47,18 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+<<<<<<< HEAD
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         });
     }
 

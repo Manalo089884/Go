@@ -22,9 +22,13 @@
 
     <body class="py-5 md:py-0 bg-black/[0.15] ">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -39,10 +43,15 @@
                 <!-- END: Top Bar -->
                 @yield('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </div>
         </div>
         <!-- BEGIN: JS Assets-->

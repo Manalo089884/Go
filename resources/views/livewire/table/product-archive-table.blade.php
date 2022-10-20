@@ -30,9 +30,12 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         <div class="overflow-x-auto scrollbar-hidden">
             @if($products->count())
             <div class="overflow-x-auto">
@@ -42,11 +45,15 @@
                             <th class="whitespace-nowrap ">Product Name</th>
                             <th class="whitespace-nowrap text-center">Category</th>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <th class="whitespace-nowrap text-center">Deleted At</th>
 =======
                             <th class="whitespace-nowrap text-center">Inventory</th>
                             <th class="whitespace-nowrap text-center">Status</th>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                            <th class="whitespace-nowrap text-center">Deleted At</th>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             <th class="whitespace-nowrap text-center">Actions</th>
                         </tr>
                     </thead>
@@ -57,6 +64,7 @@
                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
                             </td>
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <td class="whitespace-nowrap text-center">{{ $product->deleted_at->diffForHumans()}}</td>
 
@@ -85,6 +93,16 @@
                                 <div class="flex justify-center items-center">
                                     <div class="flex justify-center items-center">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                            <td class="whitespace-nowrap text-center">{{ $product->deleted_at->diffForHumans()}}</td>
+
+                            <td class="table-report__action w-56">
+                                <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center">
+                                        <button wire:click="selectItem({{$product->id}},'show')" class="flex items-center  w-full mr-2">
+                                            <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Show
+                                        </button>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                                         <button wire:click="selectItem({{$product->id}},'restore')" class="flex items-center text-success mr-2">
                                             <i class="fa-regular fa-window-restore w-4 h-4 mr-1"></i>Restore
                                         </button>

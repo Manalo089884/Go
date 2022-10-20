@@ -3,6 +3,9 @@
 @section('title', 'Home')
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 <div class="items-center justify-center flex mt-5" >
     <div class="py-5 px-5">
         <div class="mx-6 pb-8 mt-5 " autowidth>
@@ -12,6 +15,7 @@
                     <div class="object-fill  w-full" >
                         <img alt="" src="{{ url('storage/banner/'.$banner->featured_image) }}" class=" object-fill w-full"/>
                     </div>
+<<<<<<< HEAD
                 </div>
                 @endforeach
 =======
@@ -33,12 +37,19 @@
                     <img alt="" src="{{ asset('dist/images/slide_3.jpg')}}" style="height: 700px;" class=" object-fill h-48 w-full"/>
                 </div>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                </div>
+                @endforeach
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </div>
         </div>
     </div>
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     {{-- FLash Sale --}}
 <div class="items-center justify-center flex px-5">
     <div class=" mt-5 py-12 px-6 intro-y box ">
@@ -140,8 +151,11 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 
 @endsection
 @push('scripts')

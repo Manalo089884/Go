@@ -30,10 +30,14 @@ import "./tippy";
 import "./datepicker";
 import "./tom-select";
 <<<<<<< HEAD
+<<<<<<< HEAD
 //import "./dropzone";
 =======
 import "./dropzone";
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+//import "./dropzone";
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 import "./validation";
 import "./notification";
 import "./tabulator";
@@ -49,10 +53,14 @@ import "./zoom";
  |
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 import "./maps";
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 import "./chat";
 import "./show-modal";
 import "./show-slide-over";

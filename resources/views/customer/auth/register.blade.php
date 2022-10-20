@@ -38,9 +38,12 @@
                     <div class="alert alert-primary show mb-2" role="alert">{{session('success')}}</div>
                 @endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label class="form-label">Full Name</label>

@@ -38,10 +38,14 @@
                             <i class="text-base fas fa-envelope"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color hover:text-primary">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 godentalsph@gmail.com
 =======
                                 godental@gmail.com
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                                godentalsph@gmail.com
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             </a>
                         </div>
                     </li>
@@ -106,12 +110,17 @@
                 </p>
                 <h4 class="mb-4 text-lg font-semibold text-center text-gray-200">Follow Us</h4>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div class="flex flex-row mx-auto text-gray-21`00 gap-9">
                     <div class="flex justify-end flex-1 mb-5">
 =======
                 <div class="flex flex-row mx-auto text-gray-200 gap-9">
                     <div class="flex justify-end flex-1">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                <div class="flex flex-row mx-auto text-gray-21`00 gap-9">
+                    <div class="flex justify-end flex-1 mb-5">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                         <a href="{{ url('https://www.instagram.com/godentalsph/') }}" class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-instagram"></i>
                         </a>
@@ -123,10 +132,14 @@
                     </div>
                     <div class="flex justify-start flex-1">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}" target="_blank" class="hover:text-primary">
 =======
                         <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}"class="hover:text-primary">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                        <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}" target="_blank" class="hover:text-primary">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             <i class="text-3xl fa-brands fa-twitter"></i>
                         </a>
                     </div>

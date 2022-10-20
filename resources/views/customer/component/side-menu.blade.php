@@ -2,10 +2,14 @@
     <ul>
         <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a href="{{ Route('home') }}" class="top-menu">
 =======
             <a href="/" class="top-menu">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+            <a href="{{ Route('home') }}" class="top-menu">
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="top-menu__title"> Home</div>
             </a>
         </li>

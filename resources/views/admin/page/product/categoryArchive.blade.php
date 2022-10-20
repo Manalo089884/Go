@@ -17,12 +17,16 @@
                     <input type="text" class="form-control w-56 box pr-10" name="search" id="search" placeholder="Search..." value="{{request()->query('search')}}">
                     <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-lucide="search"></i>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </form>
 =======
 
                 </form>
 
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                </form>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </div>
         </div>
     </div>

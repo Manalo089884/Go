@@ -20,6 +20,9 @@ class Customer extends Authenticatable
 
     protected $fillable = [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         'name',
         'email',
         'phone_number',
@@ -27,10 +30,13 @@ class Customer extends Authenticatable
         'birthday',
         'gender',
         'email_verified'
+<<<<<<< HEAD
 =======
         'name', 'email','phone_number',
         'password','birthday','gender',
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     ];
 
     public function customershippingaddress()

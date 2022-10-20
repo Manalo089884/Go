@@ -12,6 +12,9 @@
                 Product Information
             </h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             <!-- BEGIN: Modal Toggle -->
             <div class="text-center">
                 <a href="javascript:;" data-tw-toggle="modal" data-tw-target="#ShowSupplierModal" class="btn btn-outline-primary w-32 mr-1">
@@ -20,9 +23,12 @@
             </div>
              <!-- END: Modal Toggle --> <!-- BEGIN: Modal Content -->
           </div>
+<<<<<<< HEAD
 =======
         </div>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         <div class="p-5">
             <div class="grid grid-cols-12 gap-x-5">
                 <div class="col-span-12 xl:col-span-6">
@@ -48,10 +54,13 @@
                     </div>
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="col-span-12 xl:col-span-6">
                     <div class="mt-3 xl:mt-0">
                         <label for="Cost" class="form-label">Cost Price</label>
@@ -80,12 +89,18 @@
             </div>
             <div class="flex justify-end mt-5">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <a href="" class="btn btn-outline-dark w-32 mr-1">Archive Product</a>
                 <a href="" class="btn btn-outline-danger w-32 mr-1">Delete Product</a>
                 <a href="{{Route('product.index')}}" class="btn btn-outline-success  w-32 mr-1">Return</a>
 =======
                 <a href="{{Route('product.index')}}"  class="btn btn-outline-secondary w-24 mr-1">Return</a>
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+                <a href="" class="btn btn-outline-dark w-32 mr-1">Archive Product</a>
+                <a href="" class="btn btn-outline-danger w-32 mr-1">Delete Product</a>
+                <a href="{{Route('product.index')}}" class="btn btn-outline-success  w-32 mr-1">Return</a>
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </div>
         </div>
     </div>
@@ -130,6 +145,9 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 <div id="ShowSupplierModal" class="modal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -167,6 +185,9 @@
 </div>
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 @endsection

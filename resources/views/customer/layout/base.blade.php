@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
 
 =======
 <html lang="en" class="light">
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
@@ -33,10 +38,15 @@
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->

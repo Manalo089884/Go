@@ -22,6 +22,7 @@ class DeleteRole extends Component
     private function cleanVars(){
         $this->modelId = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     }
     public function getModelDeleteModalId($modelId){
@@ -32,6 +33,12 @@ class DeleteRole extends Component
     public function getModelDeleteModalId($modelId){
         $this->modelId = $modelId;   
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+
+    }
+    public function getModelDeleteModalId($modelId){
+        $this->modelId = $modelId;
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     }
     public function closeModal(){
         $this->cleanVars();
@@ -41,6 +48,9 @@ class DeleteRole extends Component
     public function delete(){
         $role = Role::find($this->modelId);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
 
 
         if($role->roleTransaction()->count()){
@@ -49,14 +59,18 @@ class DeleteRole extends Component
                 'title' => 'Delete Failed!',
             ]);
         }else{
+<<<<<<< HEAD
 =======
            
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             $role->delete();
             $this->dispatchBrowserEvent('SuccessAlert',[
                 'name' => $role->name.' was successfully deleted!',
                 'title' => 'Record Deleted',
             ]);
+<<<<<<< HEAD
 <<<<<<< HEAD
         }
         $this->emit('refreshParent');
@@ -68,6 +82,12 @@ class DeleteRole extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');  
 >>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
+=======
+        }
+        $this->emit('refreshParent');
+        $this->cleanVars();
+        $this->dispatchBrowserEvent('CloseDeleteModal');
+>>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
     }
     public function render()
     {
