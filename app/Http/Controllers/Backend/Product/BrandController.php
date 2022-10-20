@@ -8,9 +8,15 @@ use App\Exports\BrandExport;
 class BrandController extends Controller
 {
   //Show Brand Page
+<<<<<<< HEAD
   public function index(){
     return view('admin.page.product.brand');
   }
+=======
+  public function index(){  
+    return view('admin.page.Product.brand'); 
+  }    
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
   //Export Brand to Excel
   public function exportbrandexcel(){
     return Excel::download(new BrandExport,'brands.xlsx');
@@ -26,5 +32,9 @@ class BrandController extends Controller
   //Export Brand to PDF
   public function exportbrandpdf(){
     return Excel::download(new BrandExport,'brands.pdf');
+<<<<<<< HEAD
   }
+=======
+  }   
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 }

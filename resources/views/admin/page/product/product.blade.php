@@ -28,7 +28,10 @@ Toastify({
     stopOnFocus: true, }).showToast();
 </script>
 @endif
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 @if(session('ProductEditSuccess'))
     <div id="edit-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
         <i class="fa-regular fa-circle-check fa-3x text-success mx-auto"></i>

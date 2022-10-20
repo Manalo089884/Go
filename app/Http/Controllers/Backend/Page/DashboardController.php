@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Page;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -39,5 +40,12 @@ class DashboardController extends Controller
             'homecount' => $homecount,
             'criticalproducts' => $criticalproducts,
         ]);
+=======
+
+class DashboardController extends Controller
+{
+   public function index(){  
+        return view('admin.page.dashboard');
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
 }

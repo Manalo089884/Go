@@ -17,6 +17,7 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
 
        DB::table('brand') ->insert([
             [
@@ -126,5 +127,24 @@ class BrandSeeder extends Seeder
             ]
         ]);
       //Brand::factory(100)->create();
+=======
+        
+       /* DB::table('brand') ->insert([
+            [
+                'name' => 'Colgate',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Brush',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Pink',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        ]);*/
+      Brand::factory(100)->create();
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
 }

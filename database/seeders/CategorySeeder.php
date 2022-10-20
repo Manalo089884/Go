@@ -40,7 +40,11 @@ class CategorySeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
+<<<<<<< HEAD
                 'name' => 'Suturing Materials',
+=======
+                'name' => 'Saturing Materials',
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
@@ -96,6 +100,7 @@ class CategorySeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
+<<<<<<< HEAD
                 'name' => 'Dental Arch Wires',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -129,12 +134,18 @@ class CategorySeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],[
                 'name' => 'Prophylaxis',
+=======
+                'name' => 'Ortho Product',
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         ]);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         //Category::factory(100)->create();
     }
 }

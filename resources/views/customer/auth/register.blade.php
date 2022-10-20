@@ -37,6 +37,10 @@
                 @if(session('success'))
                     <div class="alert alert-primary show mb-2" role="alert">{{session('success')}}</div>
                 @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5">
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label class="form-label">Full Name</label>

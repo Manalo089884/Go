@@ -8,6 +8,10 @@ class DeleteBrand extends Component
 {
     public $modelId;
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     protected $listeners = [
         'getModelDeleteModalId',
         'refreshChild' => '$refresh',
@@ -20,9 +24,16 @@ class DeleteBrand extends Component
 
     private function cleanVars(){
         $this->modelId = null;
+<<<<<<< HEAD
     }
     public function getModelDeleteModalId($modelId){
         $this->modelId = $modelId;
+=======
+    
+    }
+    public function getModelDeleteModalId($modelId){
+        $this->modelId = $modelId;   
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
     public function closeModal(){
         $this->cleanVars();
@@ -37,7 +48,11 @@ class DeleteBrand extends Component
                 'name' => $brand->name.' has a product records!',
                 'title' => 'Delete Failed!',
             ]);
+<<<<<<< HEAD
         }else{
+=======
+        }else{            
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             $brand->delete();
             $this->dispatchBrowserEvent('SuccessAlert',[
                 'name' => $brand->name.' was successfully deleted!',
@@ -46,7 +61,11 @@ class DeleteBrand extends Component
         }
         $this->emit('refreshParent');
         $this->cleanVars();
+<<<<<<< HEAD
         $this->dispatchBrowserEvent('CloseDeleteModal');
+=======
+        $this->dispatchBrowserEvent('CloseDeleteModal');  
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
     public function render()
     {

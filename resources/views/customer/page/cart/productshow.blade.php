@@ -1,7 +1,11 @@
 @extends('customer.layout.base')
 @section('content')
 @section('title', 'Displaying Product Info')
+<<<<<<< HEAD
 <div class="items-center justify-center flex">
+=======
+<div class="items-center justify-center flex" id="ProductShowVue">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     <div style="width: 60rem">
         <!-- Begin Header of Product -->
         <div class="intro-y box px-5 pt-5 mt-7">
@@ -15,6 +19,7 @@
                 <div class="mt-6 lg:mt-0 flex-1 px-5 border-l border-r border-slate-200/60 dark:border-darkmode-400 border-t lg:border-t-0 pt-5 lg:pt-0">
                     <div class="font-medium text-center lg:text-left lg:mt-3">Product Details</div>
                     <div class="flex flex-col justify-center items-center lg:items-start mt-4">
+<<<<<<< HEAD
                         <div class="truncate sm:whitespace-normal flex items-center"> Sold:  100</div>
                         <div class="truncate sm:whitespace-normal flex items-center mt-3">Ratings: 5/5</div>
                         <div class="truncate sm:whitespace-normal flex items-center mt-3">Stocks: {{ $product->stock }} </div>
@@ -26,13 +31,29 @@
                         <div class=" flex-col justify-center items-center lg:items-start mt-4">
                             <div class="font-bold tracking-wide text-primary text-xl " >{{ $product->sprice }}</div>
                             <div class="text-slate-500">Price</div>
+=======
+                        <div class="truncate sm:whitespace-normal flex items-center"> Sold:  </div>
+                        <div class="truncate sm:whitespace-normal flex items-center mt-3">Ratings: </div>
+                        <div class="truncate sm:whitespace-normal flex items-center mt-3">Stocks: {{ $product->stock }} </div>
+                    </div>
+                </div>
+                <div class="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-0 border-t lg:border-0 border-slate-200/60 dark:border-darkmode-400 pt-5 lg:pt-0">
+                    <div class="text-center rounded-md w-40 py-3">
+                        <div class=" flex-col justify-center items-center lg:items-start mt-4">
+                            <div class="font-bold tracking-wide text-primary text-xl " >{{ $product->sprice }}</div>
+                            <div class="text-slate-500">Selling Price</div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                             <div class="flex  flex-row   h-8 w-50 justify-center items-center rounded-lg relative bg-transparent mt-1">
                                 <form action="" class="flex flex-row ">
                                     <button type="button" @click="decrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">−</span>
                                     </button>
                                     <input type="text" class="h-8 outline-none focus:outline-none text-center w-14 bg-gray-300 font-medium text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" name="custom-input-number" :value="product.quantity" />
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                                     <button type="button" @click="incrementQuantity" class="btn-secondary text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-7 rounded-l cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">+</span>
                                     </button>
@@ -87,31 +108,59 @@
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="ml-4">
+<<<<<<< HEAD
                                     <h3 class="font-medium text-base">Brand Name:</h3>
                                     <div class="text-slate-500 text-base mt-0.5">{{ $product->brand->name }}</div>
+=======
+                                    <h3 class="font-medium">Brand Name:</h3>
+                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->brand->name }}</div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                                 </div>
                             </div>
                             <br>
                             <div class="flex items-center">
                                 <div class="ml-4">
+<<<<<<< HEAD
                                     <h3 class="font-medium text-base">Category Name:</h3>
                                     <div class="text-slate-500 text-base mt-0.5">{{ $product->category->name }}</div>
+=======
+                                    <h3 class="font-medium">Category Name:</h3>
+                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->category->name }}</div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                                 </div>
                             </div>
                             <br>
                             <div class="flex items-center">
                                 <div class="ml-4">
+<<<<<<< HEAD
                                     <h3 class="font-medium text-base">Stocks:</h3>
                                     <div class="text-slate-500 text-base mt-0.5">{{ $product->stock }} pcs</div>
+=======
+                                    <h3 class="font-medium">Stocks:</h3>
+                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->stock }}</div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                                 </div>
                             </div>
                             <div class="flex items-center mt-5">
                                 <div class="ml-4">
+<<<<<<< HEAD
                                     <h3 class="font-medium text-base">Weight:</h3>
                                     <div class="text-slate-500 text-base mt-0.5">{{ $product->weight }} grams</div>
                                 </div>
                             </div>
 
+=======
+                                    <h3 class="font-medium">Weight:</h3>
+                                    <div class="text-slate-500 text-xs mt-0.5">{{ $product->weight }}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-5">
+                                <div class="ml-4">
+                                    <h3 class="font-medium">Product Description</h3>
+                                    <div class="text-slate-500 text-xs mt-0.5">{!! $product->description !!}</div>
+                                </div>
+                            </div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                         </div>
                     </div>
                     <!-- END: Product Details -->
@@ -167,20 +216,36 @@
     <div class="intro-y box px-1 pt-1 mt-7 " style="width: 60rem">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
+<<<<<<< HEAD
                 Product Description
             </h2>
         </div>
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
             <div class="text-slate-500 text-base	 mt-0.5">{!! $product->description !!}</div>
         </div>
+=======
+                Product Rating and Reviews
+            </h2>
+        </div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     </div>
 </div>
 <!-- END Product Review -->
 
+<<<<<<< HEAD
 @endsection
 @push('scripts')
 <script>
     window.productId = "{{$product->id}}"
+=======
+
+
+
+@endsection
+@push('scripts')
+<script>
+        window.productId = "{{$product->id}}"
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 </script>
 <script src="{{ asset('dist/js/product-show.js') }}"></script>
 @endpush

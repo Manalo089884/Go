@@ -6,6 +6,10 @@
 
 <livewire:table.brand-table/>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 <livewire:modal.delete-brand/>
 
 <div id="success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">

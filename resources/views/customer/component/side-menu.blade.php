@@ -1,7 +1,11 @@
 <nav class="top-nav lg:hidden">
     <ul>
         <li>
+<<<<<<< HEAD
             <a href="{{ Route('home') }}" class="top-menu">
+=======
+            <a href="/" class="top-menu">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 <div class="top-menu__title"> Home</div>
             </a>
         </li>

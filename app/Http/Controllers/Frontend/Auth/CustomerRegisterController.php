@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+<<<<<<< HEAD
 use App\Models\CustomerVerify;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -80,4 +81,37 @@ class CustomerRegisterController extends Controller
             }
         }
 }
+=======
+use Illuminate\Support\Facades\Hash;
+class CustomerRegisterController extends Controller
+{
+    public function index(){
+        return view('customer.auth.register');
+    }
+    public function store(Request $request){
+         $this->validate($request,[
+            'name' => 'required|max:255',
+            'email'=>'required|max:255',
+            'phone'=>'required|numeric',
+            'birthday' => 'required',
+            'gender' => 'required|max:255',
+            'password' => 'required|min:8|max:255|confirmed'
+        ]);
+
+
+        Customer::create([
+          'name' => $request->name,
+          'email' => $request->email,
+          'phone_number'=>$request->phone,
+          'birthday'=>$request->birthday,
+          'gender'=>$request->gender,
+          'password' => Hash::make($request->password)
+      ]);
+      auth()->attempt($request->only('email','password'));
+
+        return back()->with('success',"Account Created Successfully");
+        //redirect
+
+    }
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 }

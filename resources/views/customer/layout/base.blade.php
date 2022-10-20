@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $dark_mode ? 'dark' : '' }}{{ $color_scheme != 'default' ? ' ' . $color_scheme : '' }}">
 
+=======
+<html lang="en" class="light">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
@@ -28,8 +32,11 @@
     </head>
     <!-- END: Head -->
     <body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         <!-- BEGIN: Mobile Menu -->
         @include('customer.component.mobile-menu')
         <!-- END: Mobile Menu -->

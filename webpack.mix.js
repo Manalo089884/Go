@@ -1,5 +1,8 @@
 const mix = require("laravel-mix");
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -20,7 +23,10 @@ mix.js("resources/js/app.js", "public/dist/js")
     .js("resources/js/ckeditor-balloon-block.js", "public/dist/js")
     .js("resources/js/ckeditor-document.js", "public/dist/js")
     .js("resources/js/product-show.js", "public/dist/js")
+<<<<<<< HEAD
     .js("resources/js/cart.vue.js", "public/dist/js")
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     .css("public/dist/css/_app.css", "public/dist/css/app.css")
     .css("resources/css/_tailwind.css", "public/dist/css/build.css")
     .options({

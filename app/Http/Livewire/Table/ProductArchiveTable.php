@@ -111,11 +111,16 @@ class ProductArchiveTable extends Component
         if($action == 'delete'){
             $this->emit('getModelDeleteModalId',$this->selectedItem);
             $this->dispatchBrowserEvent('openDeleteModal');
+<<<<<<< HEAD
         }elseif($action == 'show'){
             $this->emit('getProductModalId',$this->selectedItem);
             $this->dispatchBrowserEvent('openShowModal');
         }
         else{
+=======
+        }else{
+
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             $this->emit('getModelRestoreId',$this->selectedItem);
             $this->dispatchBrowserEvent('OpenRestoreModal');
 

@@ -1,14 +1,23 @@
 <div class="top-bar-boxed border-b border-white/[0.08] -mt-7 md:mt-0 -mx-3 sm:-mx-8 md:mx-0 px-4 sm:px-8 md:px-6 mb-14 md:mb-8">
     <div class="h-full flex items-center">
         <!-- BEGIN: Logo -->
+<<<<<<< HEAD
         <a href="" class="-intro-x hidden md:flex w-6 xl:w-32">
             <img alt="Go Dental" class="w-6 md:w-14	" src="{{asset('icons/log.png')}}">
+=======
+        <a href="" class="-intro-x hidden md:flex md:w-40">
+            <img alt="Go Dental" class="w-6" src="{{asset('icons/log.png')}}">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             <span class="hidden xl:block text-white text-lg ml-3 "> Go Dental </span>
         </a>
         <!-- END: Logo -->
         <nav aria-label="breadcrumb" class="-intro-x h-full mr-auto">
             <ol class="breadcrumb breadcrumb-light">
+<<<<<<< HEAD
                 <li class="breadcrumb-item w-20 "><p>Go Dental</p></li>
+=======
+                <li class="breadcrumb-item "><p>Go Dental</p></li>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
             </ol>
         </nav>
@@ -16,7 +25,11 @@
         <nav class=" top-nav h-full mr-auto mt-2 w-1/2 sm:invisible lg:visible  ">
             <ul>
                 <li>
+<<<<<<< HEAD
                     <a href="{{ Route('home') }}" class="top-menu {{ (request()->is('/')) ? 'top-menu--active' : '' }}">
+=======
+                    <a href="/" class="top-menu {{ (request()->is('/')) ? 'top-menu--active' : '' }}">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                         <div class="top-menu__title"> Home</div>
                     </a>
                 </li>

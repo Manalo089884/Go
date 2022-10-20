@@ -8,7 +8,10 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
+<<<<<<< HEAD
 use App\Models\Supplier;
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,18 +21,28 @@ class ProductController extends Controller
 {
     //Show Product Table
     public function index(){
+<<<<<<< HEAD
       return view('admin.page.product.product');
+=======
+      return view('admin.page.Product.product');
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
 
     //Show Add Product Form
     public function create(){
       $categories = Category::orderBy('name')->get();
       $brands = Brand::orderBy('name')->get();
+<<<<<<< HEAD
       $suppliers = Supplier::orderBy('name')->get();
       return view('admin.page.Product.productadd',[
           'categories' => $categories,
           'brands' => $brands,
           'suppliers' => $suppliers
+=======
+      return view('admin.page.Product.productadd',[
+          'categories' => $categories,
+          'brands' => $brands
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
       ]);
     }
 
@@ -41,16 +54,23 @@ class ProductController extends Controller
           'name' => $request->name,
           'category_id' => $request->category,
           'brand_id' => $request->brand,
+<<<<<<< HEAD
           'suppliers_id' => $request->supplier,
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
           'stock' => $request->stock,
           'SKU' => $request->SKU,
           'cprice' => $request->cprice,
           'sprice' => $request->sprice,
           'weight' => $request->weight,
           'status' => $archived,
+<<<<<<< HEAD
           'stock_warning' => $request->w_stock,
           'description' => $request->description,
 
+=======
+          'description' => $request->description,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
       ]);
 
       if($request->has('images')){
@@ -66,6 +86,7 @@ class ProductController extends Controller
       return redirect()->route('product.index')->with('success', $request->name .' was successfully inserted');
     }
     //Show Edit Product Page
+<<<<<<< HEAD
     public function edit(Product $product){
       //$product = Product::findorFail($id);
       $categories = Category::orderBy('name')->get();
@@ -77,6 +98,18 @@ class ProductController extends Controller
         'categories' => $categories,
         'brands' => $brands,
         'suppliers' => $suppliers,
+=======
+    public function edit($id){
+      $product = Product::findorFail($id);
+      $categories = Category::orderBy('name')->get();
+      $brands = Brand::orderBy('name')->get();
+
+      $images = $product->images;
+
+      return view('admin.page.Product.productedit', compact('product'),[
+        'categories' => $categories,
+        'brands' => $brands,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         'images' => $images,
       ]);
     }
@@ -87,9 +120,13 @@ class ProductController extends Controller
             'name'=> "required|unique:product,name,$id",
             'category' => 'required',
             'brand' => 'required',
+<<<<<<< HEAD
             'supplier' => 'required',
             'stock' => 'required|numeric|min:0',
             'w_stock' => 'required|numeric|min:0',
+=======
+            'stock' => 'required|numeric|min:0',
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             'SKU' => 'required',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'required|numeric|min:0',
@@ -104,9 +141,13 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->category_id = $request->input('category');
         $product->brand_id = $request->input('brand');
+<<<<<<< HEAD
         $product->suppliers_id = $request->input('supplier');
         $product->stock = $request->input('stock');
         $product->stock_warning = $request->input('w_stock');
+=======
+        $product->stock = $request->input('stock');
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         $product->SKU = $request->input('SKU');
         $product->cprice = $request->input('cprice');
         $product->sprice = $request->input('sprice');
@@ -121,19 +162,35 @@ class ProductController extends Controller
 
 
     //Show Product Page Info
+<<<<<<< HEAD
     public function show(Product $product){
       return view('admin.page.product.productshow', compact('product'));
+=======
+    public function show($id){
+      $product = Product::with('category','brand','images')->findorFail($id);
+      return view('admin.page.Product.productshow', compact('product'));
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     }
       //Show Product Archive Page
       public function ProductArchiveIndex(){
         $products = Product::onlyTrashed()->orderBy('name')->paginate(20);
+<<<<<<< HEAD
         return view('admin.page.product.productarchive',[
+=======
+        return view('admin.page.Product.productarchive',[
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             'products' => $products
         ]);
       }
 
+<<<<<<< HEAD
     //Export Product to Excel
     public function exportproductexcel(){
+=======
+      //Export Product to Excel
+
+      public function exportproductexcel(){
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
       return Excel::download(new ProductExport,'products.xlsx');
     }
 

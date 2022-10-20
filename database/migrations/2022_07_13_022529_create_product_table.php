@@ -18,16 +18,23 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->foreignId('category_id')->constrained('category');
             $table->foreignId('brand_id')->constrained('brand');
+<<<<<<< HEAD
             $table->foreignId('suppliers_id')->constrained('suppliers');
             $table->integer('stock');
             $table->integer('stock_warning');
+=======
+            $table->integer('stock');
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             $table->string('SKU')->unique();
             $table->decimal('cprice',8,2);
             $table->decimal('sprice',8,2);
             $table->decimal('weight',8,2);
             $table->string('status');
             $table->longText('description');
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             $table->timestamps();
             $table->softDeletes();
         });

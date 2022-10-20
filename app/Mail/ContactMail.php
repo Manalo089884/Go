@@ -29,8 +29,13 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->subject($this->details['subject'])
+<<<<<<< HEAD
         ->from('godentalsph@gmail.com','Go Dental')
         ->markdown('customer.mail.contact-mail')
+=======
+        ->from($this->details['email'],$this->details['name'])
+        ->markdown('template.ContactForm')
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         ->with([
                 'name' => $this->details['name'],
                 'subject' => $this->details['subject'],

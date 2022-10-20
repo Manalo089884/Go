@@ -12,6 +12,7 @@ class Brand extends Model
      protected $fillable = [
         'name',
     ];
+<<<<<<< HEAD
     public function brandTransactions()
     {
         return $this->hasMany(Product::class, 'brand_id','id');
@@ -19,6 +20,15 @@ class Brand extends Model
 
     public static function search($search){
         return empty($search) ? static::query() :
+=======
+      public function brandTransactions()
+    {
+        return $this->hasMany(Product::class, 'brand_id','id');
+    }
+    
+    public static function search($search){
+        return empty($search) ? static::query() : 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         static::query()->where('name','like','%'.$search.'%');
     }
 }

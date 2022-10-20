@@ -19,7 +19,10 @@ class CustomerResetController extends Controller
     public function index(){
         return view('customer.auth.reset');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     public function store(Request $request){
         $request->validate([
             'email' => 'required|email|exists:customers,email'

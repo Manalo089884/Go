@@ -1,11 +1,16 @@
 @extends('admin.layout.admin')
+<<<<<<< HEAD
 @section('content')
+=======
+@section('content')  
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 @section('title', 'Product')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">Product</h2>
 </div>
 
 <div class="intro-y box p-5 mt-5">
+<<<<<<< HEAD
     <ul class="nav nav-boxed-tabs" role="tablist">
         <li id="example-3-tab" class="nav-item flex-1" role="presentation">
             <button class="nav-link w-full py-2 active" data-tw-toggle="pill" data-tw-target="#example-tab-3" type="button" role="tab" aria-controls="example-tab-3" aria-selected="true" >
@@ -20,11 +25,28 @@
     </ul>
     <div class="tab-content mt-5">
         <div id="example-tab-3" class="tab-pane leading-relaxed active" role="tabpanel" aria-labelledby="example-3-tab">
+=======
+    <ul class="nav nav-boxed-tabs" role="tablist"> 
+        <li id="example-3-tab" class="nav-item flex-1" role="presentation"> 
+            <button class="nav-link w-full py-2 active" data-tw-toggle="pill" data-tw-target="#example-tab-3" type="button" role="tab" aria-controls="example-tab-3" aria-selected="true" > 
+                Product Information
+            </button> 
+        </li> 
+        <li id="example-4-tab" class="nav-item flex-1" role="presentation"> 
+            <button class="nav-link w-full py-2" data-tw-toggle="pill" data-tw-target="#example-tab-4" type="button" role="tab" aria-controls="example-tab-4" aria-selected="false" > 
+                Product Images 
+            </button>
+        </li> 
+    </ul> 
+    <div class="tab-content mt-5"> 
+        <div id="example-tab-3" class="tab-pane leading-relaxed active" role="tabpanel" aria-labelledby="example-3-tab"> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             <form action="{{URL('product/'.$product->id.'update')}}" method="POST">
                 @method('put')
                 @csrf
 
                 <div class="mt-3">
+<<<<<<< HEAD
                     <div class="input-form">
                         <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                             Product Name <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
@@ -38,6 +60,21 @@
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                         Category <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
                     </label>
+=======
+                    <div class="input-form"> 
+                        <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+                            Product Name <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+                        </label> 
+                        <input id="validation-form-1" type="text" name="name" class="form-control @error('name') border-danger @enderror" placeholder="Product Name" value="{{old('name') ?? $product->name}}" > 
+                        <div class="text-danger mt-2">@error('name'){{$message}}@enderror</div>
+                    </div>
+                </div>  
+
+                <div class="mt-3">
+                    <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+                        Category <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+                    </label> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     <select data-placeholder="Select Category" class="tom-select w-full" name="category">
                     @if($categories->count())
                         @foreach($categories as $category)
@@ -51,13 +88,21 @@
                     @else
                         <option disabled>No Results Found Add a Category first</option>
                     @endif
+<<<<<<< HEAD
                     </select>
+=======
+                    </select> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     <div class="text-danger mt-2">@error('category'){{$message}}@enderror</div>
                 </div>
 
                 <div class="mt-3">
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+<<<<<<< HEAD
                         Brand <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
+=======
+                        Brand <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     </label>
                     <select data-placeholder="Select Brand" class="tom-select w-full" name="brand" >
                     @if($brand->count())
@@ -72,12 +117,20 @@
                     @else
                         <option disabled>No Results Found Add a Brand first</option>
                     @endif
+<<<<<<< HEAD
                     </select>
+=======
+                    </select> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 </div>
 
                 <div class="mt-3">
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+<<<<<<< HEAD
                         Stock <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
+=======
+                        Stock <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     </label>
                     <div class="input-group ">
                         <input id="crud-form-3" type="number" class="form-control @error('stock') border-danger @enderror" placeholder="Quantity" aria-describedby="input-group-1" name="stock" value="{{old('stock') ?? $product->stock}}">
@@ -85,10 +138,17 @@
                     </div>
                     <div class="text-danger mt-2">@error('stock'){{$message}}@enderror</div>
                 </div>
+<<<<<<< HEAD
 
                 <div class="mt-3">
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
                         Price <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
+=======
+                
+                <div class="mt-3">
+                    <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+                        Price <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     </label>
                     <div class="input-group">
                         <input id="crud-form-4" type="number" class="form-control @error('price') border-danger @enderror" placeholder="Price" aria-describedby="input-group-2" name="price" value="{{old('price') ?? $product->price}}">
@@ -98,7 +158,11 @@
                 </div>
                 <div class="mt-3">
                     <label for="validation-form-1" class="form-label w-full flex flex-col sm:flex-row">
+<<<<<<< HEAD
                         Weight <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span>
+=======
+                        Weight <span class="sm:ml-auto mt-1 sm:mt-0 text-xs text-slate-500">Required</span> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     </label>
                     <div class="input-group">
                         <input id="crud-form-4" type="number" class="form-control @error('weight') border-danger @enderror" placeholder="Weight" aria-describedby="input-group-2" name="weight" value="{{old('weight')  ?? $product->weight}}">
@@ -125,8 +189,13 @@
                        <button type="submit" class="btn btn-primary w-24 mt-3">Edit</button>
                     </div>
             </form>
+<<<<<<< HEAD
         </div>
         <div id="example-tab-4" class="tab-pane leading-relaxed" role="tabpanel" aria-labelledby="example-4-tab">
+=======
+        </div> 
+        <div id="example-tab-4" class="tab-pane leading-relaxed" role="tabpanel" aria-labelledby="example-4-tab"> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             <form action="">
                 <div class="mt-3">
                     <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
@@ -137,6 +206,7 @@
                 </div>
                       <div class="intro-y grid grid-cols-12 gap-6 mt-5">
                        @foreach ($images as $image)
+<<<<<<< HEAD
 
 
                         @endforeach
@@ -148,3 +218,16 @@
 
 <script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
 @endsection
+=======
+                  
+                   
+                        @endforeach
+                       </div>  
+            </form>
+        </div>
+     </div> 
+</div>
+      
+<script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
+@endsection
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa

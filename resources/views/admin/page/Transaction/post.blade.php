@@ -1,4 +1,5 @@
 @extends('admin.layout.admin')
+<<<<<<< HEAD
 @section('content')
 @section('title', 'Post')
 <h2 class="intro-y text-lg font-medium mt-10">
@@ -97,3 +98,9 @@
     });
 </script>
 @endpush
+=======
+@section('content')  
+@section('title', 'Post')
+<h2 class="intro-y text-lg font-medium mt-10">Post</h2>
+@endsection
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa

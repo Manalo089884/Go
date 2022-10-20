@@ -54,6 +54,7 @@
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
 
                     @if($countaddress <= 4)
                     <div class="flex justify-end  mt-3">
@@ -93,6 +94,11 @@
                          <!-- END: Modal Content -->
                     @endif
 
+=======
+                    <div class="flex justify-end">
+                        <a href="{{ Route('customer.address.create') }}" class="btn btn-primary w-52 mt-3">Add New Address</a>
+                    </div>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 </div>
             </div>
             <!-- END: Display Information -->
@@ -149,6 +155,7 @@
             stopOnFocus: true, }).showToast();
         </script>
     @endif
+<<<<<<< HEAD
     @if(session('invalid'))
         <div id="invalid-success-notification-content" class="toastify-content hidden flex non-sticky-notification-content">
             <i class="fa-regular fa-circle-xmark fa-3x text-danger mx-auto"></i>
@@ -169,6 +176,8 @@
             stopOnFocus: true, }).showToast();
         </script>
     @endif
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 
 
     <x-Modal.DeleteModal>
@@ -192,8 +201,11 @@
         </form>
     </x-Modal.DeleteModal>
 @endsection
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 @push('scripts')
 <script src="{{ asset('dist/js/phil-conv-address.js') }}"></script>
 <script>

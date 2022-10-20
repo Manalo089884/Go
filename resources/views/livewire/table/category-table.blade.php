@@ -9,6 +9,7 @@
             <div class="dropdown-menu w-40">
                 <ul class="dropdown-content">
                     <li>
+<<<<<<< HEAD
                         <a href="{{Route('exportcategoriesexcel')}}" class="dropdown-item"><i class="fa-solid fa-file-excel mr-1"></i>Export to Excel  </a>
                     </li>
                     <li>
@@ -19,6 +20,18 @@
                     </li>
                     <li>
                         <a href="{{Route('exportcategorieshtml')}}" class="dropdown-item">  <i class="fa-brands fa-html5 mr-1"></i> Export to HTML </a>
+=======
+                        <a href="{{Route('exportcategoriesexcel')}}" class="dropdown-item"> <i data-lucide="printer" class="w-4 h-4 mr-2"></i> Export to Excel  </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategoriescsv')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to CSV </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategoriespdf')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to PDF </a>
+                    </li>
+                    <li>
+                        <a href="{{Route('exportcategorieshtml')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to HTML </a>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                     </li>
                 </ul>
             </div>

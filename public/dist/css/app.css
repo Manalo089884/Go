@@ -11724,6 +11724,10 @@ html body {
   color: rgb(var(--color-slate-400) / var(--tw-text-opacity));
 }
 .top-nav > ul li .top-menu .top-menu__title {
+<<<<<<< HEAD
+=======
+  margin-left: 0.75rem;
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -18284,4 +18288,7 @@ html body {
     color: rgb(var(--color-success) / var(--tw-text-opacity));
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa

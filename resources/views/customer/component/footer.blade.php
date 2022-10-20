@@ -37,7 +37,11 @@
                         <div class="intro-x flex items-center gap-1 mb-2">
                             <i class="text-base fas fa-envelope"></i>
                             <a href="javascript:void(0)" class="text-base leading-loose text-body-color hover:text-primary">
+<<<<<<< HEAD
                                 godentalsph@gmail.com
+=======
+                                godental@gmail.com
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                             </a>
                         </div>
                     </li>
@@ -101,8 +105,13 @@
                 Bulacan 3000
                 </p>
                 <h4 class="mb-4 text-lg font-semibold text-center text-gray-200">Follow Us</h4>
+<<<<<<< HEAD
                 <div class="flex flex-row mx-auto text-gray-21`00 gap-9">
                     <div class="flex justify-end flex-1 mb-5">
+=======
+                <div class="flex flex-row mx-auto text-gray-200 gap-9">
+                    <div class="flex justify-end flex-1">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                         <a href="{{ url('https://www.instagram.com/godentalsph/') }}" class="hover:text-primary">
                             <i class="text-3xl fa-brands fa-instagram"></i>
                         </a>
@@ -113,7 +122,11 @@
                         </a>
                     </div>
                     <div class="flex justify-start flex-1">
+<<<<<<< HEAD
                         <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}" target="_blank" class="hover:text-primary">
+=======
+                        <a href="{{ url('https://twitter.com/GoDentals?t=QY7sxhxreDBsxUHKBwxEbA&s=09') }}"class="hover:text-primary">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                             <i class="text-3xl fa-brands fa-twitter"></i>
                         </a>
                     </div>

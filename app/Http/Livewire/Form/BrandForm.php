@@ -56,7 +56,11 @@ class BrandForm extends Component
             $model->update();
 
             $this->dispatchBrowserEvent('SuccessAlert',[
+<<<<<<< HEAD
                 'name' => $this->oldname.' was sucessfully changed to '.$this->name,
+=======
+                'name' => $this->oldname.' was sucessfully changed to '.$this->name, 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'title' => 'Record Successfully Edit',
             ]);
         }else{
@@ -71,7 +75,11 @@ class BrandForm extends Component
         $this->emit('refreshParent');
         $this->resetErrorBag();
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     private function cleanVars(){
         $this->modelId = null;
         $this->name = null;

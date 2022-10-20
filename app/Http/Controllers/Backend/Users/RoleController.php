@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\RoleExport;
 class RoleController extends Controller
@@ -28,4 +29,13 @@ class RoleController extends Controller
     public function exportrolepdf(){
         return Excel::download(new RoleExport,'roles.pdf');
     }
+=======
+
+class RoleController extends Controller
+{
+    //Show Role Page
+    public function index(){ 
+        return view('admin.page.Users.role');
+    }
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
 }

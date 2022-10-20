@@ -3,6 +3,7 @@
     <!-- Roles Tables -->
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
         <button class="btn btn-primary shadow-md mr-2" data-tw-toggle="modal" data-tw-target="#add-item-modal">
+<<<<<<< HEAD
             Add New Roles
         </button>
         <div class="dropdown">
@@ -28,6 +29,12 @@
         </div>
 
 
+=======
+            Add New Roles    
+        </button>
+      
+    
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         <div class="hidden md:block mx-auto text-slate-500">
             Showing {{$roles->firstItem()}} to {{$roles->lastItem()}} of {{$roles->total()}} entries
         </div>
@@ -39,7 +46,11 @@
     </div>
 
     <!-- Roles Table -->
+<<<<<<< HEAD
     <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+=======
+    <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">  
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         <table class="table table-report mt-2">
             <thead>
                 <tr>
@@ -51,6 +62,7 @@
             @forelse($roles as $role)
             <tr class="intro-x">
                 <td>
+<<<<<<< HEAD
                     <p class="font-medium whitespace-nowrap" >{{$role->name}}</p>
                 </td>
                 <td class="table-report__action w-56">
@@ -63,6 +75,20 @@
                          </button>
 
                         <button wire:click="selectItem({{$role->id}},'delete')" class="flex items-center text-danger">
+=======
+                    <p class="font-medium whitespace-nowrap" >{{$role->name}}</p> 
+                </td>
+                <td class="table-report__action w-56">
+                    <div class="flex justify-center items-center">
+                        <button  wire:click="selectItem({{$role->id}},'manage')" class="flex items-center mr-3" > 
+                            <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i>  Permission
+                         </button>
+                        <button  wire:click="selectItem({{$role->id}},'update')" class="flex items-center mr-3" > 
+                            <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit
+                         </button>
+                      
+                        <button wire:click="selectItem({{$role->id}},'delete')" class="flex items-center text-danger"> 
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                             <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Delete
                         </button>
                     </div>
@@ -78,7 +104,11 @@
     </div>
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
         <nav class="w-full sm:w-auto sm:mr-auto">
+<<<<<<< HEAD
             {!! $roles->onEachSide(1)->links() !!}
+=======
+            {!! $roles->onEachSide(1)->links() !!}   
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         </nav>
         <select wire:model="perPage" class="w-20 form-select box mt-3 sm:mt-0">
             <option>10</option>

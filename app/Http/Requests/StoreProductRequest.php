@@ -28,12 +28,18 @@ class StoreProductRequest extends FormRequest
             'category' => 'required',
             'brand' => 'required',
             'stock' => 'required|integer|min:0',
+<<<<<<< HEAD
             'w_stock' => 'required|integer|min:0',
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             'SKU' => 'required',
             'cprice' => 'required|numeric|min:0',
             'sprice' => 'required|numeric|min:0',
             'weight' => 'required|numeric|min:0',
+<<<<<<< HEAD
             'supplier' => 'required',
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             'description' => 'required',
             //'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',

@@ -8,7 +8,10 @@
     "/dist/js/ckeditor-balloon-block.js": "/dist/js/ckeditor-balloon-block.js",
     "/dist/js/ckeditor-document.js": "/dist/js/ckeditor-document.js",
     "/dist/js/product-show.js": "/dist/js/product-show.js",
+<<<<<<< HEAD
     "/dist/js/cart.vue.js": "/dist/js/cart.vue.js",
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     "/dist/css/build.css": "/dist/css/build.css",
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/json/location.json": "/dist/json/location.json",
@@ -119,7 +122,10 @@
     "/dist/images/slide_2.png": "/dist/images/slide_2.png",
     "/dist/images/slide_3.jpg": "/dist/images/slide_3.jpg",
     "/dist/images/undraw_inspiration.svg": "/dist/images/undraw_inspiration.svg",
+<<<<<<< HEAD
     "/dist/images/undraw_pic.svg": "/dist/images/undraw_pic.svg",
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     "/dist/images/undraw_profile_pic.svg": "/dist/images/undraw_profile_pic.svg",
     "/dist/images/woman-illustration.svg": "/dist/images/woman-illustration.svg"
 }

@@ -21,7 +21,10 @@
     <!-- END: Head -->
 
     <body class="py-5 md:py-0 bg-black/[0.15] ">
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         <!-- BEGIN: Mobile Menu -->
         @include('admin.component.mobile-menu')
         <!-- END: Mobile Menu -->
@@ -35,8 +38,11 @@
                 @include('admin.component.top-menu')
                 <!-- END: Top Bar -->
                 @yield('content')
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
             </div>
         </div>
         <!-- BEGIN: JS Assets-->

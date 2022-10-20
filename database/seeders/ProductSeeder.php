@@ -21,10 +21,15 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Glorned Gloves',
                 'category_id' => 1,
+<<<<<<< HEAD
                 'brand_id' => 1,
                 'suppliers_id' => 1,
                 'stock' => 20,
                 'stock_warning' => 20,
+=======
+                'brand_id' => 5,
+                'stock' => 40,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'SKU' => 'GLO212',
                 'cprice' => 40,
                 'sprice' => 80.00,
@@ -36,11 +41,17 @@ class ProductSeeder extends Seeder
             ],[
                 'name' => 'Microsuper Gloves',
                 'category_id' => 1,
+<<<<<<< HEAD
                 'brand_id' => 1,
                 'suppliers_id' => 1,
                 'stock' => 20,
                 'stock_warning' => 20,
                 'SKU' => 'MIC101',
+=======
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'GLO213',
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'cprice' => 40,
                 'sprice' => 80.00,
                 'weight' => 30.4,
@@ -49,6 +60,7 @@ class ProductSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
+<<<<<<< HEAD
                 'name' => 'HCD',
                 'category_id' => 1,
                 'brand_id' => 1,
@@ -56,6 +68,13 @@ class ProductSeeder extends Seeder
                 'stock' => 19,
                 'stock_warning' => 20,
                 'SKU' => 'HCD101',
+=======
+                'name' => 'HCD Gloves',
+                'category_id' => 1,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'GLO215',
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'cprice' => 40,
                 'sprice' => 80.00,
                 'weight' => 30.4,
@@ -63,6 +82,7 @@ class ProductSeeder extends Seeder
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ]
             ,[
                 'name' => 'Stainless Steel Upper & Lower Ovoid',
@@ -74,12 +94,24 @@ class ProductSeeder extends Seeder
                 'SKU' => 'SSO001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Defender Mask',
+                'category_id' => 2,
+                'brand_id' => 8,
+                'stock' => 40,
+                'SKU' => 'Mas213',
+                'cprice' => 100,
+                'sprice' => 350.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
+<<<<<<< HEAD
                 'name' => 'Stainless Steel Upper & Lower Square',
                 'category_id' => 20,
                 'brand_id' => 1,
@@ -299,12 +331,22 @@ class ProductSeeder extends Seeder
                 'SKU' => 'LBT001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+                'name' => 'Ordinary Mask',
+                'category_id' => 2,
+                'brand_id' => 1,
+                'stock' => 40,
+                'SKU' => 'Mas234',
+                'cprice' => 40,
+                'sprice' => 65.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],[
+<<<<<<< HEAD
                 'name' => 'Lingual Retainer',
                 'category_id' => 22,
                 'brand_id' => 1,
@@ -314,11 +356,21 @@ class ProductSeeder extends Seeder
                 'SKU' => 'LIR001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+                'name' => 'KN 95',
+                'category_id' => 2,
+                'brand_id' => 1,
+                'stock' => 40,
+                'SKU' => 'Mas245',
+                'cprice' => 40,
+                'sprice' => 35.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Ligaties',
                 'category_id' => 23,
@@ -329,11 +381,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'LIG001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => '2ply disposable',
+                'category_id' => 3,
+                'brand_id' => 6,
+                'stock' => 40,
+                'SKU' => 'Bb222',
+                'cprice' => 40,
+                'sprice' => 35.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Echain',
                 'category_id' => 23,
@@ -344,11 +408,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'ECH001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => '3ply disposable',
+                'category_id' => 3,
+                'brand_id' => 1,
+                'stock' => 40,
+                'SKU' => 'Bb223',
+                'cprice' => 40,
+                'sprice' => 35.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Elastics 3.5oz',
                 'category_id' => 23,
@@ -359,11 +435,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'ELA001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Washable bib Adult',
+                'category_id' => 3,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'Bb224',
+                'cprice' => 40,
+                'sprice' => 35.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Elastics 4.5oz',
                 'category_id' => 23,
@@ -374,11 +462,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'ELA002',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Washable bib pedo',
+                'category_id' => 3,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'Bb225',
+                'cprice' => 40,
+                'sprice' => 180.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Elastics 5oz',
                 'category_id' => 23,
@@ -389,11 +489,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'ELA003',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Saliva Injector Wordwork',
+                'category_id' => 4,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'SUC111',
+                'cprice' => 40,
+                'sprice' => 150.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Molar Separator',
                 'category_id' => 23,
@@ -404,11 +516,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'MSE001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Saliva Injector Micro',
+                'category_id' => 4,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'SUC112',
+                'cprice' => 40,
+                'sprice' => 150.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Rotation Wedge',
                 'category_id' => 23,
@@ -419,11 +543,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'ROW001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Saliva Injector Flexi',
+                'category_id' => 4,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'SUC113',
+                'cprice' => 40,
+                'sprice' => 150.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Ortho Wax',
                 'category_id' => 10,
@@ -434,11 +570,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'WAX001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'High Vacuum',
+                'category_id' => 4,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'SUC114',
+                'cprice' => 40,
+                'sprice' => 200.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Orthobrush',
                 'category_id' => 10,
@@ -449,11 +597,23 @@ class ProductSeeder extends Seeder
                 'SKU' => 'OBR001',
                 'cprice' => 40,
                 'sprice' => 80.00,
+=======
+            ],
+            [
+                'name' => 'Surgical Sunction Tip',
+                'category_id' => 4,
+                'brand_id' => 5,
+                'stock' => 40,
+                'SKU' => 'SUC115',
+                'cprice' => 40,
+                'sprice' => 200.00,
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                 'weight' => 30.4,
                 'status' => 1,
                 'description' => "This is a test product",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+<<<<<<< HEAD
             ],[
                 'name' => 'Diestone',
                 'category_id' => 10,
@@ -1371,6 +1531,155 @@ class ProductSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]
 
+=======
+            ],
+
+            [
+                'name' => 'Castone',
+                'category_id' => 5,
+                'brand_id' => 1,
+                'stock' => 40,
+                'SKU' => 'Cas2345',
+                'cprice' => 40,
+                'sprice' => 80.00,
+                'weight' => 30.4,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ], [
+                'name' => 'Diestone',
+                'category_id' => 5,
+                'brand_id' => 1,
+                'stock' => 50,
+                'SKU' => 'Cas234',
+                'cprice' => 100.00,
+                'sprice' => 180.00,
+                'weight' => 5,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ], [
+                'name' => 'Plaster',
+                'category_id' => 5,
+                'brand_id' => 1,
+                'stock' => 20,
+                'SKU' => 'Cas236',
+                'cprice' => 20.4,
+                'sprice' => 40.00,
+                'weight' => 10,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ], [
+                'name' => 'Ortho Plaster',
+                'category_id' => 5,
+                'brand_id' => 1,
+                'stock' => 40,
+                'SKU' => 'Cas239',
+                'cprice' => 200,
+                'sprice' => 240.00,
+                'weight' => 35,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ], [
+                'name' => 'Disposable needles',
+                'category_id' => 6,
+                'brand_id' => 2,
+                'stock' => 40,
+                'SKU' => 'SUT123',
+                'cprice' => 70,
+                'sprice' => 100.00,
+                'weight' => 36,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Surgical silk',
+                'category_id' => 6,
+                'brand_id' => 5,
+                'stock' => 100,
+                'SKU' => 'SUT242',
+                'cprice' => 60,
+                'sprice' => 85.00,
+                'weight' => 33,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Nerve Broach',
+                'category_id' => 7,
+                'brand_id' => 9,
+                'stock' => 3,
+                'SKU' => 'Rot242',
+                'cprice' => 300,
+                'sprice' => 350.00,
+                'weight' => 32,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Gutta Percha 15-40',
+                'category_id' => 7,
+                'brand_id' => 7,
+                'stock' => 120,
+                'SKU' => 'Rot422',
+                'cprice' => 100,
+                'sprice' => 200.00,
+                'weight' => 55,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Gutta Percha 45 - 80',
+                'category_id' => 7,
+                'brand_id' => 5,
+                'stock' => 100,
+                'SKU' => 'Rot421',
+                'cprice' => 100,
+                'sprice' => 200.00,
+                'weight' => 33,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],[
+                'name' => 'Papper Point 15 - 40',
+                'category_id' => 7,
+                'brand_id' => 5,
+                'stock' => 100,
+                'SKU' => 'Rot425',
+                'cprice' => 100,
+                'sprice' => 200.00,
+                'weight' => 31,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'name' => 'Papper Point 45 - 80',
+                'category_id' => 7,
+                'brand_id' => 5,
+                'stock' => 100,
+                'SKU' => 'Rot415',
+                'cprice' => 100,
+                'sprice' => 200.00,
+                'weight' => 31,
+                'status' => 1,
+                'description' => "This is a test product",
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         ]);
     }
 }

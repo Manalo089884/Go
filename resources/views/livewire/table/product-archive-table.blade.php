@@ -29,6 +29,10 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
         <div class="overflow-x-auto scrollbar-hidden">
             @if($products->count())
             <div class="overflow-x-auto">
@@ -37,7 +41,12 @@
                         <tr>
                             <th class="whitespace-nowrap ">Product Name</th>
                             <th class="whitespace-nowrap text-center">Category</th>
+<<<<<<< HEAD
                             <th class="whitespace-nowrap text-center">Deleted At</th>
+=======
+                            <th class="whitespace-nowrap text-center">Inventory</th>
+                            <th class="whitespace-nowrap text-center">Status</th>
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                             <th class="whitespace-nowrap text-center">Actions</th>
                         </tr>
                     </thead>
@@ -48,6 +57,7 @@
                              <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div>
                             </td>
                             <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
+<<<<<<< HEAD
                             <td class="whitespace-nowrap text-center">{{ $product->deleted_at->diffForHumans()}}</td>
 
                             <td class="table-report__action w-56">
@@ -56,6 +66,25 @@
                                         <button wire:click="selectItem({{$product->id}},'show')" class="flex items-center  w-full mr-2">
                                             <i class="fa-solid fa-eye w-4 h-4 mr-1"></i>Show
                                         </button>
+=======
+                            <td class="whitespace-nowrap text-center">
+                             @if($product->stock <= 10)
+                             <div class="text-danger">{{$product->stock}} in stock</div>
+                             @else
+                                 {{$product->stock}} in stock
+                             @endif
+                         </td>
+                            <td class="whitespace-nowrap">
+                                @if($product->status == 1)
+                                    <div class="flex items-center justify-center text-success"> <i class="fa-regular fa-square-check w-4 h-4 mr-1"></i> Active </div>
+                                @elseif ($product->status == 0)
+                                    <div class="flex items-center justify-center text-danger"> <i class="fa-regular fa-circle-xmark w-4 h-4 mr-1"></i> Draft </div>
+                                @endif
+                            </td>
+                            <td class="table-report__action w-56">
+                                <div class="flex justify-center items-center">
+                                    <div class="flex justify-center items-center">
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
                                         <button wire:click="selectItem({{$product->id}},'restore')" class="flex items-center text-success mr-2">
                                             <i class="fa-regular fa-window-restore w-4 h-4 mr-1"></i>Restore
                                         </button>

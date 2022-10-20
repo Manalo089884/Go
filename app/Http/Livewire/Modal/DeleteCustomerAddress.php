@@ -20,17 +20,28 @@ class DeleteCustomerAddress extends Component
     }
     private function cleanVars(){
         $this->modelId = null;
+<<<<<<< HEAD
     }
 
     public function getModelDeleteModalId($modelId){
         $this->modelId = $modelId;
     }
 
+=======
+
+    }
+    public function getModelDeleteModalId($modelId){
+        $this->modelId = $modelId;
+    }
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     public function closeModal(){
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     public function delete(){
         $address = CustomerShippingAddress::find($this->modelId);
         $address->delete();
@@ -43,7 +54,10 @@ class DeleteCustomerAddress extends Component
         $this->cleanVars();
         $this->dispatchBrowserEvent('CloseDeleteModal');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
     public function render()
     {
         return view('livewire.modal.delete-customer-address');
