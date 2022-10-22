@@ -20,15 +20,7 @@
 
                 <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
                     <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Value</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
-=======
-                    <input wire:model="search" type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                    <input wire:model.lazy="search" type="search" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" placeholder="Search...">
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 </div>
                 <div class="mt-2 xl:mt-0">
                     <a href="{{Route('product.create')}}">
@@ -45,8 +37,6 @@
                     <div class="dropdown-menu w-40">
                         <ul class="dropdown-content">
                             <li>
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 <a href="{{Route('exportproductexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
                             </li>
                             <li>
@@ -57,25 +47,6 @@
                             </li>
                             <li>
                                 <a  href="{{Route('exportproducthtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export HTML </a>
-=======
-                                <a href="{{Route('exportproductexcel')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export Excel </a>
-=======
-                                <a href="{{Route('exportproductexcel')}}" class="dropdown-item"> <i class="fa-solid fa-file-excel mr-1"></i> Export Excel </a>
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
-                            </li>
-                            <li>
-                                <a  href="{{Route('exportproductcsv')}}" class="dropdown-item"> <i class="fa-solid fa-file-csv mr-1"></i>  Export CSV </a>
-                            </li>
-                            <li>
-                                <a href="{{Route('exportproductpdf')}}" class="dropdown-item">  <i class="fa-solid fa-file-pdf mr-1"></i> Export PDF </a>
-                            </li>
-                            <li>
-<<<<<<< HEAD
-                                <a  href="{{Route('exportproducthtml')}}" class="dropdown-item"> <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export HTML </a>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                                <a  href="{{Route('exportproducthtml')}}" class="dropdown-item"> <i class="fa-brands fa-html5 mr-1"></i> Export HTML </a>
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             </li>
                         </ul>
                     </div>
@@ -98,28 +69,12 @@
                    <tbody>
                    @foreach($products as $product)
                        <tr class="intro-x">
-<<<<<<< HEAD
-<<<<<<< HEAD
                            <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
-=======
-                           <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product->id)}}">{{$product->name}}
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                           <td class="whitespace-nowrap font-medium"><a href="{{Route('product.show',$product)}}">{{$product->name}}
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">{{$product->brand->name}}</div></a>
                             </td>
                            <td class="whitespace-nowrap text-center">{{$product->category->name}}</td>
                            <td class="whitespace-nowrap text-center">
-<<<<<<< HEAD
-<<<<<<< HEAD
                             @if($product->stock <= $product->stock_warning)
-=======
-                            @if($product->stock <= 10)
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                            @if($product->stock <= $product->stock_warning)
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             <div class="text-danger">{{$product->stock}} in stock</div>
                             @else
                                 {{$product->stock}} in stock
@@ -135,18 +90,8 @@
                            <td class="table-report__action w-56">
                                <div class="flex justify-center items-center">
                                    <div class="flex justify-center items-center">
-<<<<<<< HEAD
-<<<<<<< HEAD
                                         <a class="flex items-center mr-3" href="{{Route('product.show',$product)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
                                         <a class="flex items-center mr-3" href="{{Route('product.edit',$product)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
-=======
-                                        <a class="flex items-center mr-3" href="{{Route('product.show',$product->id)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
-                                        <a class="flex items-center mr-3" href="{{Route('product.edit',$product->id)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                                        <a class="flex items-center mr-3" href="{{Route('product.show',$product)}}"> <i class="fa-solid fa-eye w-4 h-4 mr-1"></i> Show </a>
-                                        <a class="flex items-center mr-3" href="{{Route('product.edit',$product)}}"> <i class="fa-regular fa-pen-to-square w-4 h-4 mr-1"></i> Edit </a>
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                                         <button wire:click="selectItem({{$product->id}},'delete')" class="flex items-center ">
                                             <i class="fa-regular fa-trash-can w-4 h-4 mr-1" ></i> Archive
                                         </button>
@@ -159,24 +104,12 @@
                </table>
            </div>
            @else
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             <h2 class="intro-y text-lg font-medium mt-10">
                 <div class="flex justify-center flex-col">
                     <img alt="Missing Image" class="object-fill  rounded-md h-48 w-96" src="{{ asset('dist/images/NoResultFound.svg') }}">
                     <div class="flex justify-center">No Results found <strong class="ml-1"> {{ $search }}</strong>  </div>
                 </div>
             </h2>
-<<<<<<< HEAD
-=======
-           <h2 class="intro-y text-lg font-medium mt-10">
-               No Results found <strong>{{$search}}</strong>
-           </h2>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
            @endif
        </div>
 

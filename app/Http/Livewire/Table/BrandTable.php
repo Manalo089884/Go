@@ -9,7 +9,7 @@ use Livewire\Component;
 class BrandTable extends Component
 {
     use WithPagination;
-    
+
     public $perPage = 10;
     public $search = null;
     protected $queryString = ['search' => ['except' => '']];
@@ -30,11 +30,11 @@ class BrandTable extends Component
             ->paginate($this->perPage)
         ]);
     }
- 
+
     public function updatingSearch(){
         $this->resetPage();
     }
-    
+
     public function selectItem($itemId,$action){
         $this->selectedItem = $itemId;
 
@@ -47,6 +47,6 @@ class BrandTable extends Component
         }
         $this->action = $action;
     }
-    
-   
+
+
 }

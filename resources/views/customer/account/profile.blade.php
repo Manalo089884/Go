@@ -20,18 +20,9 @@
                     </h2>
                 </div>
                 <div class="p-5">
-<<<<<<< HEAD
-<<<<<<< HEAD
                     @if(session('fail'))
                         <div class="alert alert-danger show mb-2 intro-x" role="alert">{{ session('fail') }}</div>
                     @endif
-=======
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                    @if(session('fail'))
-                        <div class="alert alert-danger show mb-2 intro-x" role="alert">{{ session('fail') }}</div>
-                    @endif
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <div class="flex flex-col-reverse xl:flex-row flex-col">
                         <div class="flex-1 mt-6 xl:mt-0">
                             <div class="grid grid-cols-12 gap-x-5">
@@ -65,15 +56,7 @@
                             <div class="flex justify-end gap-2">
                                 <button class="btn btn-primary w-32 mt-3">Edit Profile</button>
                                 <a href="{{ Route('customer.change.pass') }}" class="btn btn-primary w-50 mt-3">Change Password</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                           
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             </div>
                         </div>
                     </div>

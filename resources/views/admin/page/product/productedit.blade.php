@@ -9,15 +9,7 @@
     <div class="intro-y box mt-2 lg:mt-5">
         <div class="flex items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
             <h2 class="font-medium text-base mr-auto">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 Editing Product - {{ $product->name }}
-=======
-                Add Product Form
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                Editing Product - {{ $product->name }}
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
             </h2>
         </div>
         <form action="{{Route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
@@ -61,10 +53,6 @@
                             @endif
                         </select>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <div class="mt-3 grid grid-cols-12 gap-2 ">
                         <div class="col-span-6 sm:col-span-12">
                             <label for="inventory" class="form-label">Inventory Stock</label>
@@ -82,17 +70,6 @@
                                 <div class="input-group-text">
                                     PCS
                                 </div>
-<<<<<<< HEAD
-=======
-                    <div class="mt-3">
-                        <label for="inventory" class="form-label">Inventory Stock</label>
-                        <div class="input-group">
-                            <input  type="number" class="form-control" placeholder="Please Enter Inventory Stock" name="stock" value="{{old('stock')  ?? $product->stock}}">
-                            <div class="input-group-text">
-                                PCS
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                             </div>
                         </div>
                     </div>
@@ -158,10 +135,6 @@
                         $('#margin').text( parseFloat(margin).toFixed(2));
                     });
                 </script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                    <div class="col-span-12 xl:col-span-6 mt-3">
                     <div>
                         <div>
@@ -182,24 +155,11 @@
                     </div>
 
                 </div>
-<<<<<<< HEAD
-=======
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="col-span-12">
                     <div class="mt-3">
                         <label>Active Status</label>
                         <div class="form-switch mt-2">
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') || $product->status == 1 ? 'checked' : ''}}  >
-=======
-                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') || $product->status == 1 ? 'checked' : ''}}  >
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                         </div>
                     </div>
 

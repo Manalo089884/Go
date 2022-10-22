@@ -47,10 +47,6 @@
                             @endforelse
                         </select>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <div class="mt-3 grid grid-cols-12 gap-2  ">
                         <div class="col-span-6 sm:col-span-12">
                             <label for="inventory" class="form-label">Inventory Stock</label>
@@ -59,7 +55,6 @@
                                 <div class="input-group-text">
                                     PCS
                                 </div>
-<<<<<<< HEAD
                             </div>
                         </div>
                         <div class="col-span-6 sm:col-span-12">
@@ -72,30 +67,6 @@
                             </div>
                         </div>
 
-=======
-                    <div class="mt-3">
-                        <label for="inventory" class="form-label">Inventory Stock</label>
-                        <div class="input-group">
-                            <input  type="number" class="form-control" placeholder="Please Enter Inventory Stock" name="stock" value="{{old('stock')}}">
-                            <div class="input-group-text">
-                                PCS
-                            </div>
-                        </div>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-                            </div>
-                        </div>
-                        <div class="col-span-6 sm:col-span-12">
-                            <label for="inventory" class="form-label">Inventory Warning Level</label>
-                            <div class="input-group">
-                                <input  type="number" class="form-control" placeholder="Warning Stock" name="w_stock" value="{{old('w_stock')}}">
-                                <div class="input-group-text">
-                                    PCS
-                                </div>
-                            </div>
-                        </div>
-
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     </div>
                     <div class="mt-3">
                         <label for="weight" class="form-label">Weight</label>
@@ -147,10 +118,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="col-span-12 xl:col-span-6 mt-3">
                     <div>
                         <div>
@@ -168,26 +135,8 @@
                             </select>
                         </div>
                     </div>
-<<<<<<< HEAD
 
                 </div>
-=======
-                <script>
-                    $('#cprice,#sprice').keyup(function(){
-                        var x = $('#sprice').val();
-                        var y = $('#cprice').val();
-                        var total = x - y;
-                        $('#profit').text(total);
-                        var margin = (total/x) * 100;
-
-                        $('#margin').text( parseFloat(margin).toFixed(2));
-                    });
-                </script>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-
-                </div>
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                 <div class="col-span-12">
                     <div class="mt-3">
                         <label>Active Status</label>
@@ -195,24 +144,11 @@
                             <input type="checkbox" class="form-check-input" name="status" id="status" value="1" {{old('status') == 1 ? 'checked' : ''}} >
                         </div>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <div class="mt-3">
                         <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
                         <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
                     </div>
 
-<<<<<<< HEAD
-=======
-            <div class="mt-3">
-                <label class="form-label w-full flex flex-col sm:flex-row">Product Image</label>
-                <input type="file" name="images[]" placeholder="Choose files" value="{{old('images')}}" multiple accept="image/*" >
-            </div>
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
                     <div class="mt-3">
                         <label for="description" class="form-label">Description</label>
                         <div class="mt-2">
@@ -229,8 +165,6 @@
             </div>
         </div>
     </form>
-<<<<<<< HEAD
-<<<<<<< HEAD
 </div>
 
 <script>
@@ -250,30 +184,3 @@
 
 
 @endpush
-=======
-    </div>
-=======
-</div>
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
-
-<script>
-    $('#cprice,#sprice').keyup(function(){
-        var x = $('#sprice').val();
-        var y = $('#cprice').val();
-        var total = x - y;
-        $('#profit').text(total);
-        var margin = (total/x) * 100;
-        $('#margin').text( parseFloat(margin).toFixed(2));
-    });
-</script>
-@endsection
-
-<<<<<<< HEAD
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-@push('scripts')
-<script src="{{asset('dist/js/ckeditor-classic.js')}}"></script>
-
-
-@endpush
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7

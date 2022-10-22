@@ -33,15 +33,7 @@ class ContactJob implements ShouldQueue
      */
     public function handle()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         Mail::to('godentalsph@gmail.com')
-=======
-        Mail::to('godental@gmail.com')
->>>>>>> ef57359fd894ee32ceb516246ccc1af1ff09f8aa
-=======
-        Mail::to('godentalsph@gmail.com')
->>>>>>> bbfcee38fcb0b74416775e937700061585e183b7
         ->send(new ContactMail($this->details));
     }
 }
